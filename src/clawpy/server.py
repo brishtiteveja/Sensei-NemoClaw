@@ -1237,6 +1237,19 @@ _PRACTICE_SUBJECT_MAP: dict[str, list[str]] = {
 }
 
 
+# Markers that unambiguously belong to another subject. Needed because the keyword
+# match is substring-based: "তড়িৎ" (electric) legitimately identifies physics, but is
+# also inside "তড়িৎ রসায়ন" (electrochemistry), and "গণিত" appears inside chapter names
+# across several papers. Without subtraction a physics quiz serves chemistry questions.
+_PRACTICE_SUBJECT_EXCLUDE: dict[str, list[str]] = {
+    "physics": ["রসায়ন", "জীববিজ্ঞান", "উদ্ভিদ", "English", "ব্যাকরণ"],
+    "পদার্থবিজ্ঞান": ["রসায়ন", "জীববিজ্ঞান", "উদ্ভিদ", "English", "ব্যাকরণ"],
+    "chemistry": ["জীববিজ্ঞান", "উদ্ভিদ", "English"],
+    "রসায়ন": ["জীববিজ্ঞান", "উদ্ভিদ", "English"],
+    "biology": ["English", "ব্যাকরণ"],
+    "জীববিজ্ঞান": ["English", "ব্যাকরণ"],
+}
+
 def _normalize_bangla(text: str) -> str:
     """Precompose Bengali nukta sequences so decomposed app input matches
     the precomposed DB form. NFC excludes these compositions (RRA/RHA/YYA),
@@ -1318,6 +1331,20 @@ async def practice_questions(
             or_clauses = " OR ".join(["subject ILIKE %s"] * len(normed))
             conditions.append(f"({or_clauses})")
             params.extend(f"%{p}%" for p in normed)
+
+            # Keyword matching is substring-based, so chapter names bleed across
+            # subjects: physics matches on "তড়িৎ" (electric), which is also a
+            # substring of the chemistry chapter "তড়িৎ রসায়ন" (electrochemistry).
+            # A physics quiz then serves chemistry questions. Subtract the markers
+            # that unambiguously belong to another subject.
+            excludes = [
+                _normalize_bangla(x)
+                for x in _PRACTICE_SUBJECT_EXCLUDE.get(s.lower(), [])
+                or _PRACTICE_SUBJECT_EXCLUDE.get(s, [])
+            ]
+            for x in excludes:
+                conditions.append("subject NOT ILIKE %s")
+                params.append(f"%{x}%")
         else:
             conditions.append("subject ILIKE %s")
             params.append(f"%{s}%")
