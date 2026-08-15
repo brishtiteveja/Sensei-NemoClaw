@@ -684,8 +684,71 @@ class LessonPlanRequest(BaseModel):
     max_lessons: int | None = None
 
 
+def _prefer_bn_titles(node) -> None:
+    """Promote authored `title_bn` into `title` throughout the tree.
+
+    Lets the client read `title` unconditionally instead of branching on language --
+    the binary `useBn ? title_bn : title` pattern is exactly what broke every third
+    language, silently falling back to English.
+    """
+    if isinstance(node, dict):
+        if isinstance(node.get("title_bn"), str) and node["title_bn"]:
+            node["title"] = node["title_bn"]
+        for value in node.values():
+            _prefer_bn_titles(value)
+    elif isinstance(node, list):
+        for item in node:
+            _prefer_bn_titles(item)
+
+
+async def _localise_titles(node, lang: str | None) -> None:
+    """Translate curriculum titles/descriptions in place, into `lang`.
+
+    The curriculum ships only `title` (English) and `title_bn` (Bangla), so a student on
+    any third language saw English subject, unit and lesson names beside a translated UI.
+    Sensei's claim is that a student works entirely in their own language, so the
+    curriculum has to follow the setting like everything else does.
+
+    Each distinct string is one cache key. Subject and unit names repeat heavily across
+    the tree and across students, so after the first pass this is nearly all cache hits.
+    """
+    if not lang or lang == "en":
+        return
+
+    from clawpy.curriculum.translate import translate_text
+
+    targets: list[tuple[dict, str]] = []
+
+    def walk(n) -> None:
+        if isinstance(n, dict):
+            for key in ("title", "description"):
+                if isinstance(n.get(key), str) and n[key]:
+                    targets.append((n, key))
+            for value in n.values():
+                walk(value)
+        elif isinstance(n, list):
+            for item in n:
+                walk(item)
+
+    walk(node)
+    if not targets:
+        return
+
+    uniq = sorted({container[key] for container, key in targets})
+    results = await asyncio.gather(
+        *(translate_text(text, lang, "en") for text in uniq),
+        return_exceptions=True,
+    )
+    mapping = {
+        src: (out if isinstance(out, str) and out else src)
+        for src, out in zip(uniq, results)
+    }
+    for container, key in targets:
+        container[key] = mapping.get(container[key], container[key])
+
+
 @app.get("/curriculum/subjects")
-async def list_subjects():
+async def list_subjects(lang: str | None = None):
     """List all available subjects with their unit/lesson counts."""
     from clawpy.curriculum.planner import get_subject_overview
     from clawpy.curriculum.models import SubjectId
@@ -703,11 +766,18 @@ async def list_subjects():
                 "total_units": overview["total_units"],
                 "total_lessons": overview["total_lessons"],
             })
+
+    if lang == "bn":
+        # Bangla names are authored, not machine-translated -- always prefer them.
+        for r in results:
+            r["title"] = r.get("title_bn") or r["title"]
+    else:
+        await _localise_titles(results, lang)
     return {"subjects": results}
 
 
 @app.get("/curriculum/subjects/{subject_id}")
-async def get_subject(subject_id: str):
+async def get_subject(subject_id: str, lang: str | None = None):
     """Get full curriculum tree for a subject — units and lessons."""
     from clawpy.curriculum.planner import get_subject_overview
     from clawpy.curriculum.models import SubjectId
@@ -716,7 +786,13 @@ async def get_subject(subject_id: str):
         sid = SubjectId(subject_id)
     except ValueError:
         return {"error": f"Unknown subject: {subject_id}"}
-    return get_subject_overview(sid)
+
+    overview = get_subject_overview(sid)
+    if lang == "bn":
+        _prefer_bn_titles(overview)
+    else:
+        await _localise_titles(overview, lang)
+    return overview
 
 
 @app.get("/curriculum/lessons/{lesson_id}")
