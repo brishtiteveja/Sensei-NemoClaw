@@ -8,3 +8,10 @@ build/
 .ruff_cache/
 .pytest_cache/
 .env
+
+# Runtime state, not source.
+# model_choice.json is whatever was last picked in Settings; the translation cache
+# is regenerable (though worth backing up before a demo, since a cold cache makes
+# the first load in each language slow).
+data/model_choice.json
+data/translations/
