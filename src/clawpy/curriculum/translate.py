@@ -6,6 +6,7 @@ so we never re-translate the same content.
 
 from __future__ import annotations
 
+import asyncio
 import hashlib
 import json
 import os
@@ -100,31 +101,48 @@ async def translate_text(text: str, target_lang: str, source_lang: str = "bn") -
 
 
 async def translate_question(question: dict, target_lang: str, source_lang: str = "bn") -> dict:
+    """Translate an MCQ's stem and every option into `target_lang`.
+
+    The stem and each option are translated as separate units, concurrently.
+
+    The previous approach concatenated stem + options into one blob and split the
+    reply on newlines. That silently failed whenever the model did not return exactly
+    one line per item -- a wrapped stem, a dropped blank line or an added preamble
+    shifted every index, and the options fell back to the source language while the
+    stem appeared translated. A student then saw an English question with Bangla
+    answers, which is worse than no translation at all because it looks deliberate.
+
+    Per-unit translation also caches far better: option texts like "উত্তল"/"অবতল"
+    recur across hundreds of physics questions, so after a short warm-up most options
+    are cache hits and cost nothing.
+    """
     if target_lang == source_lang:
         return question
 
     q = dict(question)
     q_text = q.get("question", "")
-    options = q.get("options", [])
+    # Copy each option dict; otherwise we mutate the caller's objects in place.
+    options = [dict(o) for o in q.get("options", [])]
+    q["options"] = options
 
-    full_text = q_text
-    for opt in options:
-        full_text += f"\n{opt['id']}) {opt['text']}"
+    results = await asyncio.gather(
+        translate_text(q_text, target_lang, source_lang),
+        *(translate_text(o.get("text", ""), target_lang, source_lang) for o in options),
+        return_exceptions=True,
+    )
 
-    translated = await translate_text(full_text, target_lang, source_lang)
+    def _ok(value, fallback: str) -> str:
+        # translate_text already returns the source text on failure; this guards the
+        # gather-level exception case so one bad option cannot fail the whole question.
+        if isinstance(value, BaseException) or not value:
+            return fallback
+        return value
 
-    parts = translated.split("\n")
-    q["question_translated"] = parts[0] if parts else translated
+    q["question_translated"] = _ok(results[0], q_text)
     q["target_lang"] = target_lang
 
-    for i, opt in enumerate(options):
-        opt_line = parts[i + 1] if i + 1 < len(parts) else f"{opt['id']}) {opt['text']}"
-        clean = opt_line.lstrip()
-        if len(clean) > 2 and clean[1] == ')':
-            clean = clean[2:].strip()
-        elif len(clean) > 2 and clean[0] in 'ABCD' and clean[1] == ')':
-            clean = clean[2:].strip()
-        opt["text_translated"] = clean or opt["text"]
+    for opt, res in zip(options, results[1:]):
+        opt["text_translated"] = _ok(res, opt.get("text", ""))
 
     return q
 

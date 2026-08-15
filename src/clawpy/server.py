@@ -1024,6 +1024,33 @@ def _get_db_conn():
     return _practice_db_conn
 
 
+def _promote_translation(q: dict) -> dict:
+    """Move translated text into the fields the client actually renders.
+
+    `translate_question` writes to sidecar keys (`question_translated`,
+    `text_translated`) and leaves the Bangla in `question`/`text`. Clients render the
+    primary fields, so the sidecar approach silently shows Bangla to a student who
+    picked another language -- the translation happens and is then thrown away.
+
+    Promote instead, keeping the source under `*_source` so the tutor can still quote
+    the original wording and so a bad translation stays debuggable.
+    """
+    translated = q.get("question_translated")
+    if translated:
+        q["question_source"] = q.get("question")
+        q["question"] = translated
+    q.pop("question_translated", None)
+
+    for opt in q.get("options", []):
+        opt_translated = opt.get("text_translated")
+        if opt_translated:
+            opt["text_source"] = opt.get("text")
+            opt["text"] = opt_translated
+        opt.pop("text_translated", None)
+
+    return q
+
+
 @app.get("/practice/questions")
 async def practice_questions(
     subject: str | None = None,
@@ -1031,6 +1058,7 @@ async def practice_questions(
     chapter: str | None = None,
     limit: int = 10,
     exclude: str | None = None,
+    lang: str | None = None,
 ):
     """Serve real MCQ questions from PostgreSQL for the practice quiz screen."""
     try:
@@ -1132,6 +1160,27 @@ async def practice_questions(
             "year": str(row[3]) if row[3] else "",
             "correct_answer": correct_letter,
         })
+
+    # The bank is stored in Bangla. When the student has picked another language,
+    # translate on demand so the whole app -- questions included -- is in one language.
+    #
+    # Translated results are cached to disk by source text, so a given question costs
+    # one model call once per language, ever. Questions are translated concurrently
+    # because doing 10 sequentially is the difference between a usable screen and a
+    # visibly slow one.
+    if lang and lang != "bn":
+        import asyncio
+        from clawpy.curriculum.translate import translate_question
+
+        try:
+            translated = await asyncio.gather(
+                *(translate_question(q, lang, "bn") for q in questions)
+            )
+            questions = [_promote_translation(q) for q in translated]
+        except Exception as e:
+            # Serving the Bangla original beats serving nothing -- a student can still
+            # read the maths, and the tutor explains in their language regardless.
+            logger.warning("Question translation to %s failed: %s", lang, e)
 
     return {"questions": questions, "total": len(questions)}
 

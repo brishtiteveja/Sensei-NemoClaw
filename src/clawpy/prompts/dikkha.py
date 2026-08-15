@@ -229,13 +229,33 @@ _LANGUAGE_NAMES = {
     "ha": "Hausa",
 }
 
+# The exact sentence in SYSTEM_PROMPT that an explicit language setting must displace.
+# Leaving it in place while also demanding a specific language gives the model two
+# contradictory orders, and the conversation history then decides which one wins -- so a
+# student who switches language mid-chat keeps getting replies in the old language.
+_MATCH_STUDENT_LANGUAGE = "Always respond in the same language the student uses."
+
+_LANGUAGE_PINNED = (
+    "The student has set their language to {lang_name}. Always reply in {lang_name}, "
+    "whatever language they happen to type in."
+)
+
 _LANGUAGE_OVERRIDE = """\
 
 ## Language: {lang_name}
 
-Respond ONLY in {lang_name}. Be natural — talk like a real {lang_name}-speaking tutor \
-would text a student. Short, casual, warm. Math notation stays in Latin script. \
-Suggestions at the end MUST also be in {lang_name}.
+Respond ONLY in {lang_name}. This overrides anything above about matching the student's \
+language. It applies even when the student writes in a different language, and even when \
+earlier messages in this conversation are in a different language — the student changed \
+this setting deliberately, so switch immediately and do not drift back.
+
+Quoted material (an exam question, the student's own written work) may stay in its \
+original language when quoting it exactly, but everything you say about it is in \
+{lang_name}.
+
+Be natural — talk like a real {lang_name}-speaking tutor would text a student. Short, \
+casual, warm. Math notation stays in Latin script. Suggestions at the end MUST also be \
+in {lang_name}.
 """
 
 
@@ -247,8 +267,15 @@ def build_dikkha_prompt(
     """Build the full Dikkha system prompt, optionally scoped to a context."""
     prompt = SYSTEM_PROMPT
 
-    if language and language not in ("bn",):
+    # Applies to every language including Bangla. Excluding "bn" here used to mean a
+    # student switching English -> Bangla got no override at all, and the English
+    # conversation history kept the replies in English.
+    if language:
         lang_name = _LANGUAGE_NAMES.get(language, language)
+        # Replace the conflicting default rather than appending against it.
+        prompt = prompt.replace(
+            _MATCH_STUDENT_LANGUAGE, _LANGUAGE_PINNED.format(lang_name=lang_name)
+        )
         prompt += _LANGUAGE_OVERRIDE.format(lang_name=lang_name)
 
     if context_type == "exam_question" and context_data:
