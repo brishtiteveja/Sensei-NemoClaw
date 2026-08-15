@@ -1,0 +1,112 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3-pro",
+  "timestamp": 1775495978.6731997,
+  "summary": {
+    "passed": 1,
+    "total": 9,
+    "tokens": 0,
+    "time_sec": 0.5383663177490234
+  },
+  "results": [
+    {
+      "name": "understand_provider_protocol",
+      "category": "code_understanding",
+      "passed": true,
+      "tool_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "elapsed_sec": 0.08991622924804688,
+      "error": "",
+      "answer_preview": "\n[Stream error: OpenAI API error 404: [{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-3-pro is not found for API version v1main, or is not supported for generateContent. Call ListModels"
+    },
+    {
+      "name": "understand_permission_modes",
+      "category": "code_understanding",
+      "passed": false,
+      "tool_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "elapsed_sec": 0.05850338935852051,
+      "error": "",
+      "answer_preview": "\n[Stream error: OpenAI API error 404: [{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-3-pro is not found for API version v1main, or is not supported for generateContent. Call ListModels"
+    },
+    {
+      "name": "understand_engine_loop",
+      "category": "code_understanding",
+      "passed": false,
+      "tool_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "elapsed_sec": 0.06034970283508301,
+      "error": "",
+      "answer_preview": "\n[Stream error: OpenAI API error 404: [{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-3-pro is not found for API version v1main, or is not supported for generateContent. Call ListModels"
+    },
+    {
+      "name": "find_all_tools",
+      "category": "code_search",
+      "passed": false,
+      "tool_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "elapsed_sec": 0.05977272987365723,
+      "error": "",
+      "answer_preview": "\n[Stream error: OpenAI API error 404: [{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-3-pro is not found for API version v1main, or is not supported for generateContent. Call ListModels"
+    },
+    {
+      "name": "find_sse_parser",
+      "category": "code_search",
+      "passed": false,
+      "tool_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "elapsed_sec": 0.06106972694396973,
+      "error": "",
+      "answer_preview": "\n[Stream error: OpenAI API error 404: [{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-3-pro is not found for API version v1main, or is not supported for generateContent. Call ListModels"
+    },
+    {
+      "name": "count_test_files",
+      "category": "code_search",
+      "passed": false,
+      "tool_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "elapsed_sec": 0.04837322235107422,
+      "error": "",
+      "answer_preview": "\n[Stream error: OpenAI API error 404: [{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-3-pro is not found for API version v1main, or is not supported for generateContent. Call ListModels"
+    },
+    {
+      "name": "trace_provider_flow",
+      "category": "multi_step",
+      "passed": false,
+      "tool_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "elapsed_sec": 0.058086395263671875,
+      "error": "",
+      "answer_preview": "\n[Stream error: OpenAI API error 404: [{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-3-pro is not found for API version v1main, or is not supported for generateContent. Call ListModels"
+    },
+    {
+      "name": "compare_providers",
+      "category": "multi_step",
+      "passed": false,
+      "tool_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "elapsed_sec": 0.05306887626647949,
+      "error": "",
+      "answer_preview": "\n[Stream error: OpenAI API error 404: [{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-3-pro is not found for API version v1main, or is not supported for generateContent. Call ListModels"
+    },
+    {
+      "name": "fetch_python_docs",
+      "category": "web_research",
+      "passed": false,
+      "tool_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "elapsed_sec": 0.04922604560852051,
+      "error": "",
+      "answer_preview": "\n[Stream error: OpenAI API error 404: [{\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-3-pro is not found for API version v1main, or is not supported for generateContent. Call ListModels"
+    }
+  ]
+}

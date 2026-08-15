@@ -1,0 +1,112 @@
+{
+  "provider": "gemini",
+  "model": "gemini-2.5-pro",
+  "timestamp": 1775495620.0338676,
+  "summary": {
+    "passed": 5,
+    "total": 9,
+    "tokens": 32826,
+    "time_sec": 89.55939602851868
+  },
+  "results": [
+    {
+      "name": "understand_provider_protocol",
+      "category": "code_understanding",
+      "passed": true,
+      "tool_calls": 1,
+      "input_tokens": 3243,
+      "output_tokens": 160,
+      "elapsed_sec": 13.025310754776001,
+      "error": "",
+      "answer_preview": "Based on `src/clawpy/provider/base.py`, the `Provider` protocol requires the following to be implemented:\n\n*   **`name` property**: A string representing the provider's name.\n*   **`stream(request: Re"
+    },
+    {
+      "name": "understand_permission_modes",
+      "category": "code_understanding",
+      "passed": true,
+      "tool_calls": 1,
+      "input_tokens": 2961,
+      "output_tokens": 114,
+      "elapsed_sec": 7.652733325958252,
+      "error": "",
+      "answer_preview": "Based on `src/clawpy/tool/permission.py`, here are the permission modes and their functions:\n\n*   **default**: Prompts for confirmation before executing any tool that is not read-only.\n*   **accept_ed"
+    },
+    {
+      "name": "understand_engine_loop",
+      "category": "code_understanding",
+      "passed": true,
+      "tool_calls": 1,
+      "input_tokens": 7118,
+      "output_tokens": 602,
+      "elapsed_sec": 19.07663917541504,
+      "error": "",
+      "answer_preview": "Based on `src/clawpy/engine/engine.py`, the agentic loop in `run_turn()` works as follows:\n\n1.  **User Input**: The turn begins by appending the user's message to the conversation history.\n2.  **LLM C"
+    },
+    {
+      "name": "find_all_tools",
+      "category": "code_search",
+      "passed": false,
+      "tool_calls": 3,
+      "input_tokens": 3200,
+      "output_tokens": 46,
+      "elapsed_sec": 5.7147133350372314,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "find_sse_parser",
+      "category": "code_search",
+      "passed": false,
+      "tool_calls": 4,
+      "input_tokens": 3187,
+      "output_tokens": 144,
+      "elapsed_sec": 5.943069934844971,
+      "error": "",
+      "answer_preview": "I'll find where Server-Sent Events (SSE) parsing is implemented by first locating files mentioning \"sse\" or \"server sent events.\" Without `grep`, I'll list the `src` directory's files and read their c"
+    },
+    {
+      "name": "count_test_files",
+      "category": "code_search",
+      "passed": true,
+      "tool_calls": 3,
+      "input_tokens": 3253,
+      "output_tokens": 392,
+      "elapsed_sec": 11.645502805709839,
+      "error": "",
+      "answer_preview": "I can't count the test functions automatically. I'll manually count them in each of the 10 test files and report the total.\n\nThere are 10 test files in the `tests/` directory:\n- `__init__.py`\n- `test_"
+    },
+    {
+      "name": "trace_provider_flow",
+      "category": "multi_step",
+      "passed": false,
+      "tool_calls": 3,
+      "input_tokens": 2085,
+      "output_tokens": 27,
+      "elapsed_sec": 6.04363489151001,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "compare_providers",
+      "category": "multi_step",
+      "passed": false,
+      "tool_calls": 3,
+      "input_tokens": 3234,
+      "output_tokens": 50,
+      "elapsed_sec": 7.536455154418945,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "fetch_python_docs",
+      "category": "web_research",
+      "passed": true,
+      "tool_calls": 1,
+      "input_tokens": 2917,
+      "output_tokens": 93,
+      "elapsed_sec": 12.921336650848389,
+      "error": "",
+      "answer_preview": "Asyncio is a Python library for writing concurrent code using the `async/await` syntax. It is foundational for many high-performance Python frameworks, including those for web-servers, database connec"
+    }
+  ]
+}

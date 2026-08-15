@@ -1,0 +1,35 @@
+{
+  "provider": "gemini",
+  "model": "gemini-2.5-pro",
+  "timestamp": 1775495521.1063933,
+  "summary": {
+    "passed": 1,
+    "total": 2,
+    "tokens": 4396,
+    "time_sec": 11.467993021011353
+  },
+  "results": [
+    {
+      "name": "understand_provider_protocol",
+      "category": "code_understanding",
+      "passed": true,
+      "tool_calls": 1,
+      "input_tokens": 3243,
+      "output_tokens": 150,
+      "elapsed_sec": 8.747617959976196,
+      "error": "",
+      "answer_preview": "Based on `src/clawpy/provider/base.py`, the `Provider` protocol requires any conforming class to implement the following:\n\n1.  `name` (property): A string representing the provider's name.\n2.  `stream"
+    },
+    {
+      "name": "find_all_tools",
+      "category": "code_search",
+      "passed": false,
+      "tool_calls": 1,
+      "input_tokens": 987,
+      "output_tokens": 16,
+      "elapsed_sec": 2.7203750610351562,
+      "error": "",
+      "answer_preview": ""
+    }
+  ]
+}

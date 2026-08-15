@@ -1,0 +1,4226 @@
+{
+  "plan_name": "Medical Easy Plan",
+  "plan_name_bn": "মেডিকেল সহজ প্ল্যান",
+  "target_exam": "medical",
+  "difficulty": "easy",
+  "total_lessons": 10,
+  "total_exercises": 147,
+  "unmapped_questions": 486,
+  "total_source_questions": 2808,
+  "lessons": [
+    {
+      "lesson_id": "phy-mech-01",
+      "lesson_title": "Physical Quantities & Units",
+      "lesson_title_bn": "ভৌত রাশি ও একক",
+      "unit_id": "phy-mechanics",
+      "unit_title": "Mechanics",
+      "unit_title_bn": "বলবিদ্যা",
+      "subject": "physics",
+      "subject_title_bn": "পদার্থবিজ্ঞান",
+      "difficulty": "easy",
+      "exercise_count": 15,
+      "xp_reward": 20,
+      "estimated_minutes": 15,
+      "concepts": [
+        "dimensional analysis",
+        "SI units"
+      ],
+      "exercises": [
+        {
+          "id": "610689",
+          "type": "mcq",
+          "question": "11012= -10",
+          "question_bn": "11012= -10",
+          "options": [
+            {
+              "id": "A",
+              "text": "13",
+              "text_bn": "13",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "14",
+              "text_bn": "14",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "15",
+              "text_bn": "15",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "16",
+              "text_bn": "16",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "13",
+          "source": "জগন্নাথ বিশ্ববিদ্যালয় - A ইউনিট (বিজ্ঞান অনুষদ ও লাইফ এন্ড আর্থ সায়েন্স অনুষদ) শিক্ষাবর্ষ : ২০২৫-২০২৬ (26-12-2025)",
+          "university": "jagannath-university",
+          "year": "2025",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "610689",
+          "type": "mcq",
+          "question": "11012= -10",
+          "question_bn": "11012= -10",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "জগন্নাথ বিশ্ববিদ্যালয় - A ইউনিট (বিজ্ঞান অনুষদ ও লাইফ এন্ড আর্থ সায়েন্স অনুষদ) শিক্ষাবর্ষ : ২০২৫-২০২৬ (26-12-2025)",
+          "university": "jagannath-university",
+          "year": "2025",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "619298",
+          "type": "mcq",
+          "question": "ঘর্ষণ বলের কাজ সাধারণত -",
+          "question_bn": "ঘর্ষণ বলের কাজ সাধারণত -",
+          "options": [
+            {
+              "id": "A",
+              "text": "ধনাত্বক",
+              "text_bn": "ধনাত্বক",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "ঋণাত্বক",
+              "text_bn": "ঋণাত্বক",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "শূণ্য",
+              "text_bn": "শূণ্য",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "পরিবর্তনশীল",
+              "text_bn": "পরিবর্তনশীল",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "ঋণাত্বক",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (বিজ্ঞান) (শিফট -২) (সেট-৩) শিক্ষাবর্ষ : ২০২৫-২০২৬ (16-01-2026)",
+          "university": "rajshahi-university",
+          "year": "2026",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "619298",
+          "type": "mcq",
+          "question": "ঘর্ষণ বলের কাজ সাধারণত -",
+          "question_bn": "ঘর্ষণ বলের কাজ সাধারণত -",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (বিজ্ঞান) (শিফট -২) (সেট-৩) শিক্ষাবর্ষ : ২০২৫-২০২৬ (16-01-2026)",
+          "university": "rajshahi-university",
+          "year": "2026",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "534998",
+          "type": "mcq",
+          "question": "স্বাবেশ গুণাঙ্কের একক হলো-",
+          "question_bn": "স্বাবেশ গুণাঙ্কের একক হলো-",
+          "options": [
+            {
+              "id": "A",
+              "text": "voltamp/sec",
+              "text_bn": "voltamp/sec",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "volt-secamp",
+              "text_bn": "volt-secamp",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "Henry",
+              "text_bn": "Henry",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "সবগুলো",
+              "text_bn": "সবগুলো",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "সবগুলো",
+          "source": "জগন্নাথ বিশ্ববিদ্যালয়  —  A ইউনিট (বিজ্ঞান অনুষদ ও লাইফ এন্ড আর্থ সায়েন্স অনুষদ) ২০২৪-২৫  —  শিফট-৩ (22-02-2025)",
+          "university": "jagannath-university",
+          "year": "2025",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "628428",
+          "type": "mcq",
+          "question": "ধারকের ক্ষেত্রে কোনটি সঠিক?",
+          "question_bn": "ধারকের ক্ষেত্রে কোনটি সঠিক?",
+          "options": [
+            {
+              "id": "A",
+              "text": "W=12VC2",
+              "text_bn": "W=12VC2",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "W=12CI2",
+              "text_bn": "W=12CI2",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "W=12QC",
+              "text_bn": "W=12QC",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "W=12V2C",
+              "text_bn": "W=12V2C",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "W=12V2C",
+          "source": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় - A ইউনিট (বিজ্ঞান) শিক্ষাবর্ষ : ২০২০-২১ (সেট : B)",
+          "university": "jahangirnagar-university",
+          "year": "2021",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "628428",
+          "type": "mcq",
+          "question": "ধারকের ক্ষেত্রে কোনটি সঠিক?",
+          "question_bn": "ধারকের ক্ষেত্রে কোনটি সঠিক?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় - A ইউনিট (বিজ্ঞান) শিক্ষাবর্ষ : ২০২০-২১ (সেট : B)",
+          "university": "jahangirnagar-university",
+          "year": "2021",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "626676",
+          "type": "mcq",
+          "question": "পরমাণুর মোট শক্তি সর্বদাই -",
+          "question_bn": "পরমাণুর মোট শক্তি সর্বদাই -",
+          "options": [
+            {
+              "id": "A",
+              "text": "ধনাত্মক",
+              "text_bn": "ধনাত্মক",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "ঋণাত্মক",
+              "text_bn": "ঋণাত্মক",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "শূন্য",
+              "text_bn": "শূন্য",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "কোনোটিই নয়",
+              "text_bn": "কোনোটিই নয়",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "ঋণাত্মক",
+          "source": "কুমিল্লা বিশ্ববিদ্যালয় — A ইউনিট (বিজ্ঞান)- শিক্ষাবর্ষ: ২০২৫-২৬ (30-01-2026) (সেট : ১)",
+          "university": "cumilla-university",
+          "year": "2026",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "626676",
+          "type": "mcq",
+          "question": "পরমাণুর মোট শক্তি সর্বদাই -",
+          "question_bn": "পরমাণুর মোট শক্তি সর্বদাই -",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "কুমিল্লা বিশ্ববিদ্যালয় — A ইউনিট (বিজ্ঞান)- শিক্ষাবর্ষ: ২০২৫-২৬ (30-01-2026) (সেট : ১)",
+          "university": "cumilla-university",
+          "year": "2026",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "610678",
+          "type": "mcq",
+          "question": "কোনটির সান্দ্রতা সবচেয়ে বেশি?",
+          "question_bn": "কোনটির সান্দ্রতা সবচেয়ে বেশি?",
+          "options": [
+            {
+              "id": "A",
+              "text": "পানি",
+              "text_bn": "পানি",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "কেরোসিন",
+              "text_bn": "কেরোসিন",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "গ্লিসারিন",
+              "text_bn": "গ্লিসারিন",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "বাতাস",
+              "text_bn": "বাতাস",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "গ্লিসারিন",
+          "source": "জগন্নাথ বিশ্ববিদ্যালয় - A ইউনিট (বিজ্ঞান অনুষদ ও লাইফ এন্ড আর্থ সায়েন্স অনুষদ) শিক্ষাবর্ষ : ২০২৫-২০২৬ (26-12-2025)",
+          "university": "jagannath-university",
+          "year": "2025",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "610678",
+          "type": "mcq",
+          "question": "কোনটির সান্দ্রতা সবচেয়ে বেশি?",
+          "question_bn": "কোনটির সান্দ্রতা সবচেয়ে বেশি?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "জগন্নাথ বিশ্ববিদ্যালয় - A ইউনিট (বিজ্ঞান অনুষদ ও লাইফ এন্ড আর্থ সায়েন্স অনুষদ) শিক্ষাবর্ষ : ২০২৫-২০২৬ (26-12-2025)",
+          "university": "jagannath-university",
+          "year": "2025",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "610677",
+          "type": "mcq",
+          "question": "তাপমাত্রা বাড়ালে অর্ধপরিবাহীর রোধ-",
+          "question_bn": "তাপমাত্রা বাড়ালে অর্ধপরিবাহীর রোধ-",
+          "options": [
+            {
+              "id": "A",
+              "text": "কমবে",
+              "text_bn": "কমবে",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "বৃদ্ধি পাবে",
+              "text_bn": "বৃদ্ধি পাবে",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "অপরিবর্তিত থাকবে",
+              "text_bn": "অপরিবর্তিত থাকবে",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "শূন্য হবে",
+              "text_bn": "শূন্য হবে",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "কমবে",
+          "source": "জগন্নাথ বিশ্ববিদ্যালয় - A ইউনিট (বিজ্ঞান অনুষদ ও লাইফ এন্ড আর্থ সায়েন্স অনুষদ) শিক্ষাবর্ষ : ২০২৫-২০২৬ (26-12-2025)",
+          "university": "jagannath-university",
+          "year": "2025",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "610677",
+          "type": "mcq",
+          "question": "তাপমাত্রা বাড়ালে অর্ধপরিবাহীর রোধ-",
+          "question_bn": "তাপমাত্রা বাড়ালে অর্ধপরিবাহীর রোধ-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "জগন্নাথ বিশ্ববিদ্যালয় - A ইউনিট (বিজ্ঞান অনুষদ ও লাইফ এন্ড আর্থ সায়েন্স অনুষদ) শিক্ষাবর্ষ : ২০২৫-২০২৬ (26-12-2025)",
+          "university": "jagannath-university",
+          "year": "2025",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "619198",
+          "type": "mcq",
+          "question": "বায়ুমণ্ডল না থাকলে আকাশ কেমন দেখাতো?",
+          "question_bn": "বায়ুমণ্ডল না থাকলে আকাশ কেমন দেখাতো?",
+          "options": [
+            {
+              "id": "A",
+              "text": "নীল",
+              "text_bn": "নীল",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "বেগুনি",
+              "text_bn": "বেগুনি",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "সাদা",
+              "text_bn": "সাদা",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "কালো",
+              "text_bn": "কালো",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "কালো",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (বিজ্ঞান) (শিফট -১) (সেট-২) শিক্ষাবর্ষ : ২০২৫-২০২৬ (16-01-2026)",
+          "university": "rajshahi-university",
+          "year": "2026",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "619198",
+          "type": "mcq",
+          "question": "বায়ুমণ্ডল না থাকলে আকাশ কেমন দেখাতো?",
+          "question_bn": "বায়ুমণ্ডল না থাকলে আকাশ কেমন দেখাতো?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (বিজ্ঞান) (শিফট -১) (সেট-২) শিক্ষাবর্ষ : ২০২৫-২০২৬ (16-01-2026)",
+          "university": "rajshahi-university",
+          "year": "2026",
+          "subject_tag": "পদার্থবিদ্যা",
+          "has_image": false
+        }
+      ]
+    },
+    {
+      "lesson_id": "chem-phy-02",
+      "lesson_title": "Thermochemistry",
+      "lesson_title_bn": "তাপরসায়ন",
+      "unit_id": "chem-physical",
+      "unit_title": "Physical Chemistry",
+      "unit_title_bn": "ভৌত রসায়ন",
+      "subject": "chemistry",
+      "subject_title_bn": "রসায়ন",
+      "difficulty": "easy",
+      "exercise_count": 15,
+      "xp_reward": 20,
+      "estimated_minutes": 15,
+      "concepts": [
+        "ΔH",
+        "Hess's law"
+      ],
+      "exercises": [
+        {
+          "id": "124444",
+          "type": "mcq",
+          "question": "ধাতু তাপ সুপরিবাহী কারণ-",
+          "question_bn": "ধাতু তাপ সুপরিবাহী কারণ-",
+          "options": [
+            {
+              "id": "A",
+              "text": "তাদের পরমানুগুলো পরস্পরের সাথে ধাক্কা খায়",
+              "text_bn": "তাদের পরমানুগুলো পরস্পরের সাথে ধাক্কা খায়",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "তাদের মধ্যে মুক্ত ইলেক্ট্রন আছে",
+              "text_bn": "তাদের মধ্যে মুক্ত ইলেক্ট্রন আছে",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "তাদের পরমানুগুলো তুলনামূলকভাবে পরস্পর থেকে দূরে অবস্থিত",
+              "text_bn": "তাদের পরমানুগুলো তুলনামূলকভাবে পরস্পর থেকে দূরে অবস্থিত",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "তাদের প্রতিফলক তল আছে",
+              "text_bn": "তাদের প্রতিফলক তল আছে",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "তাদের মধ্যে মুক্ত ইলেক্ট্রন আছে",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৮-১৯৯৯",
+          "university": "dat",
+          "year": "1998",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "124444",
+          "type": "mcq",
+          "question": "ধাতু তাপ সুপরিবাহী কারণ-",
+          "question_bn": "ধাতু তাপ সুপরিবাহী কারণ-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৮-১৯৯৯",
+          "university": "dat",
+          "year": "1998",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "134145",
+          "type": "mcq",
+          "question": "পানির বাষ্পীভবনের সুপ্ততাপ কত?",
+          "question_bn": "পানির বাষ্পীভবনের সুপ্ততাপ কত?",
+          "options": [
+            {
+              "id": "A",
+              "text": "80  ক্যালরি/ গ্রাম",
+              "text_bn": "80  ক্যালরি/ গ্রাম",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "202  ক্যালরি / গ্রাম",
+              "text_bn": "202  ক্যালরি / গ্রাম",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "406  ক্যালরি / গ্রাম",
+              "text_bn": "406  ক্যালরি / গ্রাম",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "537  ক্যালরি / গ্রাম",
+              "text_bn": "537  ক্যালরি / গ্রাম",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "537  ক্যালরি / গ্রাম",
+          "source": "ঢাকা বিশ্ববিদ্যালয় - ক ইউনিট (বিজ্ঞান) শিক্ষাবর্ষ : ১৯৯৫-১৯৯৬",
+          "university": "dhaka-university",
+          "year": "1995",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "134145",
+          "type": "mcq",
+          "question": "পানির বাষ্পীভবনের সুপ্ততাপ কত?",
+          "question_bn": "পানির বাষ্পীভবনের সুপ্ততাপ কত?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ঢাকা বিশ্ববিদ্যালয় - ক ইউনিট (বিজ্ঞান) শিক্ষাবর্ষ : ১৯৯৫-১৯৯৬",
+          "university": "dhaka-university",
+          "year": "1995",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "419919",
+          "type": "mcq",
+          "question": "তাপ ধারণ ক্ষমতার মাত্রা কোনটি?",
+          "question_bn": "তাপ ধারণ ক্ষমতার মাত্রা কোনটি?",
+          "options": [
+            {
+              "id": "A",
+              "text": "ML2T-2θ-1",
+              "text_bn": "ML2T-2θ-1",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "M-1L2T-2θ-1",
+              "text_bn": "M-1L2T-2θ-1",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "MLT-2θ-1",
+              "text_bn": "MLT-2θ-1",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "MLT-2θ-2",
+              "text_bn": "MLT-2θ-2",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "ML2T-2θ-1",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (বিজ্ঞান) (শিফট-১) শিক্ষাবর্ষ : ২০২৩-২০২৪ (05-03-2024)",
+          "university": "rajshahi-university",
+          "year": "2024",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "419919",
+          "type": "mcq",
+          "question": "তাপ ধারণ ক্ষমতার মাত্রা কোনটি?",
+          "question_bn": "তাপ ধারণ ক্ষমতার মাত্রা কোনটি?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (বিজ্ঞান) (শিফট-১) শিক্ষাবর্ষ : ২০২৩-২০২৪ (05-03-2024)",
+          "university": "rajshahi-university",
+          "year": "2024",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "167725",
+          "type": "mcq",
+          "question": "রূদ্ধতাপীয় প্রক্রিয়ায় এনট্রপি-",
+          "question_bn": "রূদ্ধতাপীয় প্রক্রিয়ায় এনট্রপি-",
+          "options": [
+            {
+              "id": "A",
+              "text": "বৃদ্ধি পায়",
+              "text_bn": "বৃদ্ধি পায়",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "কমে যায়",
+              "text_bn": "কমে যায়",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "কোন পরিবর্তন হয় না",
+              "text_bn": "কোন পরিবর্তন হয় না",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "কোনটিই নয়",
+              "text_bn": "কোনটিই নয়",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "কোন পরিবর্তন হয় না",
+          "source": "জগন্নাথ বিশ্ববিদ্যালয় - A ইউনিট - শিক্ষাবর্ষ : 2014-2015",
+          "university": "jagannath-university",
+          "year": "2015",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "167725",
+          "type": "mcq",
+          "question": "রূদ্ধতাপীয় প্রক্রিয়ায় এনট্রপি-",
+          "question_bn": "রূদ্ধতাপীয় প্রক্রিয়ায় এনট্রপি-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "জগন্নাথ বিশ্ববিদ্যালয় - A ইউনিট - শিক্ষাবর্ষ : 2014-2015",
+          "university": "jagannath-university",
+          "year": "2015",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "144187",
+          "type": "mcq",
+          "question": "এনট্রপির পরিবর্তনের একক কোনটি?",
+          "question_bn": "এনট্রপির পরিবর্তনের একক কোনটি?",
+          "options": [
+            {
+              "id": "A",
+              "text": "J.K-2",
+              "text_bn": "J.K-2",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "J.K-1",
+              "text_bn": "J.K-1",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "J.K",
+              "text_bn": "J.K",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "J.K-1mole",
+              "text_bn": "J.K-1mole",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "J.K-1",
+          "source": "B ইউনিট",
+          "university": "hstu",
+          "year": "2009",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "144187",
+          "type": "mcq",
+          "question": "এনট্রপির পরিবর্তনের একক কোনটি?",
+          "question_bn": "এনট্রপির পরিবর্তনের একক কোনটি?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "B ইউনিট",
+          "university": "hstu",
+          "year": "2009",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "98510",
+          "type": "mcq",
+          "question": "এনট্রপি কিসের পরিমাপ প্রদান করে?",
+          "question_bn": "এনট্রপি কিসের পরিমাপ প্রদান করে?",
+          "options": [
+            {
+              "id": "A",
+              "text": "তাপ",
+              "text_bn": "তাপ",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "চাপ",
+              "text_bn": "চাপ",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "শৃঙ্কলা",
+              "text_bn": "শৃঙ্কলা",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "বিশৃঙ্খলা",
+              "text_bn": "বিশৃঙ্খলা",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "বিশৃঙ্খলা",
+          "source": "ক ইউনিট",
+          "university": "barishal-university",
+          "year": "2011",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "98510",
+          "type": "mcq",
+          "question": "এনট্রপি কিসের পরিমাপ প্রদান করে?",
+          "question_bn": "এনট্রপি কিসের পরিমাপ প্রদান করে?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ক ইউনিট",
+          "university": "barishal-university",
+          "year": "2011",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "154956",
+          "type": "mcq",
+          "question": "সুপ্ততাপ প্রক্রিয়ায় পরিবর্তন ঘটে-",
+          "question_bn": "সুপ্ততাপ প্রক্রিয়ায় পরিবর্তন ঘটে-",
+          "options": [
+            {
+              "id": "A",
+              "text": "তাপমাত্রার",
+              "text_bn": "তাপমাত্রার",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "অবস্থার",
+              "text_bn": "অবস্থার",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "শক্তির",
+              "text_bn": "শক্তির",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "কোনটিই নয়",
+              "text_bn": "কোনটিই নয়",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "অবস্থার",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - E ইউনিট শিক্ষাবর্ষ : ২০১১ - ২০১২",
+          "university": "islamic-university",
+          "year": "2012",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "154956",
+          "type": "mcq",
+          "question": "সুপ্ততাপ প্রক্রিয়ায় পরিবর্তন ঘটে-",
+          "question_bn": "সুপ্ততাপ প্রক্রিয়ায় পরিবর্তন ঘটে-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - E ইউনিট শিক্ষাবর্ষ : ২০১১ - ২০১২",
+          "university": "islamic-university",
+          "year": "2012",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "143008",
+          "type": "mcq",
+          "question": "এনট্রপি কিসের পরিমাপ নির্দেশ করে?",
+          "question_bn": "এনট্রপি কিসের পরিমাপ নির্দেশ করে?",
+          "options": [
+            {
+              "id": "A",
+              "text": "মোট তাপ",
+              "text_bn": "মোট তাপ",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "সুশৃংখলতা",
+              "text_bn": "সুশৃংখলতা",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "বিশৃংখলতা",
+              "text_bn": "বিশৃংখলতা",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "তাপমাত্রা",
+              "text_bn": "তাপমাত্রা",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "বিশৃংখলতা",
+          "source": "F ইউনিট",
+          "university": "hstu",
+          "year": "2016",
+          "subject_tag": "তাপগতিবিদ্যা",
+          "has_image": false
+        }
+      ]
+    },
+    {
+      "lesson_id": "bio-cell-01",
+      "lesson_title": "Cell Structure & Organelles",
+      "lesson_title_bn": "কোষ গঠন ও অঙ্গাণু",
+      "unit_id": "bio-cell",
+      "unit_title": "Cell Biology",
+      "unit_title_bn": "কোষ জীববিজ্ঞান",
+      "subject": "biology",
+      "subject_title_bn": "জীববিজ্ঞান",
+      "difficulty": "easy",
+      "exercise_count": 15,
+      "xp_reward": 20,
+      "estimated_minutes": 15,
+      "concepts": [
+        "mitochondria",
+        "ribosome"
+      ],
+      "exercises": [
+        {
+          "id": "402733",
+          "type": "mcq",
+          "question": "রাইবোজ-",
+          "question_bn": "রাইবোজ-",
+          "options": [
+            {
+              "id": "A",
+              "text": "বিভিন্ন কো-এনজাইম তৈরিতে ব্যবহৃত হয়",
+              "text_bn": "বিভিন্ন কো-এনজাইম তৈরিতে ব্যবহৃত হয়",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "অ্যালডোহেরোজ নামে পরিচিত",
+              "text_bn": "অ্যালডোহেরোজ নামে পরিচিত",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "60°C তাপে গলে",
+              "text_bn": "60°C তাপে গলে",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "ডিএনএ (DNA) এর মূল উপাদান",
+              "text_bn": "ডিএনএ (DNA) এর মূল উপাদান",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "বিভিন্ন কো-এনজাইম তৈরিতে ব্যবহৃত হয়",
+          "source": "শিক্ষাবর্ষঃ ২০২৩-২০২৪",
+          "university": "mat",
+          "year": "2024",
+          "subject_tag": "কোষ ও এর গঠন (প্রথম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "402733",
+          "type": "mcq",
+          "question": "রাইবোজ-",
+          "question_bn": "রাইবোজ-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০২৩-২০২৪",
+          "university": "mat",
+          "year": "2024",
+          "subject_tag": "কোষ ও এর গঠন (প্রথম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "203303",
+          "type": "mcq",
+          "question": "কোনটি সঠিক?",
+          "question_bn": "কোনটি সঠিক?",
+          "options": [
+            {
+              "id": "A",
+              "text": "একই সুতার দু’টি কাপড়ে দেহের তাপ যত রক্ষিত হবে ঐ সূতার সমান পুরু একটি কাপড়ে তা অপেক্ষা কম তাপ রক্ষিত হবে।",
+              "text_bn": "একই সুতার দু’টি কাপড়ে দেহের তাপ যত রক্ষিত হবে ঐ সূতার সমান পুরু একটি কাপড়ে তা অপেক্ষা কম তাপ রক্ষিত হবে।",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "পাতলা কাগজ অপেক্ষা মোটা কাগজের পাত্রে পানি ফোটানো সম্ভব",
+              "text_bn": "পাতলা কাগজ অপেক্ষা মোটা কাগজের পাত্রে পানি ফোটানো সম্ভব",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "যে কাপড়ে সূতার অথবা আঁশের ফাঁকে যত বেশী বায়ু",
+              "text_bn": "যে কাপড়ে সূতার অথবা আঁশের ফাঁকে যত বেশী বায়ু",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "শীতকালে নতুন লেপ অপেক্ষা পুরাতন লেপ বেশি গরম বোধ হয়",
+              "text_bn": "শীতকালে নতুন লেপ অপেক্ষা পুরাতন লেপ বেশি গরম বোধ হয়",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "একই সুতার দু’টি কাপড়ে দেহের তাপ যত রক্ষিত হবে ঐ সূতার সমান পুরু একটি কাপড়ে তা অপেক্ষা কম তাপ রক্ষিত হবে।",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৩-১৯৯৪",
+          "university": "mat",
+          "year": "1994",
+          "subject_tag": "জীববিজ্ঞান",
+          "has_image": false
+        },
+        {
+          "id": "203303",
+          "type": "mcq",
+          "question": "কোনটি সঠিক?",
+          "question_bn": "কোনটি সঠিক?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৩-১৯৯৪",
+          "university": "mat",
+          "year": "1994",
+          "subject_tag": "জীববিজ্ঞান",
+          "has_image": false
+        },
+        {
+          "id": "124079",
+          "type": "mcq",
+          "question": "কোনটি সত্য?",
+          "question_bn": "কোনটি সত্য?",
+          "options": [
+            {
+              "id": "A",
+              "text": "দুইটি মাইটোসিস দশার মধ্যবর্তী দশাকে মেটাফেজ বলে",
+              "text_bn": "দুইটি মাইটোসিস দশার মধ্যবর্তী দশাকে মেটাফেজ বলে",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "মেটাফেজ দশায় নিউক্লিয়াস পর্দার বিলুপ্তি ঘটে",
+              "text_bn": "মেটাফেজ দশায় নিউক্লিয়াস পর্দার বিলুপ্তি ঘটে",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "টেলোফেজ দশায় দুইটি অপত্য নিউক্লিয়াস গঠিত হয়",
+              "text_bn": "টেলোফেজ দশায় দুইটি অপত্য নিউক্লিয়াস গঠিত হয়",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "উপরের কোনাটিই নয়",
+              "text_bn": "উপরের কোনাটিই নয়",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "টেলোফেজ দশায় দুইটি অপত্য নিউক্লিয়াস গঠিত হয়",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৬-১৯৯৭",
+          "university": "dat",
+          "year": "1996",
+          "subject_tag": "মাইটোসিস কোষ বিভাজন",
+          "has_image": false
+        },
+        {
+          "id": "124079",
+          "type": "mcq",
+          "question": "কোনটি সত্য?",
+          "question_bn": "কোনটি সত্য?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৬-১৯৯৭",
+          "university": "dat",
+          "year": "1996",
+          "subject_tag": "মাইটোসিস কোষ বিভাজন",
+          "has_image": false
+        },
+        {
+          "id": "271783",
+          "type": "mcq",
+          "question": "Karyolymph কি?",
+          "question_bn": "Karyolymph কি?",
+          "options": [
+            {
+              "id": "A",
+              "text": "নিউক্লিয়াস",
+              "text_bn": "নিউক্লিয়াস",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "রাইবোজোম",
+              "text_bn": "রাইবোজোম",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "নিউক্লিওপ্লাজম",
+              "text_bn": "নিউক্লিওপ্লাজম",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "নিউক্লিওলাস",
+              "text_bn": "নিউক্লিওলাস",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "নিউক্লিওপ্লাজম",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট  (বিজ্ঞান) (গ্রুপ-৪)  শিক্ষাবর্ষ : ২০২২-২০২৩ (29-05-2023)",
+          "university": "rajshahi-university",
+          "year": "2023",
+          "subject_tag": "কোষ ও এর গঠন (প্রথম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "271783",
+          "type": "mcq",
+          "question": "Karyolymph কি?",
+          "question_bn": "Karyolymph কি?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট  (বিজ্ঞান) (গ্রুপ-৪)  শিক্ষাবর্ষ : ২০২২-২০২৩ (29-05-2023)",
+          "university": "rajshahi-university",
+          "year": "2023",
+          "subject_tag": "কোষ ও এর গঠন (প্রথম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "421982",
+          "type": "mcq",
+          "question": "কোষের মস্তিষ্ক-",
+          "question_bn": "কোষের মস্তিষ্ক-",
+          "options": [
+            {
+              "id": "A",
+              "text": "লাইসোসোম",
+              "text_bn": "লাইসোসোম",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "নিউক্লিয়াস",
+              "text_bn": "নিউক্লিয়াস",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "পারঅক্সিসোম",
+              "text_bn": "পারঅক্সিসোম",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "গ্লাইঅক্সিসোম",
+              "text_bn": "গ্লাইঅক্সিসোম",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "নিউক্লিয়াস",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (বিজ্ঞান) (শিফট-৩) শিক্ষাবর্ষ : ২০২৩-২০২৪ (05-03-2024)",
+          "university": "rajshahi-university",
+          "year": "2024",
+          "subject_tag": "কোষ ও এর গঠন (প্রথম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "421982",
+          "type": "mcq",
+          "question": "কোষের মস্তিষ্ক-",
+          "question_bn": "কোষের মস্তিষ্ক-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (বিজ্ঞান) (শিফট-৩) শিক্ষাবর্ষ : ২০২৩-২০২৪ (05-03-2024)",
+          "university": "rajshahi-university",
+          "year": "2024",
+          "subject_tag": "কোষ ও এর গঠন (প্রথম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "142074",
+          "type": "mcq",
+          "question": "কোনটি হার্ব নয়?",
+          "question_bn": "কোনটি হার্ব নয়?",
+          "options": [
+            {
+              "id": "A",
+              "text": "ধান",
+              "text_bn": "ধান",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "গম",
+              "text_bn": "গম",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "সরিষা",
+              "text_bn": "সরিষা",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "গন্ধরাজ",
+              "text_bn": "গন্ধরাজ",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "গন্ধরাজ",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2016",
+          "subject_tag": "কোষ ও এর গঠন (প্রথম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "142074",
+          "type": "mcq",
+          "question": "কোনটি হার্ব নয়?",
+          "question_bn": "কোনটি হার্ব নয়?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2016",
+          "subject_tag": "কোষ ও এর গঠন (প্রথম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "202677",
+          "type": "mcq",
+          "question": "কোনটি হার্ব নয়?",
+          "question_bn": "কোনটি হার্ব নয়?",
+          "options": [
+            {
+              "id": "A",
+              "text": "ধান",
+              "text_bn": "ধান",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "গম",
+              "text_bn": "গম",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "সরিষা",
+              "text_bn": "সরিষা",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "গন্ধরাজ",
+              "text_bn": "গন্ধরাজ",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "গন্ধরাজ",
+          "source": "শিক্ষাবর্ষঃ ২০০৪-২০০৫",
+          "university": "mat",
+          "year": "2005",
+          "subject_tag": "কোষ ও এর গঠন (প্রথম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "202677",
+          "type": "mcq",
+          "question": "কোনটি হার্ব নয়?",
+          "question_bn": "কোনটি হার্ব নয়?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০৪-২০০৫",
+          "university": "mat",
+          "year": "2005",
+          "subject_tag": "কোষ ও এর গঠন (প্রথম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "124314",
+          "type": "mcq",
+          "question": "কোনটি সঠিক নয় ?",
+          "question_bn": "কোনটি সঠিক নয় ?",
+          "options": [
+            {
+              "id": "A",
+              "text": "অ্যাসিড থাকার কারণে কাঁচা ফল টক হয়",
+              "text_bn": "অ্যাসিড থাকার কারণে কাঁচা ফল টক হয়",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "ফল পাকার মিষ্টি হয় কারণ ফলের স্টাস চিনিতে পরিনত হয়",
+              "text_bn": "ফল পাকার মিষ্টি হয় কারণ ফলের স্টাস চিনিতে পরিনত হয়",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "ফল পাকাতে শুরু করলে তাতে শ্বসন ক্রিয়া সম্পূর্ণভাবে বন্ধ হয়ে যায়",
+              "text_bn": "ফল পাকাতে শুরু করলে তাতে শ্বসন ক্রিয়া সম্পূর্ণভাবে বন্ধ হয়ে যায়",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "ফল পাকার জন্য বিশেষভাবে এথিলিন দায়ী",
+              "text_bn": "ফল পাকার জন্য বিশেষভাবে এথিলিন দায়ী",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "ফল পাকাতে শুরু করলে তাতে শ্বসন ক্রিয়া সম্পূর্ণভাবে বন্ধ হয়ে যায়",
+          "source": "শিক্ষাবর্ষঃ ২০০২-২০০৩",
+          "university": "dat",
+          "year": "2002",
+          "subject_tag": "কোষ রসায়ন (তৃতীয় অধ্যায়)",
+          "has_image": false
+        }
+      ]
+    },
+    {
+      "lesson_id": "phy-mech-03",
+      "lesson_title": "Kinematics: 1D Motion",
+      "lesson_title_bn": "সরলরৈখিক গতি",
+      "unit_id": "phy-mechanics",
+      "unit_title": "Mechanics",
+      "unit_title_bn": "বলবিদ্যা",
+      "subject": "physics",
+      "subject_title_bn": "পদার্থবিজ্ঞান",
+      "difficulty": "easy",
+      "exercise_count": 15,
+      "xp_reward": 20,
+      "estimated_minutes": 15,
+      "concepts": [
+        "v=u+at",
+        "s=ut+½at²"
+      ],
+      "exercises": [
+        {
+          "id": "204295",
+          "type": "mcq",
+          "question": "কোনটি সত?",
+          "question_bn": "কোনটি সত?",
+          "options": [
+            {
+              "id": "A",
+              "text": "কর্ণিয়া প্রতসরণশীল বলিয়া আলোকরশ্মি প্রবেশের অনুমতি দেয়",
+              "text_bn": "কর্ণিয়া প্রতসরণশীল বলিয়া আলোকরশ্মি প্রবেশের অনুমতি দেয়",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "লেন্স আলোক রশ্মিকে রেটিনার সুনির্দিষ্ট অংশে প্রতিফলিত করে",
+              "text_bn": "লেন্স আলোক রশ্মিকে রেটিনার সুনির্দিষ্ট অংশে প্রতিফলিত করে",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "স্ক্লেরা আলোক রশ্মিকে গ্রহণ করিয়া মস্তিষ্কে প্রেরণ করে",
+              "text_bn": "স্ক্লেরা আলোক রশ্মিকে গ্রহণ করিয়া মস্তিষ্কে প্রেরণ করে",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "আইরিস আলোক নিয়ন্ত্রণে কোন কাজ করে না",
+              "text_bn": "আইরিস আলোক নিয়ন্ত্রণে কোন কাজ করে না",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "কর্ণিয়া প্রতসরণশীল বলিয়া আলোকরশ্মি প্রবেশের অনুমতি দেয়",
+          "source": "শিক্ষাবর্ষঃ ১৯৮৯-১৯৯০",
+          "university": "mat",
+          "year": "1990",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "204295",
+          "type": "mcq",
+          "question": "কোনটি সত?",
+          "question_bn": "কোনটি সত?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ১৯৮৯-১৯৯০",
+          "university": "mat",
+          "year": "1990",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "202944",
+          "type": "mcq",
+          "question": "কোনটি সঠিক?",
+          "question_bn": "কোনটি সঠিক?",
+          "options": [
+            {
+              "id": "A",
+              "text": "অসংরক্ষণশীল বল ক্ষেত্রে একটি বস্তুকে যে কোন পথে ঘুরিয়ে পুনরায় প্রাথমিক অবস্থায় আনলে ঐ বল কর্তৃক কৃতকাজ শূন্য হবে",
+              "text_bn": "অসংরক্ষণশীল বল ক্ষেত্রে একটি বস্তুকে যে কোন পথে ঘুরিয়ে পুনরায় প্রাথমিক অবস্থায় আনলে ঐ বল কর্তৃক কৃতকাজ শূন্য হবে",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "কেন্দ্রবিমূখী বলের যোগান দেওয়ার জন্য রেলপথ যেখানে বেঁকে গেছে, সেখানে বাঁকের বাইরের দিকে লাইনটিকে একটু উঁচু করা হয়",
+              "text_bn": "কেন্দ্রবিমূখী বলের যোগান দেওয়ার জন্য রেলপথ যেখানে বেঁকে গেছে, সেখানে বাঁকের বাইরের দিকে লাইনটিকে একটু উঁচু করা হয়",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "সাধারণত ভরকেন্দ্র ও ভারকেন্দ্র একই হয়ে থাকে",
+              "text_bn": "সাধারণত ভরকেন্দ্র ও ভারকেন্দ্র একই হয়ে থাকে",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "বিভিন্ন পদার্থের অণুগুলোর মধ্যে পারস্পরিক আকর্ষণ বলকে সংশক্তি বল বলে",
+              "text_bn": "বিভিন্ন পদার্থের অণুগুলোর মধ্যে পারস্পরিক আকর্ষণ বলকে সংশক্তি বল বলে",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "সাধারণত ভরকেন্দ্র ও ভারকেন্দ্র একই হয়ে থাকে",
+          "source": "শিক্ষাবর্ষঃ ২০০১-২০০২",
+          "university": "mat",
+          "year": "2002",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "202944",
+          "type": "mcq",
+          "question": "কোনটি সঠিক?",
+          "question_bn": "কোনটি সঠিক?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০১-২০০২",
+          "university": "mat",
+          "year": "2002",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "203306",
+          "type": "mcq",
+          "question": "কোনটি সঠিক?",
+          "question_bn": "কোনটি সঠিক?",
+          "options": [
+            {
+              "id": "A",
+              "text": "বিস্তৃ প্রভাব বলতে এমন এক অালোকে উৎস বুঝার যার কিছু আকার আছে",
+              "text_bn": "বিস্তৃ প্রভাব বলতে এমন এক অালোকে উৎস বুঝার যার কিছু আকার আছে",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "অনেকগুলো আলোকে রশ্মির সমষ্টিকে কিরণ বলে",
+              "text_bn": "অনেকগুলো আলোকে রশ্মির সমষ্টিকে কিরণ বলে",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "যে সূক্ষতম পথে আলোকে মাধ্যমের এক বিন্দু হতে অন্য বিন্দুতে গমন করে তাকে কিরণ বলে।",
+              "text_bn": "যে সূক্ষতম পথে আলোকে মাধ্যমের এক বিন্দু হতে অন্য বিন্দুতে গমন করে তাকে কিরণ বলে।",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "কোন রশ্মিগুচ্ছের আলোকে রশ্মিগুলো যদি এক বিন্দুতে মিলিত না হয় বা  বর্ধিত করলেও মিলিত না হয় তা হলো ঐ  রম্মিগুচ্ছকে অভিসারী রশ্মিগুচ্ছ বলে",
+              "text_bn": "কোন রশ্মিগুচ্ছের আলোকে রশ্মিগুলো যদি এক বিন্দুতে মিলিত না হয় বা  বর্ধিত করলেও মিলিত না হয় তা হলো ঐ  রম্মিগুচ্ছকে অভিসারী রশ্মিগুচ্ছ বলে",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "বিস্তৃ প্রভাব বলতে এমন এক অালোকে উৎস বুঝার যার কিছু আকার আছে",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৩-১৯৯৪",
+          "university": "mat",
+          "year": "1994",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "203307",
+          "type": "mcq",
+          "question": "কোনটি সঠিক?",
+          "question_bn": "কোনটি সঠিক?",
+          "options": [
+            {
+              "id": "A",
+              "text": "স্থির বস্তুর সামনের দর্পন যে দূরত্ব সরান হয় প্রতিবিম্ব সে দূরত্ব সরে যায়",
+              "text_bn": "স্থির বস্তুর সামনের দর্পন যে দূরত্ব সরান হয় প্রতিবিম্ব সে দূরত্ব সরে যায়",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "স্থির সমতল দর্পনে সামনে বস্তুকে যে দূরত্বে সরান যায় প্রতিবিম্ব তার দ্বিগুন দূরত্বে সরে যায়",
+              "text_bn": "স্থির সমতল দর্পনে সামনে বস্তুকে যে দূরত্বে সরান যায় প্রতিবিম্ব তার দ্বিগুন দূরত্বে সরে যায়",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "কোন সমতল দর্পণকে যত কোণে ঘুরানো হয় প্রতিফলিত রশ্মি তার দ্বিগুণ কোণে ঘুরে যায়",
+              "text_bn": "কোন সমতল দর্পণকে যত কোণে ঘুরানো হয় প্রতিফলিত রশ্মি তার দ্বিগুণ কোণে ঘুরে যায়",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "উপরে কোনোটি নয়",
+              "text_bn": "উপরে কোনোটি নয়",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "কোন সমতল দর্পণকে যত কোণে ঘুরানো হয় প্রতিফলিত রশ্মি তার দ্বিগুণ কোণে ঘুরে যায়",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৩-১৯৯৪",
+          "university": "mat",
+          "year": "1994",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "203306",
+          "type": "mcq",
+          "question": "কোনটি সঠিক?",
+          "question_bn": "কোনটি সঠিক?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৩-১৯৯৪",
+          "university": "mat",
+          "year": "1994",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "203307",
+          "type": "mcq",
+          "question": "কোনটি সঠিক?",
+          "question_bn": "কোনটি সঠিক?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৩-১৯৯৪",
+          "university": "mat",
+          "year": "1994",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "202942",
+          "type": "mcq",
+          "question": "কোনটি সঠিক নয়?",
+          "question_bn": "কোনটি সঠিক নয়?",
+          "options": [
+            {
+              "id": "A",
+              "text": "গতীয় ঘর্ষণ গুণাঙ্কের কোন একক নাই",
+              "text_bn": "গতীয় ঘর্ষণ গুণাঙ্কের কোন একক নাই",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "সমোষ্ণ পরিবর্তনের তুলনায় রুদ্ধতাপ পরিবর্তনে P বনাম V লেখের ঢাল অপেক্ষাকৃত বেশি",
+              "text_bn": "সমোষ্ণ পরিবর্তনের তুলনায় রুদ্ধতাপ পরিবর্তনে P বনাম V লেখের ঢাল অপেক্ষাকৃত বেশি",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "তড়িৎ চৌম্বক বল মৌলিক বলের একটি",
+              "text_bn": "তড়িৎ চৌম্বক বল মৌলিক বলের একটি",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "s=ut+12at2এই সমীকরণটি হতে সম-বেগে গতিশীল বস্তুর দূরত্ব করা যায়",
+              "text_bn": "s=ut+12at2এই সমীকরণটি হতে সম-বেগে গতিশীল বস্তুর দূরত্ব করা যায়",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "s=ut+12at2এই সমীকরণটি হতে সম-বেগে গতিশীল বস্তুর দূরত্ব করা যায়",
+          "source": "শিক্ষাবর্ষঃ ২০০১-২০০২",
+          "university": "mat",
+          "year": "2002",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "202951",
+          "type": "mcq",
+          "question": "কোনটি সত্য নয়?",
+          "question_bn": "কোনটি সত্য নয়?",
+          "options": [
+            {
+              "id": "A",
+              "text": "একটি তড়িৎচৌম্বক তরঙ্গ 25 MHz কম্পানাঙ্কসহ মুক্ত স্থানে z অক্ষ বরাবর সঞ্চালিত হচ্ছে। স্থানের কোন নির্দিষ্ট বিন্দুতে এর তড়িৎক্ষেত্রেE=5iVm-1হলে, ঐ বিন্দুতে চৌম্বকক্ষেত্র B এর মাণ হবে1.67",
+              "text_bn": "একটি তড়িৎচৌম্বক তরঙ্গ 25 MHz কম্পানাঙ্কসহ মুক্ত স্থানে z অক্ষ বরাবর সঞ্চালিত হচ্ছে। স্থানের কোন নির্দিষ্ট বিন্দুতে এর তড়িৎক্ষেত্রেE=5iVm-1হলে, ঐ বিন্দুতে চৌম্বকক্ষেত্র B এর মাণ হবে1.67",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "একটি উত্তল লেন্সে লক্ষ্যবস্তুর অবস্থান f ও 2f এর মধ্যে থাকলে বিম্বের প্রকৃতি হবে অবাস্তব ও সোজা",
+              "text_bn": "একটি উত্তল লেন্সে লক্ষ্যবস্তুর অবস্থান f ও 2f এর মধ্যে থাকলে বিম্বের প্রকৃতি হবে অবাস্তব ও সোজা",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "কোন স্থানে ভূ-চৌম্বক ক্ষেত্রে মান40×1o-5Tএবং বিনতি60o। ঐ স্থানে ভূ-চৌম্বক ক্ষেত্রের অনুভূমিক উপাংশের মান হবে2×1o-5T",
+              "text_bn": "কোন স্থানে ভূ-চৌম্বক ক্ষেত্রে মান40×1o-5Tএবং বিনতি60o। ঐ স্থানে ভূ-চৌম্বক ক্ষেত্রের অনুভূমিক উপাংশের মান হবে2×1o-5T",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "18cm ফোকাস দূরত্বের একটি উত্তল দর্পণ এর অক্ষের উপর দর্পণ থেকে 6cm দূরে একটি বিম্ব গঠন করে। লক্ষ্যবস্তুর অবস্থানের দূরত্ব হবে 9cm",
+              "text_bn": "18cm ফোকাস দূরত্বের একটি উত্তল দর্পণ এর অক্ষের উপর দর্পণ থেকে 6cm দূরে একটি বিম্ব গঠন করে। লক্ষ্যবস্তুর অবস্থানের দূরত্ব হবে 9cm",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "একটি উত্তল লেন্সে লক্ষ্যবস্তুর অবস্থান f ও 2f এর মধ্যে থাকলে বিম্বের প্রকৃতি হবে অবাস্তব ও সোজা",
+          "source": "শিক্ষাবর্ষঃ ২০০১-২০০২",
+          "university": "mat",
+          "year": "2002",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "202952",
+          "type": "mcq",
+          "question": "কোনটি সত্য নয়?",
+          "question_bn": "কোনটি সত্য নয়?",
+          "options": [
+            {
+              "id": "A",
+              "text": "যদি কোন তলের ক্ষেত্রফল A হয় এবং এর উপর লম্বভাবে ক্রিয়াশীল বল F হয়, তবে পীড়ন হবেAF",
+              "text_bn": "যদি কোন তলের ক্ষেত্রফল A হয় এবং এর উপর লম্বভাবে ক্রিয়াশীল বল F হয়, তবে পীড়ন হবেAF",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "সেলসিয়াস ও র‌্যাঙ্কন উভয় স্কেলের মৌলিক ব্যবধানের ভাগ সংখ্যা ১৮০",
+              "text_bn": "সেলসিয়াস ও র‌্যাঙ্কন উভয় স্কেলের মৌলিক ব্যবধানের ভাগ সংখ্যা ১৮০",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "যে কণার পারস্পরিক বিনিময়ের মাধ্যমে দুইটি নিউক্লিয়নের মধ্যে নিউক্লীয় বল কার্যকর হয় সেই কণাগুলি মেসন নামে অভিহিত",
+              "text_bn": "যে কণার পারস্পরিক বিনিময়ের মাধ্যমে দুইটি নিউক্লিয়নের মধ্যে নিউক্লীয় বল কার্যকর হয় সেই কণাগুলি মেসন নামে অভিহিত",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "একটি বল 4 kg ভরে বিশিষ্ট একটি স্থির বস্তুর উপর ক্রিয়া করে। এর ফলে যদি বস্তুটি ৬ সেকেন্ডে 30 m/sec বেগ প্রাপ্ত হয় তাহলে বলের মান হবে 20N",
+              "text_bn": "একটি বল 4 kg ভরে বিশিষ্ট একটি স্থির বস্তুর উপর ক্রিয়া করে। এর ফলে যদি বস্তুটি ৬ সেকেন্ডে 30 m/sec বেগ প্রাপ্ত হয় তাহলে বলের মান হবে 20N",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "যদি কোন তলের ক্ষেত্রফল A হয় এবং এর উপর লম্বভাবে ক্রিয়াশীল বল F হয়, তবে পীড়ন হবেAF",
+          "source": "শিক্ষাবর্ষঃ ২০০১-২০০২",
+          "university": "mat",
+          "year": "2002",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "202942",
+          "type": "mcq",
+          "question": "কোনটি সঠিক নয়?",
+          "question_bn": "কোনটি সঠিক নয়?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০১-২০০২",
+          "university": "mat",
+          "year": "2002",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "202951",
+          "type": "mcq",
+          "question": "কোনটি সত্য নয়?",
+          "question_bn": "কোনটি সত্য নয়?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০১-২০০২",
+          "university": "mat",
+          "year": "2002",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "202952",
+          "type": "mcq",
+          "question": "কোনটি সত্য নয়?",
+          "question_bn": "কোনটি সত্য নয়?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০১-২০০২",
+          "university": "mat",
+          "year": "2002",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "203713",
+          "type": "mcq",
+          "question": "প্রভাবক উদ্দীপক-",
+          "question_bn": "প্রভাবক উদ্দীপক-",
+          "options": [
+            {
+              "id": "A",
+              "text": "প্রভাবকের কার্যকারিতা বৃদ্ধি করে",
+              "text_bn": "প্রভাবকের কার্যকারিতা বৃদ্ধি করে",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "প্রভাবকের কার্যকারিতা হ্রাস করে",
+              "text_bn": "প্রভাবকের কার্যকারিতা হ্রাস করে",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "প্রভাবকের অনুপস্থিতিতে বিক্রিয়ার গতি বৃদ্ধি করে",
+              "text_bn": "প্রভাবকের অনুপস্থিতিতে বিক্রিয়ার গতি বৃদ্ধি করে",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "কোনোটিই নয়",
+              "text_bn": "কোনোটিই নয়",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "প্রভাবকের কার্যকারিতা বৃদ্ধি করে",
+          "source": "শিক্ষাবর্ষঃ ১৯৯৬-১৯৯৭",
+          "university": "mat",
+          "year": "1997",
+          "subject_tag": "গতিবিদ্যা",
+          "has_image": false
+        }
+      ]
+    },
+    {
+      "lesson_id": "bio-gen-01",
+      "lesson_title": "DNA Structure & Replication",
+      "lesson_title_bn": "DNA গঠন ও প্রতিলিপি",
+      "unit_id": "bio-genetics",
+      "unit_title": "Genetics & Molecular Biology",
+      "unit_title_bn": "জিনতত্ত্ব ও আণবিক জীববিজ্ঞান",
+      "subject": "biology",
+      "subject_title_bn": "জীববিজ্ঞান",
+      "difficulty": "easy",
+      "exercise_count": 15,
+      "xp_reward": 20,
+      "estimated_minutes": 15,
+      "concepts": [
+        "A-T",
+        "G-C"
+      ],
+      "exercises": [
+        {
+          "id": "153889",
+          "type": "mcq",
+          "question": "মাস্টার মলিকিউল-",
+          "question_bn": "মাস্টার মলিকিউল-",
+          "options": [
+            {
+              "id": "A",
+              "text": "RNA",
+              "text_bn": "RNA",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "DNA",
+              "text_bn": "DNA",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "microRNA",
+              "text_bn": "microRNA",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "siRNA",
+              "text_bn": "siRNA",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "DNA",
+          "source": "D ইউনিট",
+          "university": "islamic-university",
+          "year": "2016",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "153889",
+          "type": "mcq",
+          "question": "মাস্টার মলিকিউল-",
+          "question_bn": "মাস্টার মলিকিউল-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "D ইউনিট",
+          "university": "islamic-university",
+          "year": "2016",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "142237",
+          "type": "mcq",
+          "question": "DNA  তে থাকে না-",
+          "question_bn": "DNA  তে থাকে না-",
+          "options": [
+            {
+              "id": "A",
+              "text": "এডেনিন",
+              "text_bn": "এডেনিন",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "গুয়ানিন",
+              "text_bn": "গুয়ানিন",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "থাইমিন",
+              "text_bn": "থাইমিন",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "ইউরাসিল",
+              "text_bn": "ইউরাসিল",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "ইউরাসিল",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2013",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "142237",
+          "type": "mcq",
+          "question": "DNA  তে থাকে না-",
+          "question_bn": "DNA  তে থাকে না-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2013",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "154613",
+          "type": "mcq",
+          "question": "পিউরিন বেস কোনগুলি?",
+          "question_bn": "পিউরিন বেস কোনগুলি?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Adenine, Cytosine",
+              "text_bn": "Adenine, Cytosine",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "Adenine, Guanine",
+              "text_bn": "Adenine, Guanine",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "Cytosine, Guanine",
+              "text_bn": "Cytosine, Guanine",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "Cytosine, Adenine",
+              "text_bn": "Cytosine, Adenine",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "Adenine, Guanine",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট (বিজ্ঞান ও প্রযুক্তি) শিক্ষাবর্ষ : ২০০৬-২০০৭",
+          "university": "islamic-university",
+          "year": "2007",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "154613",
+          "type": "mcq",
+          "question": "পিউরিন বেস কোনগুলি?",
+          "question_bn": "পিউরিন বেস কোনগুলি?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট (বিজ্ঞান ও প্রযুক্তি) শিক্ষাবর্ষ : ২০০৬-২০০৭",
+          "university": "islamic-university",
+          "year": "2007",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "204298",
+          "type": "mcq",
+          "question": "যে উপাদানে DNA বিদ্যমান-",
+          "question_bn": "যে উপাদানে DNA বিদ্যমান-",
+          "options": [
+            {
+              "id": "A",
+              "text": "সাইটোপ্লাজম",
+              "text_bn": "সাইটোপ্লাজম",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "নিউক্লিয়াস",
+              "text_bn": "নিউক্লিয়াস",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "কোষ আবরণী",
+              "text_bn": "কোষ আবরণী",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "মাইটোকন্ড্রিয়া",
+              "text_bn": "মাইটোকন্ড্রিয়া",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "মাইটোকন্ড্রিয়া",
+          "source": "শিক্ষাবর্ষঃ ১৯৮৯-১৯৯০",
+          "university": "mat",
+          "year": "1990",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "204298",
+          "type": "mcq",
+          "question": "যে উপাদানে DNA বিদ্যমান-",
+          "question_bn": "যে উপাদানে DNA বিদ্যমান-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ১৯৮৯-১৯৯০",
+          "university": "mat",
+          "year": "1990",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "154541",
+          "type": "mcq",
+          "question": "DNA Virus নয় নিম্নের কোনটি?",
+          "question_bn": "DNA Virus নয় নিম্নের কোনটি?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Meales Virus",
+              "text_bn": "Meales Virus",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "Adeno Virus",
+              "text_bn": "Adeno Virus",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "Influenza Virus",
+              "text_bn": "Influenza Virus",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "Vaccinia Virus",
+              "text_bn": "Vaccinia Virus",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "Influenza Virus",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট (বিজ্ঞান ও প্রযুক্তি) শিক্ষাবর্ষ : ২০০৭-২০০৮",
+          "university": "islamic-university",
+          "year": "2008",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "154541",
+          "type": "mcq",
+          "question": "DNA Virus নয় নিম্নের কোনটি?",
+          "question_bn": "DNA Virus নয় নিম্নের কোনটি?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট (বিজ্ঞান ও প্রযুক্তি) শিক্ষাবর্ষ : ২০০৭-২০০৮",
+          "university": "islamic-university",
+          "year": "2008",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "142244",
+          "type": "mcq",
+          "question": "ইনসুলিন আবিষ্কৃত হয় কোন সালে?",
+          "question_bn": "ইনসুলিন আবিষ্কৃত হয় কোন সালে?",
+          "options": [
+            {
+              "id": "A",
+              "text": "১৯৮০",
+              "text_bn": "১৯৮০",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "১৯১৬",
+              "text_bn": "১৯১৬",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "১৯৪৮",
+              "text_bn": "১৯৪৮",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "১৯৯৯",
+              "text_bn": "১৯৯৯",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "১৯১৬",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2013",
+          "subject_tag": "রিকম্বিনেন্ট DNA প্রযুক্তির প্রয়োগ",
+          "has_image": false
+        },
+        {
+          "id": "142244",
+          "type": "mcq",
+          "question": "ইনসুলিন আবিষ্কৃত হয় কোন সালে?",
+          "question_bn": "ইনসুলিন আবিষ্কৃত হয় কোন সালে?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2013",
+          "subject_tag": "রিকম্বিনেন্ট DNA প্রযুক্তির প্রয়োগ",
+          "has_image": false
+        },
+        {
+          "id": "207397",
+          "type": "mcq",
+          "question": "কোনটির নিজস্ব বৃওাকার DNA আছে?",
+          "question_bn": "কোনটির নিজস্ব বৃওাকার DNA আছে?",
+          "options": [
+            {
+              "id": "A",
+              "text": "লাইসোসোম",
+              "text_bn": "লাইসোসোম",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "সেন্ট্রিওল",
+              "text_bn": "সেন্ট্রিওল",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "মাইটোকন্ড্রিয়া",
+              "text_bn": "মাইটোকন্ড্রিয়া",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "ক্লোরোপ্লাস্ট",
+              "text_bn": "ক্লোরোপ্লাস্ট",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "ক্লোরোপ্লাস্ট",
+          "source": "B ইউনিট",
+          "university": "mbstu",
+          "year": "2016",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "207397",
+          "type": "mcq",
+          "question": "কোনটির নিজস্ব বৃওাকার DNA আছে?",
+          "question_bn": "কোনটির নিজস্ব বৃওাকার DNA আছে?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "B ইউনিট",
+          "university": "mbstu",
+          "year": "2016",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        },
+        {
+          "id": "234433",
+          "type": "mcq",
+          "question": "নিম্নের কোনটিতে DNA অনুপস্থিত?",
+          "question_bn": "নিম্নের কোনটিতে DNA অনুপস্থিত?",
+          "options": [
+            {
+              "id": "A",
+              "text": "লাইসোসোম",
+              "text_bn": "লাইসোসোম",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "ক্লোরোপ্লাস্ট",
+              "text_bn": "ক্লোরোপ্লাস্ট",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "মাইটোকন্ড্রিয়া",
+              "text_bn": "মাইটোকন্ড্রিয়া",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "নিউক্লিয়াস",
+              "text_bn": "নিউক্লিয়াস",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "লাইসোসোম",
+          "source": "শিক্ষাবর্ষঃ ২০১৬-২০১৭",
+          "university": "shere-bangla-agricultural-university",
+          "year": "2016",
+          "subject_tag": "DNA এর গঠন ও কাজ",
+          "has_image": false
+        }
+      ]
+    },
+    {
+      "lesson_id": "phy-mech-04",
+      "lesson_title": "Kinematics: 2D & Projectile",
+      "lesson_title_bn": "প্রক্ষেপ গতি",
+      "unit_id": "phy-mechanics",
+      "unit_title": "Mechanics",
+      "unit_title_bn": "বলবিদ্যা",
+      "subject": "physics",
+      "subject_title_bn": "পদার্থবিজ্ঞান",
+      "difficulty": "easy",
+      "exercise_count": 15,
+      "xp_reward": 20,
+      "estimated_minutes": 15,
+      "concepts": [
+        "projectile",
+        "range formula"
+      ],
+      "exercises": [
+        {
+          "id": "89103",
+          "type": "mcq",
+          "question": "যদি x",
+          "question_bn": "যদি x",
+          "options": [
+            {
+              "id": "A",
+              "text": "x+y",
+              "text_bn": "x+y",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "x+y=xy",
+              "text_bn": "x+y=xy",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "x+y>xy",
+              "text_bn": "x+y>xy",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "x+y≥xy",
+              "text_bn": "x+y≥xy",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "x+y",
+          "source": "বেগম রোকেয়া বিশ্ববিদ্যালয় — E ইউনিট (প্রকৌশল ও প্রযুক্তি)- শিক্ষাবর্ষ: ২০১৪-১৫",
+          "university": "begum-rokeya-university",
+          "year": "2015",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "89103",
+          "type": "mcq",
+          "question": "যদি x",
+          "question_bn": "যদি x",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "বেগম রোকেয়া বিশ্ববিদ্যালয় — E ইউনিট (প্রকৌশল ও প্রযুক্তি)- শিক্ষাবর্ষ: ২০১৪-১৫",
+          "university": "begum-rokeya-university",
+          "year": "2015",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "94338",
+          "type": "mcq",
+          "question": "∫xxdx=",
+          "question_bn": "∫xxdx=",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০১৩-২০১৪",
+          "university": "bsmrau",
+          "year": "2013",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "94342",
+          "type": "mcq",
+          "question": "ddxx3=?",
+          "question_bn": "ddxx3=?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০১৩-২০১৪",
+          "university": "bsmrau",
+          "year": "2013",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "94340",
+          "type": "mcq",
+          "question": "10P2=কত?",
+          "question_bn": "10P2=কত?",
+          "options": [
+            {
+              "id": "A",
+              "text": "70",
+              "text_bn": "70",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "80",
+              "text_bn": "80",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "90",
+              "text_bn": "90",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "100",
+              "text_bn": "100",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "90",
+          "source": "শিক্ষাবর্ষঃ ২০১৩-২০১৪",
+          "university": "bsmrau",
+          "year": "2013",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "94342",
+          "type": "mcq",
+          "question": "ddx3√x=?",
+          "question_bn": "ddx3√x=?",
+          "options": [
+            {
+              "id": "A",
+              "text": "131√x3",
+              "text_bn": "131√x3",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "141√x3",
+              "text_bn": "141√x3",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "1313√x",
+              "text_bn": "1313√x",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "None",
+              "text_bn": "None",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "None",
+          "source": "শিক্ষাবর্ষঃ ২০১৩-২০১৪",
+          "university": "bsmrau",
+          "year": "2013",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "94340",
+          "type": "mcq",
+          "question": "10P2=কত?",
+          "question_bn": "10P2=কত?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০১৩-২০১৪",
+          "university": "bsmrau",
+          "year": "2013",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "94338",
+          "type": "mcq",
+          "question": "∫xxdx=কত?",
+          "question_bn": "∫xxdx=কত?",
+          "options": [
+            {
+              "id": "A",
+              "text": "1nxn",
+              "text_bn": "1nxn",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "xn+1",
+              "text_bn": "xn+1",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "1n+xxn",
+              "text_bn": "1n+xxn",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "1n+1xn+1",
+              "text_bn": "1n+1xn+1",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "1n+1xn+1",
+          "source": "শিক্ষাবর্ষঃ ২০১৩-২০১৪",
+          "university": "bsmrau",
+          "year": "2013",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "231237",
+          "type": "mcq",
+          "question": "limx→∞(x1+x)x=?",
+          "question_bn": "limx→∞(x1+x)x=?",
+          "options": [
+            {
+              "id": "A",
+              "text": "-∞",
+              "text_bn": "-∞",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "-1",
+              "text_bn": "-1",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "e-1",
+              "text_bn": "e-1",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "e",
+              "text_bn": "e",
+              "isCorrect": false
+            },
+            {
+              "id": "E",
+              "text": "1",
+              "text_bn": "1",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "e-1",
+          "source": "শিক্ষাবর্ষঃ ২০১০-২০১১",
+          "university": "ruet",
+          "year": "2010",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "231237",
+          "type": "mcq",
+          "question": "limx→∞(x1+x)x=?",
+          "question_bn": "limx→∞(x1+x)x=?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০১০-২০১১",
+          "university": "ruet",
+          "year": "2010",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "231415",
+          "type": "mcq",
+          "question": "Ltx→010-2x-10-3xx=?",
+          "question_bn": "Ltx→010-2x-10-3xx=?",
+          "options": [
+            {
+              "id": "A",
+              "text": "log10",
+              "text_bn": "log10",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "-log10",
+              "text_bn": "-log10",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "loge10",
+              "text_bn": "loge10",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "-loge10",
+              "text_bn": "-loge10",
+              "isCorrect": false
+            },
+            {
+              "id": "E",
+              "text": "None",
+              "text_bn": "None",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "loge10",
+          "source": "শিক্ষাবর্ষঃ ২০০৯-২০১০",
+          "university": "ruet",
+          "year": "2010",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "231415",
+          "type": "mcq",
+          "question": "Ltx→010-2x-10-3xx=?",
+          "question_bn": "Ltx→010-2x-10-3xx=?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০৯-২০১০",
+          "university": "ruet",
+          "year": "2010",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "89455",
+          "type": "mcq",
+          "question": "y=√x+1√xহলে,2xdydx+y=?",
+          "question_bn": "y=√x+1√xহলে,2xdydx+y=?",
+          "options": [
+            {
+              "id": "A",
+              "text": "√x",
+              "text_bn": "√x",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "2√x",
+              "text_bn": "2√x",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "12√x",
+              "text_bn": "12√x",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "2√x",
+              "text_bn": "2√x",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "2√x",
+          "source": "বেগম রোকেয়া বিশ্ববিদ্যালয় — E ইউনিট (প্রকৌশল ও প্রযুক্তি)- শিক্ষাবর্ষ: ২০১৬-১৭",
+          "university": "begum-rokeya-university",
+          "year": "2016",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "89455",
+          "type": "mcq",
+          "question": "y=√x+1√xহলে,2xdydx+y=?",
+          "question_bn": "y=√x+1√xহলে,2xdydx+y=?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "বেগম রোকেয়া বিশ্ববিদ্যালয় — E ইউনিট (প্রকৌশল ও প্রযুক্তি)- শিক্ষাবর্ষ: ২০১৬-১৭",
+          "university": "begum-rokeya-university",
+          "year": "2016",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        },
+        {
+          "id": "200109",
+          "type": "mcq",
+          "question": "মান নির্ণয় করঃ∫13dx1+x2",
+          "question_bn": "মান নির্ণয় করঃ∫13dx1+x2",
+          "options": [
+            {
+              "id": "A",
+              "text": "π4",
+              "text_bn": "π4",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "π5",
+              "text_bn": "π5",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "π6",
+              "text_bn": "π6",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "π12",
+              "text_bn": "π12",
+              "isCorrect": true
+            },
+            {
+              "id": "E",
+              "text": "π3",
+              "text_bn": "π3",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "π12",
+          "source": "শিক্ষাবর্ষঃ ২০০৬-২০০৭",
+          "university": "kuet",
+          "year": "2006",
+          "subject_tag": "সমতলে বস্তুকণার গতি (Motion of particles in a plane)",
+          "has_image": false
+        }
+      ]
+    },
+    {
+      "lesson_id": "bio-gen-03",
+      "lesson_title": "Mendelian Genetics",
+      "lesson_title_bn": "মেন্ডেলের জিনতত্ত্ব",
+      "unit_id": "bio-genetics",
+      "unit_title": "Genetics & Molecular Biology",
+      "unit_title_bn": "জিনতত্ত্ব ও আণবিক জীববিজ্ঞান",
+      "subject": "biology",
+      "subject_title_bn": "জীববিজ্ঞান",
+      "difficulty": "easy",
+      "exercise_count": 12,
+      "xp_reward": 20,
+      "estimated_minutes": 12,
+      "concepts": [
+        "3:1 ratio",
+        "Punnett"
+      ],
+      "exercises": [
+        {
+          "id": "234821",
+          "type": "mcq",
+          "question": "জেনেটিক কোড ক আবিষ্কার করেন?",
+          "question_bn": "জেনেটিক কোড ক আবিষ্কার করেন?",
+          "options": [
+            {
+              "id": "A",
+              "text": "সলিম আলী",
+              "text_bn": "সলিম আলী",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "হরগোবিন্দ খোরানা",
+              "text_bn": "হরগোবিন্দ খোরানা",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "ওয়াটসন ও ক্রীক",
+              "text_bn": "ওয়াটসন ও ক্রীক",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "মেন্ডেল",
+              "text_bn": "মেন্ডেল",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "হরগোবিন্দ খোরানা",
+          "source": "শিক্ষাবর্ষঃ ২০১৩-২০১৪",
+          "university": "shere-bangla-agricultural-university",
+          "year": "2013",
+          "subject_tag": "জেনেটিক কোড এর বৈশিষ্ট্য",
+          "has_image": false
+        },
+        {
+          "id": "234821",
+          "type": "mcq",
+          "question": "জেনেটিক কোড ক আবিষ্কার করেন?",
+          "question_bn": "জেনেটিক কোড ক আবিষ্কার করেন?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০১৩-২০১৪",
+          "university": "shere-bangla-agricultural-university",
+          "year": "2013",
+          "subject_tag": "জেনেটিক কোড এর বৈশিষ্ট্য",
+          "has_image": false
+        },
+        {
+          "id": "154608",
+          "type": "mcq",
+          "question": "জিন প্রকৌশল পদ্ধতিতে কোনটির চিকিৎসা করা হয়?",
+          "question_bn": "জিন প্রকৌশল পদ্ধতিতে কোনটির চিকিৎসা করা হয়?",
+          "options": [
+            {
+              "id": "A",
+              "text": "বর্ণান্ধতা",
+              "text_bn": "বর্ণান্ধতা",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "টারনারস সিড্রোম",
+              "text_bn": "টারনারস সিড্রোম",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "লিউকেমিয়া",
+              "text_bn": "লিউকেমিয়া",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "উপরের সব কয়টি",
+              "text_bn": "উপরের সব কয়টি",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "উপরের সব কয়টি",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট (বিজ্ঞান ও প্রযুক্তি) শিক্ষাবর্ষ : ২০০৬-২০০৭",
+          "university": "islamic-university",
+          "year": "2007",
+          "subject_tag": "জেনেটিক ইঞ্জিনিয়ারিং এর প্রক্রিয়া",
+          "has_image": false
+        },
+        {
+          "id": "154608",
+          "type": "mcq",
+          "question": "জিন প্রকৌশল পদ্ধতিতে কোনটির চিকিৎসা করা হয়?",
+          "question_bn": "জিন প্রকৌশল পদ্ধতিতে কোনটির চিকিৎসা করা হয়?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট (বিজ্ঞান ও প্রযুক্তি) শিক্ষাবর্ষ : ২০০৬-২০০৭",
+          "university": "islamic-university",
+          "year": "2007",
+          "subject_tag": "জেনেটিক ইঞ্জিনিয়ারিং এর প্রক্রিয়া",
+          "has_image": false
+        },
+        {
+          "id": "85611",
+          "type": "mcq",
+          "question": "DNA  অনুতে কোডন কয়টি নিউক্লিয়োটাইট দিয়ে গঠিত ?",
+          "question_bn": "DNA  অনুতে কোডন কয়টি নিউক্লিয়োটাইট দিয়ে গঠিত ?",
+          "options": [
+            {
+              "id": "A",
+              "text": "2",
+              "text_bn": "2",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "3",
+              "text_bn": "3",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "4",
+              "text_bn": "4",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "5",
+              "text_bn": "5",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "3",
+          "source": "শিক্ষাবর্ষঃ ২০১৭-২০১৮",
+          "university": "bangladesh-agricultural-university",
+          "year": "2017",
+          "subject_tag": "জেনেটিক কোড এর বৈশিষ্ট্য",
+          "has_image": false
+        },
+        {
+          "id": "85611",
+          "type": "mcq",
+          "question": "DNA  অনুতে কোডন কয়টি নিউক্লিয়োটাইট দিয়ে গঠিত ?",
+          "question_bn": "DNA  অনুতে কোডন কয়টি নিউক্লিয়োটাইট দিয়ে গঠিত ?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০১৭-২০১৮",
+          "university": "bangladesh-agricultural-university",
+          "year": "2017",
+          "subject_tag": "জেনেটিক কোড এর বৈশিষ্ট্য",
+          "has_image": false
+        },
+        {
+          "id": "234438",
+          "type": "mcq",
+          "question": "ট্রান্সজেনিক উদ্ভিদ তৈরিতে কোনটি বাহক হিসেবে কাজ করে?",
+          "question_bn": "ট্রান্সজেনিক উদ্ভিদ তৈরিতে কোনটি বাহক হিসেবে কাজ করে?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Plasmodium",
+              "text_bn": "Plasmodium",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "Penicilium",
+              "text_bn": "Penicilium",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "Vibrio",
+              "text_bn": "Vibrio",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "Agrobacterium",
+              "text_bn": "Agrobacterium",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "Agrobacterium",
+          "source": "শিক্ষাবর্ষঃ ২০১৬-২০১৭",
+          "university": "shere-bangla-agricultural-university",
+          "year": "2016",
+          "subject_tag": "জেনেটিক ইঞ্জিনিয়ারিং এর প্রক্রিয়া",
+          "has_image": false
+        },
+        {
+          "id": "234438",
+          "type": "mcq",
+          "question": "ট্রান্সজেনিক উদ্ভিদ তৈরিতে কোনটি বাহক হিসেবে কাজ করে?",
+          "question_bn": "ট্রান্সজেনিক উদ্ভিদ তৈরিতে কোনটি বাহক হিসেবে কাজ করে?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০১৬-২০১৭",
+          "university": "shere-bangla-agricultural-university",
+          "year": "2016",
+          "subject_tag": "জেনেটিক ইঞ্জিনিয়ারিং এর প্রক্রিয়া",
+          "has_image": false
+        },
+        {
+          "id": "142246",
+          "type": "mcq",
+          "question": "বীজহীন ফল সৃষ্টি করা সম্ভব হয়েছে কোন প্রযুক্তির মাধ্যমে?",
+          "question_bn": "বীজহীন ফল সৃষ্টি করা সম্ভব হয়েছে কোন প্রযুক্তির মাধ্যমে?",
+          "options": [
+            {
+              "id": "A",
+              "text": "জৈব প্রযুক্তির মাধ্যমে",
+              "text_bn": "জৈব প্রযুক্তির মাধ্যমে",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "জেনেটিক  ইঞ্জিনিয়ারিং এর মাধ্যমে",
+              "text_bn": "জেনেটিক  ইঞ্জিনিয়ারিং এর মাধ্যমে",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "কৃত্রিম প্রজননের মাধ্যমে",
+              "text_bn": "কৃত্রিম প্রজননের মাধ্যমে",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "টিস্যু কালচারের মাধ্যমে",
+              "text_bn": "টিস্যু কালচারের মাধ্যমে",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "জেনেটিক  ইঞ্জিনিয়ারিং এর মাধ্যমে",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2013",
+          "subject_tag": "জেনেটিক ইঞ্জিনিয়ারিং এর প্রক্রিয়া",
+          "has_image": false
+        },
+        {
+          "id": "142246",
+          "type": "mcq",
+          "question": "বীজহীন ফল সৃষ্টি করা সম্ভব হয়েছে কোন প্রযুক্তির মাধ্যমে?",
+          "question_bn": "বীজহীন ফল সৃষ্টি করা সম্ভব হয়েছে কোন প্রযুক্তির মাধ্যমে?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2013",
+          "subject_tag": "জেনেটিক ইঞ্জিনিয়ারিং এর প্রক্রিয়া",
+          "has_image": false
+        },
+        {
+          "id": "84884",
+          "type": "mcq",
+          "question": "একই গাছে বিভিন্ন বর্ণের ফুল ফুটাবার কাজে কোন জিনিসটি ব্যবহার করা হয়?",
+          "question_bn": "একই গাছে বিভিন্ন বর্ণের ফুল ফুটাবার কাজে কোন জিনিসটি ব্যবহার করা হয়?",
+          "options": [
+            {
+              "id": "A",
+              "text": "radio isotope",
+              "text_bn": "radio isotope",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "isomer",
+              "text_bn": "isomer",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "isotone",
+              "text_bn": "isotone",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "isobar",
+              "text_bn": "isobar",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "radio isotope",
+          "source": "শিক্ষাবর্ষঃ ২০০৯-২০১০",
+          "university": "bangladesh-agricultural-university",
+          "year": "2009",
+          "subject_tag": "জেনেটিক ইঞ্জিনিয়ারিং এর প্রক্রিয়া",
+          "has_image": false
+        },
+        {
+          "id": "84884",
+          "type": "mcq",
+          "question": "একই গাছে বিভিন্ন বর্ণের ফুল ফুটাবার কাজে কোন জিনিসটি ব্যবহার করা হয়?",
+          "question_bn": "একই গাছে বিভিন্ন বর্ণের ফুল ফুটাবার কাজে কোন জিনিসটি ব্যবহার করা হয়?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০৯-২০১০",
+          "university": "bangladesh-agricultural-university",
+          "year": "2009",
+          "subject_tag": "জেনেটিক ইঞ্জিনিয়ারিং এর প্রক্রিয়া",
+          "has_image": false
+        }
+      ]
+    },
+    {
+      "lesson_id": "phy-mech-05",
+      "lesson_title": "Newton's Laws",
+      "lesson_title_bn": "নিউটনের সূত্রসমূহ",
+      "unit_id": "phy-mechanics",
+      "unit_title": "Mechanics",
+      "unit_title_bn": "বলবিদ্যা",
+      "subject": "physics",
+      "subject_title_bn": "পদার্থবিজ্ঞান",
+      "difficulty": "easy",
+      "exercise_count": 15,
+      "xp_reward": 20,
+      "estimated_minutes": 15,
+      "concepts": [
+        "F=ma",
+        "friction",
+        "FBD"
+      ],
+      "exercises": [
+        {
+          "id": "154241",
+          "type": "mcq",
+          "question": "f-ব্লক মৌল-",
+          "question_bn": "f-ব্লক মৌল-",
+          "options": [
+            {
+              "id": "A",
+              "text": "Ni",
+              "text_bn": "Ni",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "Pr",
+              "text_bn": "Pr",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "Ra",
+              "text_bn": "Ra",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "W",
+              "text_bn": "W",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "Pr",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট শিক্ষাবর্ষ : ২০১১ - ২০১২",
+          "university": "islamic-university",
+          "year": "2012",
+          "subject_tag": "বিভিন্ন ব্লকের মৌলের সাধারণ ধর্মাবলি",
+          "has_image": false
+        },
+        {
+          "id": "154241",
+          "type": "mcq",
+          "question": "f-ব্লক মৌল-",
+          "question_bn": "f-ব্লক মৌল-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট শিক্ষাবর্ষ : ২০১১ - ২০১২",
+          "university": "islamic-university",
+          "year": "2012",
+          "subject_tag": "বিভিন্ন ব্লকের মৌলের সাধারণ ধর্মাবলি",
+          "has_image": false
+        },
+        {
+          "id": "128007",
+          "type": "mcq",
+          "question": "‘সিডর’ এর অর্থ-",
+          "question_bn": "‘সিডর’ এর অর্থ-",
+          "options": [
+            {
+              "id": "A",
+              "text": "চক্ষু",
+              "text_bn": "চক্ষু",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "ঝড়",
+              "text_bn": "ঝড়",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "ঘূর্নিঝড়",
+              "text_bn": "ঘূর্নিঝড়",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "চক্ষু",
+          "source": "ঢাকা বিশ্ববিদ্যালয় - ঘ ইউনিট - শিক্ষাবর্ষ: (2010-2011)",
+          "university": "dhaka-university",
+          "year": "2010",
+          "subject_tag": "বাংলাদেশ বিষয়াবলী",
+          "has_image": false
+        },
+        {
+          "id": "128007",
+          "type": "mcq",
+          "question": "‘সিডর’ এর অর্থ-",
+          "question_bn": "‘সিডর’ এর অর্থ-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ঢাকা বিশ্ববিদ্যালয় - ঘ ইউনিট - শিক্ষাবর্ষ: (2010-2011)",
+          "university": "dhaka-university",
+          "year": "2010",
+          "subject_tag": "বাংলাদেশ বিষয়াবলী",
+          "has_image": false
+        },
+        {
+          "id": "178165",
+          "type": "mcq",
+          "question": "অসংরক্ষণশীল বল-",
+          "question_bn": "অসংরক্ষণশীল বল-",
+          "options": [
+            {
+              "id": "A",
+              "text": "সান্দ্র বল",
+              "text_bn": "সান্দ্র বল",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "তড়িৎবল",
+              "text_bn": "তড়িৎবল",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "মাধ্যাকর্ষণ বল",
+              "text_bn": "মাধ্যাকর্ষণ বল",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "সান্দ্র বল",
+          "source": "A ইউনিট",
+          "university": "jahangirnagar-university",
+          "year": "2012",
+          "subject_tag": "বল",
+          "has_image": false
+        },
+        {
+          "id": "178165",
+          "type": "mcq",
+          "question": "অসংরক্ষণশীল বল-",
+          "question_bn": "অসংরক্ষণশীল বল-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "A ইউনিট",
+          "university": "jahangirnagar-university",
+          "year": "2012",
+          "subject_tag": "বল",
+          "has_image": false
+        },
+        {
+          "id": "143160",
+          "type": "mcq",
+          "question": "তড়িৎ বলের একক -",
+          "question_bn": "তড়িৎ বলের একক -",
+          "options": [
+            {
+              "id": "A",
+              "text": "জুল",
+              "text_bn": "জুল",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "নিউটন",
+              "text_bn": "নিউটন",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "কুলম্ব/মিটার",
+              "text_bn": "কুলম্ব/মিটার",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "ভোল্ট",
+              "text_bn": "ভোল্ট",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "নিউটন",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2015",
+          "subject_tag": "বল",
+          "has_image": false
+        },
+        {
+          "id": "143160",
+          "type": "mcq",
+          "question": "তড়িৎ বলের একক -",
+          "question_bn": "তড়িৎ বলের একক -",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2015",
+          "subject_tag": "বল",
+          "has_image": false
+        },
+        {
+          "id": "544625",
+          "type": "mcq",
+          "question": "কোনটি টর্কের একক?",
+          "question_bn": "কোনটি টর্কের একক?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Dyne/cm",
+              "text_bn": "Dyne/cm",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "N/m",
+              "text_bn": "N/m",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "N/m-5",
+              "text_bn": "N/m-5",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "Nm",
+              "text_bn": "Nm",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "Nm",
+          "source": "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় - A ইউনিট (২য় শিফট) - শিক্ষাবর্ষ: ২০২৪-২০২৫ (05-05-2025)",
+          "university": "hstu",
+          "year": "2025",
+          "subject_tag": "নিউটনের বলবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "544625",
+          "type": "mcq",
+          "question": "কোনটি টর্কের একক?",
+          "question_bn": "কোনটি টর্কের একক?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "হাজী মোহাম্মদ দানেশ বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয় - A ইউনিট (২য় শিফট) - শিক্ষাবর্ষ: ২০২৪-২০২৫ (05-05-2025)",
+          "university": "hstu",
+          "year": "2025",
+          "subject_tag": "নিউটনের বলবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "541346",
+          "type": "mcq",
+          "question": "তাঁর পিঠে কী ছিলো?",
+          "question_bn": "তাঁর পিঠে কী ছিলো?",
+          "options": [
+            {
+              "id": "A",
+              "text": "পাহাড়ের ছিলা",
+              "text_bn": "পাহাড়ের ছিলা",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "রক্ত জবার মতো ক্ষত",
+              "text_bn": "রক্ত জবার মতো ক্ষত",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "রক্তাক্ত স্মৃতিচিহ্ন",
+              "text_bn": "রক্তাক্ত স্মৃতিচিহ্ন",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "জন্ম দাগ",
+              "text_bn": "জন্ম দাগ",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "রক্ত জবার মতো ক্ষত",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (অ-বিজ্ঞান) (গ্রুপ-৩) শিক্ষাবর্ষ : ২০২৪-২০২৫ (26-04-2025)",
+          "university": "rajshahi-university",
+          "year": "2025",
+          "subject_tag": "আমি কিংবদন্তির কথা বলছি",
+          "has_image": false
+        },
+        {
+          "id": "541346",
+          "type": "mcq",
+          "question": "তাঁর পিঠে কী ছিলো?",
+          "question_bn": "তাঁর পিঠে কী ছিলো?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (অ-বিজ্ঞান) (গ্রুপ-৩) শিক্ষাবর্ষ : ২০২৪-২০২৫ (26-04-2025)",
+          "university": "rajshahi-university",
+          "year": "2025",
+          "subject_tag": "আমি কিংবদন্তির কথা বলছি",
+          "has_image": false
+        },
+        {
+          "id": "534962",
+          "type": "mcq",
+          "question": "টর্কের মাত্রা কোনটি?",
+          "question_bn": "টর্কের মাত্রা কোনটি?",
+          "options": [
+            {
+              "id": "A",
+              "text": "[MLT-2]",
+              "text_bn": "[MLT-2]",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "[MLT-1]",
+              "text_bn": "[MLT-1]",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "[ML2T-1]",
+              "text_bn": "[ML2T-1]",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "[ML2T-2]",
+              "text_bn": "[ML2T-2]",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "[ML2T-2]",
+          "source": "জগন্নাথ বিশ্ববিদ্যালয়  —  A ইউনিট (বিজ্ঞান অনুষদ ও লাইফ এন্ড আর্থ সায়েন্স অনুষদ) ২০২৪-২৫  —  শিফট-২ (22-02-2025)",
+          "university": "jagannath-university",
+          "year": "2025",
+          "subject_tag": "নিউটনের বলবিদ্যা",
+          "has_image": false
+        },
+        {
+          "id": "98278",
+          "type": "mcq",
+          "question": "নিচের কোনটি বলের একক?",
+          "question_bn": "নিচের কোনটি বলের একক?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Nm",
+              "text_bn": "Nm",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "kgms-2",
+              "text_bn": "kgms-2",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "Nm-1",
+              "text_bn": "Nm-1",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "kgms-1",
+              "text_bn": "kgms-1",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "kgms-2",
+          "source": "ক ইউনিট",
+          "university": "barishal-university",
+          "year": "2013",
+          "subject_tag": "বল",
+          "has_image": false
+        },
+        {
+          "id": "98278",
+          "type": "mcq",
+          "question": "নিচের কোনটি বলের একক?",
+          "question_bn": "নিচের কোনটি বলের একক?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ক ইউনিট",
+          "university": "barishal-university",
+          "year": "2013",
+          "subject_tag": "বল",
+          "has_image": false
+        }
+      ]
+    },
+    {
+      "lesson_id": "bio-bot-01",
+      "lesson_title": "Photosynthesis",
+      "lesson_title_bn": "সালোকসংশ্লেষণ",
+      "unit_id": "bio-botany",
+      "unit_title": "Plant Biology",
+      "unit_title_bn": "উদ্ভিদবিজ্ঞান",
+      "subject": "biology",
+      "subject_title_bn": "জীববিজ্ঞান",
+      "difficulty": "easy",
+      "exercise_count": 15,
+      "xp_reward": 20,
+      "estimated_minutes": 15,
+      "concepts": [
+        "6CO₂+6H₂O→C₆H₁₂O₆+6O₂"
+      ],
+      "exercises": [
+        {
+          "id": "183939",
+          "type": "mcq",
+          "question": "রাইবোসোম-",
+          "question_bn": "রাইবোসোম-",
+          "options": [
+            {
+              "id": "A",
+              "text": "২ প্রকার",
+              "text_bn": "২ প্রকার",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "৩ প্রকার",
+              "text_bn": "৩ প্রকার",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "৫ প্রকার",
+              "text_bn": "৫ প্রকার",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "৭ প্রকার",
+              "text_bn": "৭ প্রকার",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "২ প্রকার",
+          "source": "ক- ইউনিট [পরিবেশ বিজ্ঞান বিভাগ]",
+          "university": "jahangirnagar-university",
+          "year": "2009",
+          "subject_tag": "উদ্ভিদ বিজ্ঞান",
+          "has_image": false
+        },
+        {
+          "id": "183939",
+          "type": "mcq",
+          "question": "রাইবোসোম-",
+          "question_bn": "রাইবোসোম-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ক- ইউনিট [পরিবেশ বিজ্ঞান বিভাগ]",
+          "university": "jahangirnagar-university",
+          "year": "2009",
+          "subject_tag": "উদ্ভিদ বিজ্ঞান",
+          "has_image": false
+        },
+        {
+          "id": "95551",
+          "type": "mcq",
+          "question": "অক্সিন কী?",
+          "question_bn": "অক্সিন কী?",
+          "options": [
+            {
+              "id": "A",
+              "text": "হরমোন",
+              "text_bn": "হরমোন",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "ভাইরাস",
+              "text_bn": "ভাইরাস",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "ব্যাকটেরিয়া",
+              "text_bn": "ব্যাকটেরিয়া",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "কোনটিই নয়",
+              "text_bn": "কোনটিই নয়",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "হরমোন",
+          "source": "C ইউনিট",
+          "university": "bsmrstu",
+          "year": "2012",
+          "subject_tag": "উদ্ভিদ শারীরতত্ত্ব (নবম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "95551",
+          "type": "mcq",
+          "question": "অক্সিন কী?",
+          "question_bn": "অক্সিন কী?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "C ইউনিট",
+          "university": "bsmrstu",
+          "year": "2012",
+          "subject_tag": "উদ্ভিদ শারীরতত্ত্ব (নবম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "183927",
+          "type": "mcq",
+          "question": "আদ্রে সিসালপিনো-",
+          "question_bn": "আদ্রে সিসালপিনো-",
+          "options": [
+            {
+              "id": "A",
+              "text": "প্রাচীন যুগের উদ্ভিদ বিজ্ঞানী",
+              "text_bn": "প্রাচীন যুগের উদ্ভিদ বিজ্ঞানী",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "জাতিজনি পদ্ধতি যুগের উদ্ভিদ বিজ্ঞানী",
+              "text_bn": "জাতিজনি পদ্ধতি যুগের উদ্ভিদ বিজ্ঞানী",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "লিনিয়াস যুগের উদ্ভিদ বিজ্ঞানী",
+              "text_bn": "লিনিয়াস যুগের উদ্ভিদ বিজ্ঞানী",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "মধ্যযুগের উদ্ভিদ বিজ্ঞানের",
+              "text_bn": "মধ্যযুগের উদ্ভিদ বিজ্ঞানের",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "মধ্যযুগের উদ্ভিদ বিজ্ঞানের",
+          "source": "ক- ইউনিট [পরিবেশ বিজ্ঞান বিভাগ]",
+          "university": "jahangirnagar-university",
+          "year": "2009",
+          "subject_tag": "উদ্ভিদ বিজ্ঞান",
+          "has_image": false
+        },
+        {
+          "id": "183927",
+          "type": "mcq",
+          "question": "আদ্রে সিসালপিনো-",
+          "question_bn": "আদ্রে সিসালপিনো-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ক- ইউনিট [পরিবেশ বিজ্ঞান বিভাগ]",
+          "university": "jahangirnagar-university",
+          "year": "2009",
+          "subject_tag": "উদ্ভিদ বিজ্ঞান",
+          "has_image": false
+        },
+        {
+          "id": "271595",
+          "type": "mcq",
+          "question": "এন্ডোস্পার্ম হলো-",
+          "question_bn": "এন্ডোস্পার্ম হলো-",
+          "options": [
+            {
+              "id": "A",
+              "text": "n",
+              "text_bn": "n",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "2n",
+              "text_bn": "2n",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "3n",
+              "text_bn": "3n",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "4n",
+              "text_bn": "4n",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "3n",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (বিজ্ঞান) (গ্রুপ-২) শিক্ষাবর্ষ : ২০২২-২০২৩ (29-05-2023)",
+          "university": "rajshahi-university",
+          "year": "2023",
+          "subject_tag": "উদ্ভিদ প্রজনন(দশম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "271595",
+          "type": "mcq",
+          "question": "এন্ডোস্পার্ম হলো-",
+          "question_bn": "এন্ডোস্পার্ম হলো-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "রাজশাহী বিশ্ববিদ্যালয় - C ইউনিট (বিজ্ঞান) (গ্রুপ-২) শিক্ষাবর্ষ : ২০২২-২০২৩ (29-05-2023)",
+          "university": "rajshahi-university",
+          "year": "2023",
+          "subject_tag": "উদ্ভিদ প্রজনন(দশম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "414661",
+          "type": "mcq",
+          "question": "কমলা কোন জাতীয় ফল?",
+          "question_bn": "কমলা কোন জাতীয় ফল?",
+          "options": [
+            {
+              "id": "A",
+              "text": "হেসপিরিডিয়াম",
+              "text_bn": "হেসপিরিডিয়াম",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "ড্রুপ",
+              "text_bn": "ড্রুপ",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "পেপো",
+              "text_bn": "পেপো",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "বেরি",
+              "text_bn": "বেরি",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "হেসপিরিডিয়াম",
+          "source": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় - D ইউনিট (জীববিজ্ঞান অনুষদ) শিক্ষাবর্ষ : ২০২২-২৩ (সেট : O)",
+          "university": "jahangirnagar-university",
+          "year": "2023",
+          "subject_tag": "উদ্ভিদ বিজ্ঞান",
+          "has_image": false
+        },
+        {
+          "id": "414661",
+          "type": "mcq",
+          "question": "কমলা কোন জাতীয় ফল?",
+          "question_bn": "কমলা কোন জাতীয় ফল?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় - D ইউনিট (জীববিজ্ঞান অনুষদ) শিক্ষাবর্ষ : ২০২২-২৩ (সেট : O)",
+          "university": "jahangirnagar-university",
+          "year": "2023",
+          "subject_tag": "উদ্ভিদ বিজ্ঞান",
+          "has_image": false
+        },
+        {
+          "id": "183928",
+          "type": "mcq",
+          "question": "পোলিও ভাইরাস হলো -",
+          "question_bn": "পোলিও ভাইরাস হলো -",
+          "options": [
+            {
+              "id": "A",
+              "text": "RNA ভাইরাস",
+              "text_bn": "RNA ভাইরাস",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "DNA ভাইরাস",
+              "text_bn": "DNA ভাইরাস",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "উদ্ভিদ ভাইরাস",
+              "text_bn": "উদ্ভিদ ভাইরাস",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "সবগুলো",
+              "text_bn": "সবগুলো",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "RNA ভাইরাস",
+          "source": "ক- ইউনিট [পরিবেশ বিজ্ঞান বিভাগ]",
+          "university": "jahangirnagar-university",
+          "year": "2009",
+          "subject_tag": "উদ্ভিদ বিজ্ঞান",
+          "has_image": false
+        },
+        {
+          "id": "183928",
+          "type": "mcq",
+          "question": "পোলিও ভাইরাস হলো -",
+          "question_bn": "পোলিও ভাইরাস হলো -",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ক- ইউনিট [পরিবেশ বিজ্ঞান বিভাগ]",
+          "university": "jahangirnagar-university",
+          "year": "2009",
+          "subject_tag": "উদ্ভিদ বিজ্ঞান",
+          "has_image": false
+        },
+        {
+          "id": "154481",
+          "type": "mcq",
+          "question": "একবীজ পত্রী উদ্ভিদ-",
+          "question_bn": "একবীজ পত্রী উদ্ভিদ-",
+          "options": [
+            {
+              "id": "A",
+              "text": "মূলা",
+              "text_bn": "মূলা",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "রসুন",
+              "text_bn": "রসুন",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "শালগম",
+              "text_bn": "শালগম",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "কাঁঠাল",
+              "text_bn": "কাঁঠাল",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "রসুন",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট শিক্ষাবর্ষ : ২০০৯-২০১০",
+          "university": "islamic-university",
+          "year": "2010",
+          "subject_tag": "নগ্নবীজী ও আবৃতবীজী উদ্ভিদ (সপ্তম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "154481",
+          "type": "mcq",
+          "question": "একবীজ পত্রী উদ্ভিদ-",
+          "question_bn": "একবীজ পত্রী উদ্ভিদ-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট শিক্ষাবর্ষ : ২০০৯-২০১০",
+          "university": "islamic-university",
+          "year": "2010",
+          "subject_tag": "নগ্নবীজী ও আবৃতবীজী উদ্ভিদ (সপ্তম অধ্যায়)",
+          "has_image": false
+        },
+        {
+          "id": "154480",
+          "type": "mcq",
+          "question": "ক্লোরোফিল-এ উপস্থিত-",
+          "question_bn": "ক্লোরোফিল-এ উপস্থিত-",
+          "options": [
+            {
+              "id": "A",
+              "text": "আয়রন",
+              "text_bn": "আয়রন",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "কোবাল্ট",
+              "text_bn": "কোবাল্ট",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "ম্যাগনেসিয়াম",
+              "text_bn": "ম্যাগনেসিয়াম",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "ম্যাঙ্গানিজ",
+              "text_bn": "ম্যাঙ্গানিজ",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "ম্যাগনেসিয়াম",
+          "source": "ইসলামী বিশ্ববিদ্যালয় - D ইউনিট শিক্ষাবর্ষ : ২০০৯-২০১০",
+          "university": "islamic-university",
+          "year": "2010",
+          "subject_tag": "উদ্ভিদ শারীরতত্ত্ব (নবম অধ্যায়)",
+          "has_image": false
+        }
+      ]
+    },
+    {
+      "lesson_id": "bio-zoo-01",
+      "lesson_title": "Circulatory System",
+      "lesson_title_bn": "রক্ত সংবহন তন্ত্র",
+      "unit_id": "bio-zoology",
+      "unit_title": "Human Biology & Zoology",
+      "unit_title_bn": "মানবদেহ ও প্রাণিবিজ্ঞান",
+      "subject": "biology",
+      "subject_title_bn": "জীববিজ্ঞান",
+      "difficulty": "easy",
+      "exercise_count": 15,
+      "xp_reward": 20,
+      "estimated_minutes": 15,
+      "concepts": [
+        "ABO blood group",
+        "cardiac cycle"
+      ],
+      "exercises": [
+        {
+          "id": "84891",
+          "type": "mcq",
+          "question": "কোনটি সমগোত্রীয় নয়?",
+          "question_bn": "কোনটি সমগোত্রীয় নয়?",
+          "options": [
+            {
+              "id": "A",
+              "text": "ইলিশ",
+              "text_bn": "ইলিশ",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "মৃগেল",
+              "text_bn": "মৃগেল",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "তিমি",
+              "text_bn": "তিমি",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "হাঙ্গর",
+              "text_bn": "হাঙ্গর",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "তিমি",
+          "source": "শিক্ষাবর্ষঃ ২০০৯-২০১০",
+          "university": "bangladesh-agricultural-university",
+          "year": "2009",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "84891",
+          "type": "mcq",
+          "question": "কোনটি সমগোত্রীয় নয়?",
+          "question_bn": "কোনটি সমগোত্রীয় নয়?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০৯-২০১০",
+          "university": "bangladesh-agricultural-university",
+          "year": "2009",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "84400",
+          "type": "mcq",
+          "question": "দ্বিপদ নামকরণ পদ্ধতির জনক-",
+          "question_bn": "দ্বিপদ নামকরণ পদ্ধতির জনক-",
+          "options": [
+            {
+              "id": "A",
+              "text": "অ্যারিস্টটল",
+              "text_bn": "অ্যারিস্টটল",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "লিনিয়াস",
+              "text_bn": "লিনিয়াস",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "হারভে",
+              "text_bn": "হারভে",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "ক্যুয়েভিয়ে",
+              "text_bn": "ক্যুয়েভিয়ে",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "লিনিয়াস",
+          "source": "শিক্ষাবর্ষঃ ২০০২-২০০৩",
+          "university": "bangladesh-agricultural-university",
+          "year": "2002",
+          "subject_tag": "প্রাণিজগতের শ্রেণিকরণ",
+          "has_image": false
+        },
+        {
+          "id": "84400",
+          "type": "mcq",
+          "question": "দ্বিপদ নামকরণ পদ্ধতির জনক-",
+          "question_bn": "দ্বিপদ নামকরণ পদ্ধতির জনক-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০২-২০০৩",
+          "university": "bangladesh-agricultural-university",
+          "year": "2002",
+          "subject_tag": "প্রাণিজগতের শ্রেণিকরণ",
+          "has_image": false
+        },
+        {
+          "id": "130644",
+          "type": "mcq",
+          "question": "শিখাকোষ থাকে কোন  প্রাণীতে?",
+          "question_bn": "শিখাকোষ থাকে কোন  প্রাণীতে?",
+          "options": [
+            {
+              "id": "A",
+              "text": "Carcimus maenas",
+              "text_bn": "Carcimus maenas",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "Hirudo medicinalis",
+              "text_bn": "Hirudo medicinalis",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "Schistosoma mansoni",
+              "text_bn": "Schistosoma mansoni",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "Hydra viridis",
+              "text_bn": "Hydra viridis",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "Schistosoma mansoni",
+          "source": "ঢাকা বিশ্ববিদ্যালয় - ক ইউনিট (বিজ্ঞান) শিক্ষাবর্ষ : (2005-2006)",
+          "university": "dhaka-university",
+          "year": "2005",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "130644",
+          "type": "mcq",
+          "question": "শিখাকোষ থাকে কোন  প্রাণীতে?",
+          "question_bn": "শিখাকোষ থাকে কোন  প্রাণীতে?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "ঢাকা বিশ্ববিদ্যালয় - ক ইউনিট (বিজ্ঞান) শিক্ষাবর্ষ : (2005-2006)",
+          "university": "dhaka-university",
+          "year": "2005",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "84384",
+          "type": "mcq",
+          "question": "অক্টোপাস কোন পর্বের প্রানী-",
+          "question_bn": "অক্টোপাস কোন পর্বের প্রানী-",
+          "options": [
+            {
+              "id": "A",
+              "text": "প্রোটোজোয়া",
+              "text_bn": "প্রোটোজোয়া",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "পরিফেরা",
+              "text_bn": "পরিফেরা",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "আর্থ্রোপোডা",
+              "text_bn": "আর্থ্রোপোডা",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "মলাস্কা",
+              "text_bn": "মলাস্কা",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "মলাস্কা",
+          "source": "শিক্ষাবর্ষঃ ২০০২-২০০৩",
+          "university": "bangladesh-agricultural-university",
+          "year": "2002",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "84384",
+          "type": "mcq",
+          "question": "অক্টোপাস কোন পর্বের প্রানী-",
+          "question_bn": "অক্টোপাস কোন পর্বের প্রানী-",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০২-২০০৩",
+          "university": "bangladesh-agricultural-university",
+          "year": "2002",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "94020",
+          "type": "mcq",
+          "question": "কোন প্রাণীর রেচনতন্ত্র নেই?",
+          "question_bn": "কোন প্রাণীর রেচনতন্ত্র নেই?",
+          "options": [
+            {
+              "id": "A",
+              "text": "পালক স্টার",
+              "text_bn": "পালক স্টার",
+              "isCorrect": true
+            },
+            {
+              "id": "B",
+              "text": "কেঁচো",
+              "text_bn": "কেঁচো",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "রক্তকীট",
+              "text_bn": "রক্তকীট",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "জোঁক",
+              "text_bn": "জোঁক",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "A",
+          "correct_answer_text": "পালক স্টার",
+          "source": "শিক্ষাবর্ষঃ ২০১৭-২০১৮",
+          "university": "bsmrau",
+          "year": "2017",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "94020",
+          "type": "mcq",
+          "question": "কোন প্রাণীর রেচনতন্ত্র নেই?",
+          "question_bn": "কোন প্রাণীর রেচনতন্ত্র নেই?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০১৭-২০১৮",
+          "university": "bsmrau",
+          "year": "2017",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "84887",
+          "type": "mcq",
+          "question": "অ্যানিলিডা পর্বের প্রানী কোনটি?",
+          "question_bn": "অ্যানিলিডা পর্বের প্রানী কোনটি?",
+          "options": [
+            {
+              "id": "A",
+              "text": "কৃমি",
+              "text_bn": "কৃমি",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "কেঁচো",
+              "text_bn": "কেঁচো",
+              "isCorrect": true
+            },
+            {
+              "id": "C",
+              "text": "সাপ",
+              "text_bn": "সাপ",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "গিরগিটি",
+              "text_bn": "গিরগিটি",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "B",
+          "correct_answer_text": "কেঁচো",
+          "source": "শিক্ষাবর্ষঃ ২০০৯-২০১০",
+          "university": "bangladesh-agricultural-university",
+          "year": "2009",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "84887",
+          "type": "mcq",
+          "question": "অ্যানিলিডা পর্বের প্রানী কোনটি?",
+          "question_bn": "অ্যানিলিডা পর্বের প্রানী কোনটি?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "শিক্ষাবর্ষঃ ২০০৯-২০১০",
+          "university": "bangladesh-agricultural-university",
+          "year": "2009",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "142287",
+          "type": "mcq",
+          "question": "শিখাকোষ কোন অন্ত্রের অন্তর্ভক্ত?",
+          "question_bn": "শিখাকোষ কোন অন্ত্রের অন্তর্ভক্ত?",
+          "options": [
+            {
+              "id": "A",
+              "text": "জননতন্ত্র",
+              "text_bn": "জননতন্ত্র",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "পরিপাকতন্ত্র",
+              "text_bn": "পরিপাকতন্ত্র",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "কঙ্কালতন্ত্র",
+              "text_bn": "কঙ্কালতন্ত্র",
+              "isCorrect": false
+            },
+            {
+              "id": "D",
+              "text": "রেচনতন্ত্র",
+              "text_bn": "রেচনতন্ত্র",
+              "isCorrect": true
+            }
+          ],
+          "correct_answer": "D",
+          "correct_answer_text": "রেচনতন্ত্র",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2012",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "142287",
+          "type": "mcq",
+          "question": "শিখাকোষ কোন অন্ত্রের অন্তর্ভক্ত?",
+          "question_bn": "শিখাকোষ কোন অন্ত্রের অন্তর্ভক্ত?",
+          "options": [],
+          "correct_answer": "A",
+          "correct_answer_text": "",
+          "source": "A ইউনিট",
+          "university": "hstu",
+          "year": "2012",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        },
+        {
+          "id": "84381",
+          "type": "mcq",
+          "question": "কোনটি আর্থ্রোপোডা পর্বের প্রানী-",
+          "question_bn": "কোনটি আর্থ্রোপোডা পর্বের প্রানী-",
+          "options": [
+            {
+              "id": "A",
+              "text": "জেলি ফিস",
+              "text_bn": "জেলি ফিস",
+              "isCorrect": false
+            },
+            {
+              "id": "B",
+              "text": "স্টার ফিস",
+              "text_bn": "স্টার ফিস",
+              "isCorrect": false
+            },
+            {
+              "id": "C",
+              "text": "সিলভার ফিস",
+              "text_bn": "সিলভার ফিস",
+              "isCorrect": true
+            },
+            {
+              "id": "D",
+              "text": "গোল্ড ফিস",
+              "text_bn": "গোল্ড ফিস",
+              "isCorrect": false
+            }
+          ],
+          "correct_answer": "C",
+          "correct_answer_text": "সিলভার ফিস",
+          "source": "শিক্ষাবর্ষঃ ২০০২-২০০৩",
+          "university": "bangladesh-agricultural-university",
+          "year": "2002",
+          "subject_tag": "প্রাণিজগতের প্রধান পর্বসমূহ",
+          "has_image": false
+        }
+      ]
+    }
+  ]
+}

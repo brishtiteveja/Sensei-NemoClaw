@@ -1,0 +1,112 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.1-pro-preview",
+  "timestamp": 1775495808.8436418,
+  "summary": {
+    "passed": 0,
+    "total": 9,
+    "tokens": 11041,
+    "time_sec": 32.46196484565735
+  },
+  "results": [
+    {
+      "name": "understand_provider_protocol",
+      "category": "code_understanding",
+      "passed": false,
+      "tool_calls": 1,
+      "input_tokens": 1180,
+      "output_tokens": 49,
+      "elapsed_sec": 4.57146692276001,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "understand_permission_modes",
+      "category": "code_understanding",
+      "passed": false,
+      "tool_calls": 1,
+      "input_tokens": 1176,
+      "output_tokens": 36,
+      "elapsed_sec": 2.411424398422241,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "understand_engine_loop",
+      "category": "code_understanding",
+      "passed": false,
+      "tool_calls": 1,
+      "input_tokens": 1183,
+      "output_tokens": 49,
+      "elapsed_sec": 4.38322901725769,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "find_all_tools",
+      "category": "code_search",
+      "passed": false,
+      "tool_calls": 1,
+      "input_tokens": 1175,
+      "output_tokens": 26,
+      "elapsed_sec": 3.047325372695923,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "find_sse_parser",
+      "category": "code_search",
+      "passed": false,
+      "tool_calls": 1,
+      "input_tokens": 1177,
+      "output_tokens": 83,
+      "elapsed_sec": 4.232569694519043,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "count_test_files",
+      "category": "code_search",
+      "passed": false,
+      "tool_calls": 1,
+      "input_tokens": 1179,
+      "output_tokens": 45,
+      "elapsed_sec": 4.870410919189453,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "trace_provider_flow",
+      "category": "multi_step",
+      "passed": false,
+      "tool_calls": 1,
+      "input_tokens": 1191,
+      "output_tokens": 35,
+      "elapsed_sec": 2.4604475498199463,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "compare_providers",
+      "category": "multi_step",
+      "passed": false,
+      "tool_calls": 1,
+      "input_tokens": 1186,
+      "output_tokens": 56,
+      "elapsed_sec": 3.0046448707580566,
+      "error": "",
+      "answer_preview": ""
+    },
+    {
+      "name": "fetch_python_docs",
+      "category": "web_research",
+      "passed": false,
+      "tool_calls": 1,
+      "input_tokens": 1185,
+      "output_tokens": 30,
+      "elapsed_sec": 3.4804461002349854,
+      "error": "",
+      "answer_preview": ""
+    }
+  ]
+}

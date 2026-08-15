@@ -1,0 +1,212 @@
+[
+  {
+    "id": "phy001",
+    "question": "A ball is thrown vertically upward with velocity 20 m/s. What is its velocity at the highest point?",
+    "question_bn": "একটি বল 20 m/s বেগে উলম্বভাবে উপরে ছোড়া হলো। সর্বোচ্চ বিন্দুতে এর বেগ কত?",
+    "subject": "physics",
+    "topic": "Mechanics - Projectile Motion",
+    "difficulty": "easy",
+    "exam_type": "BUET",
+    "year": 2022,
+    "tags": ["kinematics", "projectile", "gravity", "BUET"],
+    "options": [
+      {"id": "A", "text": "20 m/s", "text_bn": "20 m/s", "isCorrect": false},
+      {"id": "B", "text": "0 m/s", "text_bn": "0 m/s", "isCorrect": true},
+      {"id": "C", "text": "10 m/s", "text_bn": "10 m/s", "isCorrect": false},
+      {"id": "D", "text": "9.8 m/s", "text_bn": "9.8 m/s", "isCorrect": false}
+    ],
+    "correct_answer": "B",
+    "explanation": "At the highest point, the vertical velocity becomes zero before the ball starts falling back down.",
+    "explanation_bn": "সর্বোচ্চ বিন্দুতে উলম্ব বেগ শূন্য হয়ে যায় কারণ মহাকর্ষ বল বলটিকে ক্রমশ ধীর করে দেয়।",
+    "points": 1
+  },
+  {
+    "id": "phy002",
+    "question": "Two resistors of 4Ω and 6Ω are connected in parallel. What is the equivalent resistance?",
+    "question_bn": "4Ω এবং 6Ω এর দুটি রোধ সমান্তরালে সংযুক্ত। সমতুল্য রোধ কত?",
+    "subject": "physics",
+    "topic": "Electricity - Resistance",
+    "difficulty": "medium",
+    "exam_type": "BUET",
+    "year": 2023,
+    "tags": ["electricity", "resistance", "parallel", "circuit", "BUET"],
+    "options": [
+      {"id": "A", "text": "10Ω", "text_bn": "10Ω", "isCorrect": false},
+      {"id": "B", "text": "2.4Ω", "text_bn": "2.4Ω", "isCorrect": true},
+      {"id": "C", "text": "5Ω", "text_bn": "5Ω", "isCorrect": false},
+      {"id": "D", "text": "24Ω", "text_bn": "24Ω", "isCorrect": false}
+    ],
+    "correct_answer": "B",
+    "explanation": "For parallel resistors: 1/R = 1/4 + 1/6 = 3/12 + 2/12 = 5/12, so R = 12/5 = 2.4Ω",
+    "explanation_bn": "সমান্তরাল রোধের জন্য: 1/R = 1/4 + 1/6 = 3/12 + 2/12 = 5/12, তাই R = 12/5 = 2.4Ω",
+    "points": 1
+  },
+  {
+    "id": "chem001",
+    "question": "Which of the following is an example of a strong acid?",
+    "question_bn": "নিচের কোনটি শক্তিশালী এসিডের উদাহরণ?",
+    "subject": "chemistry",
+    "topic": "Acid-Base Chemistry",
+    "difficulty": "easy",
+    "exam_type": "Medical",
+    "year": 2023,
+    "tags": ["acid", "base", "strong acid", "Medical"],
+    "options": [
+      {"id": "A", "text": "Acetic acid (CH₃COOH)", "text_bn": "অ্যাসিটিক এসিড (CH₃COOH)", "isCorrect": false},
+      {"id": "B", "text": "Carbonic acid (H₂CO₃)", "text_bn": "কার্বনিক এসিড (H₂CO₃)", "isCorrect": false},
+      {"id": "C", "text": "Hydrochloric acid (HCl)", "text_bn": "হাইড্রোক্লোরিক এসিড (HCl)", "isCorrect": true},
+      {"id": "D", "text": "Phosphoric acid (H₃PO₄)", "text_bn": "ফসফরিক এসিড (H₃PO₄)", "isCorrect": false}
+    ],
+    "correct_answer": "C",
+    "explanation": "HCl completely dissociates in water, making it a strong acid. Acetic and carbonic acids are weak acids.",
+    "explanation_bn": "HCl পানিতে সম্পূর্ণভাবে বিয়োজিত হয়, তাই এটি শক্তিশালী এসিড। অ্যাসিটিক ও কার্বনিক এসিড দুর্বল এসিড।",
+    "points": 1
+  },
+  {
+    "id": "chem002",
+    "question": "What is the IUPAC name of CH₃CH₂CH₂OH?",
+    "question_bn": "CH₃CH₂CH₂OH এর IUPAC নাম কী?",
+    "subject": "chemistry",
+    "topic": "Organic Chemistry - Naming",
+    "difficulty": "medium",
+    "exam_type": "DU",
+    "year": 2022,
+    "tags": ["organic", "naming", "IUPAC", "alcohol", "DU"],
+    "options": [
+      {"id": "A", "text": "Methanol", "text_bn": "মিথানল", "isCorrect": false},
+      {"id": "B", "text": "Ethanol", "text_bn": "ইথানল", "isCorrect": false},
+      {"id": "C", "text": "Propan-1-ol", "text_bn": "প্রোপান-1-অল", "isCorrect": true},
+      {"id": "D", "text": "Butan-1-ol", "text_bn": "বিউটান-1-অল", "isCorrect": false}
+    ],
+    "correct_answer": "C",
+    "explanation": "3 carbon chain with OH at position 1 = Propan-1-ol (also called 1-propanol or n-propyl alcohol)",
+    "explanation_bn": "3 কার্বন শিকলে 1 নম্বর অবস্থানে OH গ্রুপ = প্রোপান-1-অল",
+    "points": 1
+  },
+  {
+    "id": "math001",
+    "question": "What is the derivative of sin(x²)?",
+    "question_bn": "sin(x²) এর অন্তরকলন কত?",
+    "subject": "math",
+    "topic": "Calculus - Differentiation",
+    "difficulty": "medium",
+    "exam_type": "BUET",
+    "year": 2023,
+    "tags": ["calculus", "derivative", "chain rule", "trigonometry", "BUET"],
+    "options": [
+      {"id": "A", "text": "cos(x²)", "text_bn": "cos(x²)", "isCorrect": false},
+      {"id": "B", "text": "2x·cos(x²)", "text_bn": "2x·cos(x²)", "isCorrect": true},
+      {"id": "C", "text": "2x·sin(x²)", "text_bn": "2x·sin(x²)", "isCorrect": false},
+      {"id": "D", "text": "x²·cos(x²)", "text_bn": "x²·cos(x²)", "isCorrect": false}
+    ],
+    "correct_answer": "B",
+    "explanation": "Using chain rule: d/dx[sin(x²)] = cos(x²) · d/dx[x²] = cos(x²) · 2x = 2x·cos(x²)",
+    "explanation_bn": "চেইন রুল ব্যবহার করে: d/dx[sin(x²)] = cos(x²) · d/dx[x²] = cos(x²) · 2x = 2x·cos(x²)",
+    "points": 1
+  },
+  {
+    "id": "math002",
+    "question": "If log₂(x) = 5, what is x?",
+    "question_bn": "যদি log₂(x) = 5 হয়, তাহলে x = ?",
+    "subject": "math",
+    "topic": "Algebra - Logarithms",
+    "difficulty": "easy",
+    "exam_type": "DU",
+    "year": 2021,
+    "tags": ["algebra", "logarithm", "DU"],
+    "options": [
+      {"id": "A", "text": "10", "text_bn": "10", "isCorrect": false},
+      {"id": "B", "text": "25", "text_bn": "25", "isCorrect": false},
+      {"id": "C", "text": "32", "text_bn": "32", "isCorrect": true},
+      {"id": "D", "text": "64", "text_bn": "64", "isCorrect": false}
+    ],
+    "correct_answer": "C",
+    "explanation": "log₂(x) = 5 means 2⁵ = x, so x = 32",
+    "explanation_bn": "log₂(x) = 5 মানে 2⁵ = x, তাই x = 32",
+    "points": 1
+  },
+  {
+    "id": "bio001",
+    "question": "Which organelle is known as the 'powerhouse of the cell'?",
+    "question_bn": "কোন অঙ্গাণুকে 'কোষের পাওয়ার হাউস' বলা হয়?",
+    "subject": "biology",
+    "topic": "Cell Biology",
+    "difficulty": "easy",
+    "exam_type": "Medical",
+    "year": 2023,
+    "tags": ["cell", "organelle", "mitochondria", "Medical"],
+    "options": [
+      {"id": "A", "text": "Golgi apparatus", "text_bn": "গলজি বস্তু", "isCorrect": false},
+      {"id": "B", "text": "Mitochondria", "text_bn": "মাইটোকন্ড্রিয়া", "isCorrect": true},
+      {"id": "C", "text": "Endoplasmic reticulum", "text_bn": "এন্ডোপ্লাজমিক রেটিকুলাম", "isCorrect": false},
+      {"id": "D", "text": "Lysosome", "text_bn": "লাইসোজোম", "isCorrect": false}
+    ],
+    "correct_answer": "B",
+    "explanation": "Mitochondria produce ATP through cellular respiration, providing energy for the cell.",
+    "explanation_bn": "মাইটোকন্ড্রিয়া কোষীয় শ্বসনের মাধ্যমে ATP উৎপন্ন করে, যা কোষের শক্তির উৎস।",
+    "points": 1
+  },
+  {
+    "id": "bio002",
+    "question": "During photosynthesis, which gas is absorbed by plants?",
+    "question_bn": "সালোকসংশ্লেষণের সময় উদ্ভিদ কোন গ্যাস শোষণ করে?",
+    "subject": "biology",
+    "topic": "Plant Biology - Photosynthesis",
+    "difficulty": "easy",
+    "exam_type": "Medical",
+    "year": 2022,
+    "tags": ["photosynthesis", "plant", "gas exchange", "Medical"],
+    "options": [
+      {"id": "A", "text": "Oxygen (O₂)", "text_bn": "অক্সিজেন (O₂)", "isCorrect": false},
+      {"id": "B", "text": "Nitrogen (N₂)", "text_bn": "নাইট্রোজেন (N₂)", "isCorrect": false},
+      {"id": "C", "text": "Carbon dioxide (CO₂)", "text_bn": "কার্বন ডাইঅক্সাইড (CO₂)", "isCorrect": true},
+      {"id": "D", "text": "Hydrogen (H₂)", "text_bn": "হাইড্রোজেন (H₂)", "isCorrect": false}
+    ],
+    "correct_answer": "C",
+    "explanation": "Plants absorb CO₂ from the atmosphere and use it with water and sunlight to produce glucose and O₂.",
+    "explanation_bn": "উদ্ভিদ বায়ুমণ্ডল থেকে CO₂ শোষণ করে এবং পানি ও সূর্যালোকের সাহায্যে গ্লুকোজ ও O₂ তৈরি করে।",
+    "points": 1
+  },
+  {
+    "id": "eng001",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্যটি বেছে নিন:",
+    "subject": "english",
+    "topic": "Grammar - Subject-Verb Agreement",
+    "difficulty": "medium",
+    "exam_type": "DU",
+    "year": 2023,
+    "tags": ["grammar", "subject-verb", "agreement", "DU"],
+    "options": [
+      {"id": "A", "text": "Each of the students have their own book.", "text_bn": "", "isCorrect": false},
+      {"id": "B", "text": "Each of the students has his or her own book.", "text_bn": "", "isCorrect": true},
+      {"id": "C", "text": "Each of the students are having their own book.", "text_bn": "", "isCorrect": false},
+      {"id": "D", "text": "Each of the students were having their own book.", "text_bn": "", "isCorrect": false}
+    ],
+    "correct_answer": "B",
+    "explanation": "'Each' is singular and takes a singular verb 'has'. The pronoun should also be singular.",
+    "explanation_bn": "'Each' একবচন এবং একবচন ক্রিয়াপদ 'has' নেয়। সর্বনামও একবচন হওয়া উচিত।",
+    "points": 1
+  },
+  {
+    "id": "phy003",
+    "question": "A car accelerates from 0 to 60 km/h in 10 seconds. What is the acceleration?",
+    "question_bn": "একটি গাড়ি 10 সেকেন্ডে 0 থেকে 60 km/h বেগে পৌঁছায়। ত্বরণ কত?",
+    "subject": "physics",
+    "topic": "Mechanics - Kinematics",
+    "difficulty": "easy",
+    "exam_type": "general",
+    "year": 2021,
+    "tags": ["kinematics", "acceleration", "motion"],
+    "options": [
+      {"id": "A", "text": "6 m/s²", "text_bn": "6 m/s²", "isCorrect": false},
+      {"id": "B", "text": "1.67 m/s²", "text_bn": "1.67 m/s²", "isCorrect": true},
+      {"id": "C", "text": "60 m/s²", "text_bn": "60 m/s²", "isCorrect": false},
+      {"id": "D", "text": "16.7 m/s²", "text_bn": "16.7 m/s²", "isCorrect": false}
+    ],
+    "correct_answer": "B",
+    "explanation": "60 km/h = 16.67 m/s. Acceleration = Δv/Δt = 16.67/10 = 1.67 m/s²",
+    "explanation_bn": "60 km/h = 16.67 m/s। ত্বরণ = Δv/Δt = 16.67/10 = 1.67 m/s²",
+    "points": 1
+  }
+]
