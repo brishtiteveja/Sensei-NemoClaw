@@ -84,6 +84,68 @@ async def _connect_mcp_servers(registry: ToolRegistry, config: Config) -> list:
     return clients
 
 
+# Where a runtime model choice is persisted, so a restart keeps whatever the operator
+# last selected in the app rather than snapping back to the launch environment.
+_MODEL_STATE_PATH = os.path.join(
+    os.environ.get("SENSEI_DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "..", "data")),
+    "model_choice.json",
+)
+
+
+def _load_model_choice() -> dict | None:
+    try:
+        with open(_MODEL_STATE_PATH, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+
+def apply_model_choice(mode: str, model: str, *, persist: bool = True) -> dict:
+    """Switch the active provider/model for the whole server.
+
+    Applied by writing the environment rather than holding a parallel override dict:
+    `translate.py` and everything else already resolve their provider from the same
+    env, so a single source of truth avoids the case where chat moves to a new model
+    while translation quietly stays on the old one.
+
+    Cached engines hold a constructed provider, so they must be dropped or existing
+    sessions would keep talking to the previous model.
+    """
+    mode = (mode or "").lower()
+    if mode == "local":
+        base_url = os.environ.get("SENSEI_LOCAL_BASE_URL", "")
+        api_key = os.environ.get("SENSEI_LOCAL_API_KEY", "")
+        if not base_url:
+            raise ValueError("SENSEI_LOCAL_BASE_URL is not configured")
+        os.environ["CLAWPY_PROVIDER"] = "openai"  # the router is OpenAI-compatible
+        os.environ["OPENAI_BASE_URL"] = base_url
+        os.environ["OPENAI_API_KEY"] = api_key
+    elif mode == "cloud":
+        api_key = os.environ.get("SENSEI_CLOUD_API_KEY", "") or os.environ.get("GEMINI_API_KEY", "")
+        if not api_key:
+            raise ValueError("No cloud API key configured (SENSEI_CLOUD_API_KEY)")
+        os.environ["CLAWPY_PROVIDER"] = "gemini"
+        os.environ["GEMINI_API_KEY"] = api_key
+        # Leaving a stale OpenAI base URL set would send Gemini traffic to the router.
+        os.environ.pop("OPENAI_BASE_URL", None)
+        os.environ.pop("OPENAI_API_KEY", None)
+    else:
+        raise ValueError(f"mode must be 'local' or 'cloud', got {mode!r}")
+
+    os.environ["CLAWPY_MODEL"] = model
+    _engines.clear()
+
+    choice = {"mode": mode, "model": model}
+    if persist:
+        try:
+            os.makedirs(os.path.dirname(_MODEL_STATE_PATH), exist_ok=True)
+            with open(_MODEL_STATE_PATH, "w", encoding="utf-8") as f:
+                json.dump(choice, f)
+        except Exception as e:
+            logger.warning("Could not persist model choice: %s", e)
+    return choice
+
+
 def _get_server_config() -> Config:
     """Build config for server mode."""
     cfg = Config()
@@ -208,6 +270,24 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.on_event("startup")
+async def _restore_model_choice() -> None:
+    """Re-apply whatever model was last chosen in the app.
+
+    Without this a restart silently reverts to the launch environment, so an operator
+    who switched models in Settings would find it undone by the next deploy without
+    any indication why.
+    """
+    choice = _load_model_choice()
+    if not choice:
+        return
+    try:
+        apply_model_choice(choice["mode"], choice["model"], persist=False)
+        print(f"restored model choice: {choice['mode']}/{choice['model']}")
+    except Exception as e:
+        logger.warning("Could not restore saved model choice: %s", e)
 
 
 @app.get("/dikkhatutor")
@@ -745,6 +825,86 @@ async def _localise_titles(node, lang: str | None) -> None:
     }
     for container, key in targets:
         container[key] = mapping.get(container[key], container[key])
+
+
+# Models known to work on the cloud provider. Deliberately a short curated list rather
+# than everything the API advertises: /v1beta/models lists ids that 404 on an actual
+# call (gemini-2.5-flash is "no longer available to new users"), so showing the raw
+# catalogue would offer the operator choices that fail only once selected.
+_CLOUD_MODELS = [
+    {"id": "gemini-3.5-flash-lite", "label": "Gemini 3.5 Flash-Lite", "note": "cheapest"},
+    {"id": "gemini-3.6-flash", "label": "Gemini 3.6 Flash", "note": "balanced"},
+    {"id": "gemini-3.7-flash", "label": "Gemini 3.7 Flash", "note": "best quality"},
+]
+
+# Vision is required for the photo/handwriting flow. A text-only model silently breaks
+# it, so the app needs to be able to warn rather than let it fail at the camera.
+_VISION_MODEL_HINTS = ("-vl-", "glm-4.6v", "internvl", "qwen3.6-27b")
+
+
+@app.get("/admin/models")
+async def list_model_options():
+    """What the settings screen offers, plus which model is live right now."""
+    current_mode = "local" if os.environ.get("CLAWPY_PROVIDER") == "openai" else "cloud"
+    current = {"mode": current_mode, "model": os.environ.get("CLAWPY_MODEL", "")}
+
+    local: list[dict] = []
+    resident: str | None = None
+    base_url = os.environ.get("SENSEI_LOCAL_BASE_URL", "")
+    if base_url:
+        import httpx
+        key = os.environ.get("SENSEI_LOCAL_API_KEY", "")
+        headers = {"Authorization": f"Bearer {key}"} if key else {}
+        try:
+            async with httpx.AsyncClient(timeout=30) as client:
+                r = await client.get(f"{base_url}/models", headers=headers)
+                r.raise_for_status()
+                for m in r.json().get("data", []):
+                    mid = m["id"]
+                    local.append({
+                        "id": mid,
+                        "label": mid,
+                        "vision": any(h in mid for h in _VISION_MODEL_HINTS),
+                    })
+                local.sort(key=lambda m: (not m["vision"], m["id"]))
+                # Which one is actually resident -- selecting any other costs a cold swap.
+                h = await client.get(f"{base_url.removesuffix('/v1')}/health")
+                loaded = h.json().get("loaded") or []
+                resident = loaded[0] if loaded else None
+        except Exception as e:
+            logger.warning("Could not list local models: %s", e)
+
+    return {
+        "current": current,
+        "resident_local_model": resident,
+        "cloud": _CLOUD_MODELS,
+        "local": local,
+        # Surfaced so the client can warn before a switch instead of appearing to hang.
+        "local_swap_warning": (
+            "Only one local model stays loaded. Choosing a different one takes "
+            "1-5 minutes to swap and affects everyone using this box."
+        ),
+    }
+
+
+@app.post("/admin/model")
+async def set_model(body: dict):
+    """Switch the active provider/model. Takes effect immediately for new turns."""
+    try:
+        choice = apply_model_choice(body.get("mode", ""), body.get("model", ""))
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+    is_vision = any(h in choice["model"] for h in _VISION_MODEL_HINTS)
+    return {
+        "ok": True,
+        **choice,
+        "vision": is_vision,
+        "warning": None if is_vision or choice["mode"] == "cloud" else (
+            "This model has no vision support, so reading photos of handwritten work "
+            "will not work until you switch back to a vision model."
+        ),
+    }
 
 
 @app.get("/curriculum/subjects")
