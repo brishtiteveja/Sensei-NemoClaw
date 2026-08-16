@@ -267,6 +267,14 @@ class HandoffRequest(BaseModel):
     kind: str = "image"  # "sketch" when drawn on the phone, "image" when a photo
 
 
+class AttemptSummaryRequest(BaseModel):
+    """One analysable row per attempt at a problem."""
+
+    session: str
+    summary: dict
+    learner: str | None = None
+
+
 class ObserveRequest(BaseModel):
     """A batch of workspace events from one learner session."""
 
@@ -1857,6 +1865,32 @@ _OBSERVATIONS_DIR = os.path.join(
 
 # Session ids come from a client; they become a path segment, so keep them boring.
 _SAFE_SESSION = re.compile(r"[^A-Za-z0-9_.-]")
+
+
+@app.post("/observe/attempt")
+async def observe_attempt(req: AttemptSummaryRequest):
+    """Bank a one-row account of an attempt.
+
+    The event log in /observe says what happened; this says what it meant --
+    hesitation before the first mark, how much was undone, whether help was
+    asked for, how it ended. Kept in its own file so the dataset can be read as
+    a table of attempts without replaying every stroke.
+    """
+    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    try:
+        os.makedirs(_OBSERVATIONS_DIR, exist_ok=True)
+        row = {
+            "session": _SAFE_SESSION.sub("_", req.session)[:64] or "anon",
+            "at": datetime.now(timezone.utc).isoformat(),
+            **(({"learner": req.learner}) if req.learner else {}),
+            **req.summary,
+        }
+        with open(os.path.join(_OBSERVATIONS_DIR, f"attempts-{day}.jsonl"), "a", encoding="utf-8") as f:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    except Exception as e:
+        logger.warning("attempt summary write failed: %s", e)
+        return {"ok": False}
+    return {"ok": True}
 
 
 @app.post("/observe")
