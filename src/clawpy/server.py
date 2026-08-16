@@ -260,6 +260,13 @@ class SuggestionsResponse(BaseModel):
     suggestions: list[str]
 
 
+class HandoffRequest(BaseModel):
+    """An image sent from a paired phone to a waiting desktop session."""
+
+    image: str
+    kind: str = "image"  # "sketch" when drawn on the phone, "image" when a photo
+
+
 class ObserveRequest(BaseModel):
     """A batch of workspace events from one learner session."""
 
@@ -1495,6 +1502,59 @@ async def practice_subjects():
 
     subjects = [{"name": row[0], "count": row[1]} for row in rows]
     return {"subjects": subjects}
+
+
+# ---------------------------------------------------------------- phone handoff
+#
+# A desktop drawing surface shows a QR code; the phone opens it, draws or takes a
+# photo, and posts the result here. The desktop polls and picks it up.
+#
+# Deliberately in-memory and short-lived: this is a pipe between two devices that
+# are both online right now, not storage. A pairing code is one-shot -- read once
+# and it is gone -- so a stale QR in a screenshot cannot replay someone's work.
+_HANDOFF: dict[str, dict] = {}
+_HANDOFF_TTL_S = 600
+_HANDOFF_MAX_CHARS = 8_000_000  # ~6 MB of base64, generous for a phone photo
+_SAFE_CODE = re.compile(r"[^A-Za-z0-9_-]")
+
+
+def _handoff_gc() -> None:
+    """Drop expired slots. Called on each touch -- no background task needed."""
+    cutoff = datetime.now(timezone.utc).timestamp() - _HANDOFF_TTL_S
+    for code in [c for c, v in _HANDOFF.items() if v["at"] < cutoff]:
+        _HANDOFF.pop(code, None)
+
+
+@app.post("/handoff/{code}")
+async def handoff_put(code: str, req: HandoffRequest):
+    """Phone -> desktop. Park an image against a pairing code."""
+    _handoff_gc()
+    key = _SAFE_CODE.sub("", code)[:64]
+    if not key:
+        raise HTTPException(400, "bad code")
+    if not req.image:
+        raise HTTPException(400, "empty image")
+    if len(req.image) > _HANDOFF_MAX_CHARS:
+        raise HTTPException(413, "image too large")
+    if len(_HANDOFF) > 200:  # crude cap; the GC normally keeps this tiny
+        _handoff_gc()
+    _HANDOFF[key] = {
+        "image": req.image,
+        "kind": req.kind,
+        "at": datetime.now(timezone.utc).timestamp(),
+    }
+    return {"ok": True}
+
+
+@app.get("/handoff/{code}")
+async def handoff_get(code: str):
+    """Desktop <- phone. One-shot read: the slot is consumed."""
+    _handoff_gc()
+    key = _SAFE_CODE.sub("", code)[:64]
+    slot = _HANDOFF.pop(key, None)
+    if not slot:
+        return {"image": None}
+    return {"image": slot["image"], "kind": slot["kind"]}
 
 
 _OBSERVATIONS_DIR = os.path.join(
