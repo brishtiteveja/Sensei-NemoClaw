@@ -275,6 +275,17 @@ class ObserveRequest(BaseModel):
     learner: str | None = None
 
 
+class CoachRequest(BaseModel):
+    """A look at the student's work-in-progress, for a Socratic nudge."""
+
+    image: str
+    problem: str | None = None
+    language: str | None = None
+    # Per-role overrides; either may name a cloud model while the other stays local.
+    reading_model: str | None = None
+    coaching_model: str | None = None
+
+
 class SeeRequest(BaseModel):
     """A piece of the student's own work for the tutor to look at.
 
@@ -1763,6 +1774,82 @@ async def grade_work(req: GradeRequest):
     return {"report": report, "model": _TEACHER_MODEL}
 
 
+@app.post("/tutor/coach")
+async def tutor_coach(req: CoachRequest):
+    """Two stages: read the page, then decide what to ask about it.
+
+    Stage 1 is a vision call at low temperature whose only job is to say what is
+    on the paper and where the first error is. Stage 2 is TEXT ONLY -- it takes
+    that reading and turns it into one Socratic nudge.
+
+    Splitting them is what makes either job doable. A single prompt asking a
+    model to both read handwriting and teach from it does neither well: it
+    either transcribes and forgets to teach, or teaches and invents lines that
+    are not on the page. It also means stage 2 can run on a different, faster
+    model than stage 1, since it never needs to see the pixels.
+    """
+    image = req.image.strip()
+    if not image:
+        raise HTTPException(400, "empty image")
+    if not image.startswith("data:"):
+        image = f"data:image/png;base64,{image}"
+
+    prompt = "Here is the student's work so far."
+    if req.problem:
+        prompt = f"The problem being solved:\n{req.problem}\n\n{prompt}"
+
+    # ---- stage 1: what is actually on the page -------------------------------
+    try:
+        reading = await _chat(
+            [
+                {"role": "system", "content": _SEE_SYSTEM},
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": prompt},
+                        {"type": "image_url", "image_url": {"url": image}},
+                    ],
+                },
+            ],
+            model=req.reading_model,
+            max_tokens=2500,
+        )
+    except HTTPException as e:
+        logger.warning("coach stage 1 failed: %s", e.detail)
+        return {"reading": None, "coach": None, "reason": "could not read the work"}
+
+    if not reading:
+        return {"reading": None, "coach": None, "reason": "nothing readable on the page"}
+
+    # ---- stage 2: what to say about it ---------------------------------------
+    lang = f"\nWrite hint and question in language code: {req.language}." if req.language else ""
+    try:
+        raw = await _chat(
+            [
+                {"role": "system", "content": _COACH_SYSTEM + lang},
+                {
+                    "role": "user",
+                    "content": (
+                        f"The problem:\n{req.problem or '(not given)'}\n\n"
+                        f"A factual reading of the student's page:\n{reading}"
+                    ),
+                },
+            ],
+            model=req.coaching_model,
+            max_tokens=1200,
+            temperature=0.6,  # the teaching turn wants some warmth
+        )
+        coach = _parse_json_block(raw)
+    except HTTPException as e:
+        logger.warning("coach stage 2 failed: %s", e.detail)
+        # The reading alone is still worth returning; the client can show it.
+        return {"reading": reading, "coach": None, "reason": "could not form a question"}
+
+    _, _, m1 = _endpoint_for(req.reading_model)
+    _, _, m2 = _endpoint_for(req.coaching_model)
+    return {"reading": reading, "coach": coach, "models": {"reading": m1, "coaching": m2}}
+
+
 _OBSERVATIONS_DIR = os.path.join(
     os.environ.get("SENSEI_DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "..", "data")),
     "observations",
@@ -1804,6 +1891,30 @@ async def observe(req: ObserveRequest):
     return {"ok": True, "written": len(req.events)}
 
 
+_COACH_SYSTEM = """\
+You are Sensei, a Socratic tutor looking over a student's shoulder while they work.
+
+You are given a factual reading of what is currently on their page. Turn it into ONE
+short intervention. Reply with ONLY a JSON object:
+
+{
+  "status": "correct" | "error" | "incomplete" | "blank",
+  "hint": "one sentence, under 20 words, shown in a speech bubble beside their work",
+  "question": "the single Socratic question you would ask next",
+  "focus": "the line or part of their work you want them to look at, or null"
+}
+
+Rules that matter more than anything else:
+- NEVER state the correct answer, and never say what the corrected line should be.
+  Point at where to look and ask what they think.
+- If the work is correct, say so warmly and ask a question that extends it. Do not
+  invent a fault in correct work.
+- If the page is blank or barely started, ask what they think the first step is.
+- The hint is glanceable. "You've got the radius right — look again at the centre."
+  is the register. No preamble, no "It looks like".
+- Speak to the student as "you", in their language."""
+
+
 _SEE_SYSTEM = """\
 You are looking at a photo or sketch of a student's own working on a problem.
 
@@ -1815,6 +1926,60 @@ Report, briefly and factually:
 
 Do NOT address the student and do NOT teach. This is an internal note for a tutor
 who will do the teaching. No greetings, no encouragement, under 150 words."""
+
+
+def _endpoint_for(model: str | None) -> tuple[str, str, str]:
+    """(base_url, api_key, model) for any model id, cloud or local.
+
+    A Gemini id routes to Gemini whatever the tutor is pinned to, and anything
+    else to the local router. That is what lets the two coaching stages run on
+    different models: reading stays on the private local vision model while the
+    teaching turn can go to a fast cloud one, or both stay local when the cable
+    is out.
+    """
+    chosen = model or os.environ.get("CLAWPY_MODEL", "")
+    if chosen.startswith("gemini"):
+        return "https://generativelanguage.googleapis.com/v1beta/openai", _gemini_key(), chosen
+    if os.environ.get("CLAWPY_PROVIDER") == "gemini" and not model:
+        return "https://generativelanguage.googleapis.com/v1beta/openai", _gemini_key(), chosen
+    return (
+        os.environ.get("SENSEI_LOCAL_BASE_URL", os.environ.get("OPENAI_BASE_URL", "")).rstrip("/"),
+        os.environ.get("SENSEI_LOCAL_API_KEY", os.environ.get("OPENAI_API_KEY", "")),
+        chosen,
+    )
+
+
+async def _chat(
+    messages: list[dict], *, model: str | None = None, max_tokens: int = 2000, temperature: float = 0.2
+) -> str:
+    """One OpenAI-compatible completion against whichever model is asked for."""
+    import httpx
+
+    base_url, api_key, chosen = _endpoint_for(model)
+    if not base_url or not chosen:
+        raise HTTPException(503, "no model configured")
+
+    payload: dict[str, Any] = {
+        "model": chosen,
+        "messages": messages,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+    }
+    headers = {"Content-Type": "application/json"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+
+    async with httpx.AsyncClient(timeout=httpx.Timeout(900.0, connect=10.0)) as client:
+        resp = await client.post(f"{base_url}/chat/completions", json=payload, headers=headers)
+    if resp.status_code >= 400:
+        logger.warning("chat %s on %s: %s", resp.status_code, chosen, resp.text[:300])
+        raise HTTPException(502, f"model call failed ({resp.status_code})")
+
+    choice = (resp.json().get("choices") or [{}])[0]
+    msg = choice.get("message", {}) or {}
+    # Thinking models leave content empty when the budget runs out mid-thought.
+    text = msg.get("content") or msg.get("reasoning") or ""
+    return text.replace("<|begin_of_box|>", "").replace("<|end_of_box|>", "").strip()
 
 
 def _vision_endpoint() -> tuple[str, str, str]:
