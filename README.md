@@ -90,14 +90,46 @@ for local models so stage 2 emits clean JSON.
 | `GET /handoff/{code}` | phone-to-desktop pairing relay |
 | `GET`/`POST` `/admin/model` · `/admin/models` | runtime model switching |
 
-## Running
+## Where it runs
+
+In production this service runs **inside a NemoClaw / OpenShell sandbox** —
+Landlock + seccomp + a network namespace with an OPA egress proxy in front of
+it. It binds the sandbox's own loopback and is bridged out to nginx by an
+OpenShell gRPC service forward, so nothing is published from the container.
+
+```mermaid
+flowchart LR
+    WEB["Sensei web app"] -->|HTTPS /sensei/api| NGINX["nginx"]
+    NGINX -->|"gRPC service forward"| SC
+
+    subgraph jail["OpenShell sandbox"]
+        SC["SenseiClaw"]
+    end
+
+    SC --> OPA{{"OPA egress policy"}}
+    OPA -->|"allowed: inference.local"| SPARK[["DGX Spark GB10"]]
+    OPA -.->|BLOCKED| NET(["github · npm · pypi<br/>huggingface · internet"])
+
+    classDef blocked stroke-dasharray: 5 5
+    class NET blocked
+```
+
+`SENSEI_LOCAL_BASE_URL=https://inference.local/v1` is the whole trick: inference
+goes through the policy-enforced route rather than straight out. Verified —
+`inference.local` returns the genuine `owned_by: "dgx-spark"` catalogue while
+`github.com`, `pypi.org`, `registry.npmjs.org`, `huggingface.co` and
+`raw.githubusercontent.com` all fail closed, and a real `/tutor/query` still
+answers correctly in ~14 s.
+
+Setup, the traps, and the start scripts live in
+[NEMOCLAW.md](https://github.com/brishtiteveja/Sensei/blob/main/others/hackathon/sensei/NEMOCLAW.md).
+
+## Running locally
 
 ```bash
 uv sync
-.venv/bin/uvicorn clawpy.server:app --host 0.0.0.0 --port 4050
+.venv/bin/uvicorn clawpy.server:app --host 127.0.0.1 --port 4050
 ```
-
-In production it runs under pm2 as `senseiclaw`; after editing, `pm2 restart senseiclaw`.
 
 | Env | Default | Notes |
 |---|---|---|
@@ -107,19 +139,6 @@ In production it runs under pm2 as `senseiclaw`; after editing, `pm2 restart sen
 | `SENSEI_TIMEOUT` | `900` | must exceed worst-case cold swap |
 | `SENSEI_OFFLINE` | `1` | hard-fails any off-box request; set `0` only for remote dev |
 | `GEMINI_API_KEY` | — | cloud stage-2 teaching and teacher-side grading |
-
-## Sandboxed inference via NemoClaw
-
-The Spark endpoint can be fronted by **NemoClaw + OpenShell**, which puts a
-policy-enforced egress proxy in front of inference: the sandboxed agent reaches
-`inference.local` and nothing else. Setup, the traps, and an honest account of
-what that does and does not prove are in
-[`others/hackathon/sensei/NEMOCLAW.md`](https://github.com/brishtiteveja/Sensei/blob/main/others/hackathon/sensei/NEMOCLAW.md).
-
-To be clear about scope: **this service does not itself run inside NemoClaw.**
-NemoClaw runs three agent runtimes (`openclaw`, `hermes`,
-`langchain-deepagents-code`); a FastAPI service is not one of them. SenseiClaw
-runs under pm2. NemoClaw owns the inference route.
 
 ## Lineage
 
