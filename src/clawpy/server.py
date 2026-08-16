@@ -1873,7 +1873,10 @@ async def tutor_see(req: SeeRequest):
                 ],
             },
         ],
-        "max_tokens": 700,
+        # Generous on purpose: a thinking model spends its budget reasoning
+        # before it writes anything, and a tight cap returns finish_reason
+        # "length" with content:null -- an empty answer that looks like failure.
+        "max_tokens": 2500,
         "temperature": 0.2,  # transcription is not a place for creativity
     }
 
@@ -1891,7 +1894,17 @@ async def tutor_see(req: SeeRequest):
             logger.warning("tutor/see upstream %s: %s", resp.status_code, resp.text[:300])
             return {"note": None, "reason": f"vision call failed ({resp.status_code})"}
         body = resp.json()
-        note = (body.get("choices") or [{}])[0].get("message", {}).get("content")
+        choice = (body.get("choices") or [{}])[0]
+        msg = choice.get("message", {}) or {}
+        note = msg.get("content")
+        if not note:
+            # Thinking models put the chain of thought in `reasoning` and the
+            # answer in `content`. If the budget ran out mid-thought there is no
+            # content, but the reasoning still describes what it saw -- better
+            # to hand that back than to report nothing.
+            note = msg.get("reasoning") or ""
+            if note:
+                logger.info("tutor/see: using reasoning (finish=%s)", choice.get("finish_reason"))
     except Exception as e:  # network, timeout, malformed JSON
         logger.warning("tutor/see failed: %s", e)
         return {"note": None, "reason": "vision call failed"}
