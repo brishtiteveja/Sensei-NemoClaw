@@ -260,6 +260,23 @@ class SuggestionsResponse(BaseModel):
     suggestions: list[str]
 
 
+class LearnerUpsert(BaseModel):
+    """Create or update a student's profile."""
+
+    name: str | None = None
+    language: str | None = None
+    exam: str | None = None
+    exam_date: str | None = None
+
+
+class ObservationRequest(BaseModel):
+    """One graded moment: did they get this concept right, and how did it fail."""
+
+    topic: str
+    correct: bool
+    note: str | None = None
+
+
 class HandoffRequest(BaseModel):
     """An image sent from a paired phone to a waiting desktop session."""
 
@@ -350,7 +367,23 @@ async def tutor_stream(req: ChatRequest):
     """Stream a tutor response as SSE events — main chat endpoint."""
     session_id, engine = await get_or_create_engine(req.session_id)
 
-    user_lang = (req.context_data or {}).get("language")
+    ctx0 = req.context_data or {}
+    user_lang = ctx0.get("language")
+
+    # Persistent memory: if the turn names a learner, load what we know about
+    # them and hand it to the prompt builder. Failures are non-fatal -- a tutor
+    # that has forgotten you is far better than one that will not answer.
+    learner_id = ctx0.get("learner_id")
+    if learner_id:
+        try:
+            store = learners()
+            store.ensure(str(learner_id), language=user_lang)
+            summary = store.profile(str(learner_id)).as_prompt_context()
+            if summary:
+                ctx0 = {**ctx0, "learner_profile": summary}
+                req.context_data = ctx0
+        except Exception as e:
+            logger.warning("learner profile lookup failed: %s", e)
     if req.system_prompt:
         engine.set_system_prompt(req.system_prompt)
     else:
@@ -1856,6 +1889,133 @@ async def tutor_coach(req: CoachRequest):
     _, _, m1 = _endpoint_for(req.reading_model)
     _, _, m2 = _endpoint_for(req.coaching_model)
     return {"reading": reading, "coach": coach, "models": {"reading": m1, "coaching": m2}}
+
+
+# ----------------------------------------------------------- student progress
+#
+# Per-student memory and the concept graph. Deliberately NOT Hermes: Hermes
+# memory is single-user and agent-scoped, so it models what the *agent* has
+# learned, not what a hundred different students each know. This is a
+# per-learner store keyed by id, which is the thing a tutor needs to remember
+# someone between sessions.
+
+from clawpy.progress.graph import KnowledgeGraph
+from clawpy.progress.learner import LearnerStore
+
+_PROGRESS_DIR = os.environ.get(
+    "SENSEI_DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "..", "data")
+)
+_LEARNER_DB = os.path.join(_PROGRESS_DIR, "learners.db")
+_GRAPH_PATH = os.path.join(os.path.dirname(__file__), "progress", "graph.json")
+
+_learner_store: LearnerStore | None = None
+_graph: KnowledgeGraph | None = None
+
+
+def learners() -> LearnerStore:
+    global _learner_store
+    if _learner_store is None:
+        os.makedirs(_PROGRESS_DIR, exist_ok=True)
+        _learner_store = LearnerStore(_LEARNER_DB)
+    return _learner_store
+
+
+def graph() -> KnowledgeGraph | None:
+    """The concept graph, or None if it is missing -- progress still works."""
+    global _graph
+    if _graph is None:
+        try:
+            _graph = KnowledgeGraph.load(_GRAPH_PATH)
+        except Exception as e:
+            logger.warning("knowledge graph unavailable: %s", e)
+            return None
+    return _graph
+
+
+@app.post("/learner/{learner_id}")
+async def learner_upsert(learner_id: str, req: LearnerUpsert):
+    """Create the student or update their profile."""
+    learners().ensure(
+        learner_id,
+        name=req.name,
+        language=req.language,
+        exam=req.exam,
+        exam_date=req.exam_date,
+    )
+    return {"ok": True, "learner": learner_id}
+
+
+@app.get("/learner/{learner_id}")
+async def learner_get(learner_id: str):
+    """Profile, mastery, and where the graph says to go next."""
+    store = learners()
+    store.ensure(learner_id)
+    profile = store.profile(learner_id)
+    mastery = store.mastery(learner_id)
+
+    g = graph()
+    next_concept = g.next_concept(mastery) if g else None
+    return {
+        "profile": {
+            "id": profile.id,
+            "name": profile.name,
+            "language": profile.language,
+            "exam": profile.exam,
+            "exam_date": profile.exam_date,
+            "strengths": profile.strengths,
+            "weaknesses": profile.weaknesses,
+            "recent_mistakes": profile.recent_mistakes,
+        },
+        "mastery": mastery,
+        "unlocked": g.unlocked(mastery) if g else [],
+        "next_concept": next_concept,
+        "next_label": g.describe(next_concept, profile.language) if (g and next_concept) else None,
+    }
+
+
+@app.post("/learner/{learner_id}/observation")
+async def learner_observe(learner_id: str, req: ObservationRequest):
+    """Record one graded moment, and say what it unblocked or exposed.
+
+    When the student got it wrong, the graph is asked for the *root cause* --
+    the upstream concept they are actually missing -- which is the difference
+    between reteaching the symptom and teaching the thing that would fix it.
+    """
+    store = learners()
+    store.record(learner_id, req.topic, req.correct, req.note)
+    mastery = store.mastery(learner_id)
+
+    root = None
+    g = graph()
+    if g and not req.correct:
+        try:
+            root = g.root_cause(req.topic, mastery)
+        except Exception as e:  # unknown concept id is not an error worth 500ing
+            logger.info("root_cause(%s) skipped: %s", req.topic, e)
+
+    return {
+        "ok": True,
+        "mastery": mastery.get(req.topic),
+        "root_cause": root if root and root != req.topic else None,
+        "next_concept": g.next_concept(mastery) if g else None,
+    }
+
+
+@app.get("/learner/{learner_id}/path")
+async def learner_path(learner_id: str):
+    """The mastery-gated course path — what is unlocked, and what is next."""
+    g = graph()
+    if not g:
+        return {"path": [], "unlocked": [], "next_concept": None}
+    store = learners()
+    store.ensure(learner_id)
+    mastery = store.mastery(learner_id)
+    return {
+        "path": g.course_path(),
+        "unlocked": g.unlocked(mastery),
+        "next_concept": g.next_concept(mastery),
+        "mastery": mastery,
+    }
 
 
 _OBSERVATIONS_DIR = os.path.join(

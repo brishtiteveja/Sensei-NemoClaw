@@ -225,6 +225,20 @@ steer back to studying: "ভালো প্রশ্ন! এখন পড়া
 """
 
 
+_LEARNER_CONTEXT = """\
+
+## Who you are teaching
+
+You have taught this student before. What you remember about them:
+
+{learner}
+
+Use it the way a tutor who knows someone would: pick up where they left off,
+lean on what they are already solid on to explain what they are not, and do not
+re-teach something they have shown you they know. Do not recite this back at
+them or announce that you remember it -- just teach as though you do.
+"""
+
 _OBSERVATION_CONTEXT = """\
 
 ## What the student has just been doing
@@ -338,6 +352,10 @@ def build_dikkha_prompt(
     # drawing on a lesson, a practice question or a free chat -- so these are
     # appended after the type-specific block rather than inside it.
     if context_data:
+        learner = context_data.get("learner_profile")
+        if learner:
+            prompt += _LEARNER_CONTEXT.format(learner=str(learner).strip())
+
         seen = context_data.get("seen_work")
         if seen:
             prompt += _SEEN_WORK_CONTEXT.format(seen=str(seen).strip())
