@@ -1999,6 +1999,12 @@ async def _chat(
         "max_tokens": max_tokens,
         "temperature": temperature,
     }
+    # Reasoning models (Nemotron Lightning, qwen3-vl-*-thinking) spend the budget
+    # thinking and return content:null. The coaching stage has to emit strict
+    # JSON, so thinking is turned off for local models rather than hoping the
+    # JSON survives inside a chain of thought. Ignored by models without it.
+    if not chosen.startswith("gemini"):
+        payload["chat_template_kwargs"] = {"enable_thinking": False}
     headers = {"Content-Type": "application/json"}
     if api_key:
         headers["Authorization"] = f"Bearer {api_key}"
