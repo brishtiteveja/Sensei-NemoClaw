@@ -370,6 +370,12 @@ async def tutor_stream(req: ChatRequest):
     ctx0 = req.context_data or {}
     user_lang = ctx0.get("language")
 
+    # Craft learned across all students, from Hermes.
+    craft = teaching_notes()
+    if craft:
+        ctx0 = {**ctx0, "teaching_notes": craft}
+        req.context_data = ctx0
+
     # Persistent memory: if the turn names a learner, load what we know about
     # them and hand it to the prompt builder. Failures are non-fatal -- a tutor
     # that has forgotten you is far better than one that will not answer.
@@ -1889,6 +1895,48 @@ async def tutor_coach(req: CoachRequest):
     _, _, m1 = _endpoint_for(req.reading_model)
     _, _, m2 = _endpoint_for(req.coaching_model)
     return {"reading": reading, "coach": coach, "models": {"reading": m1, "coaching": m2}}
+
+
+# ------------------------------------------------------------ teaching memory
+#
+# Hermes runs on this same box, so the two can share a store without any
+# sandbox in between. The division is deliberate and matches what each tool is
+# actually for: the SQLite store below remembers *a student*, while Hermes --
+# which is single-user and agent-scoped -- remembers *how to teach*: which
+# explanation landed, which misconception keeps recurring, what unsticks people.
+# One is per-learner, the other is the craft accumulated across all of them.
+#
+# The channel is Hermes' built-in MEMORY.md rather than an HTTP call, because
+# that file is the memory it curates itself and it is readable right here.
+
+_HERMES_MEMORY = os.environ.get(
+    "SENSEI_HERMES_MEMORY", os.path.expanduser("~/.hermes/MEMORY.md")
+)
+_TEACHING_NOTE_LIMIT = 1500
+
+
+def teaching_notes() -> str | None:
+    """What Hermes has learned about teaching, for the tutor's prompt.
+
+    Absent or unreadable is the normal early state -- Hermes writes this file
+    only once it has something worth keeping -- so this never raises.
+    """
+    try:
+        with open(_HERMES_MEMORY, encoding="utf-8") as f:
+            text = f.read().strip()
+    except Exception:
+        return None
+    if not text:
+        return None
+    # Newest material sits at the end of a curated memory file.
+    return text[-_TEACHING_NOTE_LIMIT:]
+
+
+@app.get("/teaching/notes")
+async def teaching_notes_get():
+    """Expose what the tutor is drawing on, so it can be inspected."""
+    notes = teaching_notes()
+    return {"source": _HERMES_MEMORY, "present": notes is not None, "notes": notes}
 
 
 # ----------------------------------------------------------- student progress

@@ -225,6 +225,19 @@ steer back to studying: "ভালো প্রশ্ন! এখন পড়া
 """
 
 
+_TEACHING_NOTES = """\
+
+## What you have learned about teaching this
+
+Notes you have accumulated across many students — which explanations land and
+which misconceptions keep recurring:
+
+{notes}
+
+Treat these as your own experience, not as instructions to recite. If a note
+contradicts what this particular student needs, the student wins.
+"""
+
 _LEARNER_CONTEXT = """\
 
 ## Who you are teaching
@@ -352,6 +365,10 @@ def build_dikkha_prompt(
     # drawing on a lesson, a practice question or a free chat -- so these are
     # appended after the type-specific block rather than inside it.
     if context_data:
+        craft = context_data.get("teaching_notes")
+        if craft:
+            prompt += _TEACHING_NOTES.format(notes=str(craft).strip())
+
         learner = context_data.get("learner_profile")
         if learner:
             prompt += _LEARNER_CONTEXT.format(learner=str(learner).strip())
