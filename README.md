@@ -1,263 +1,138 @@
+<h1 align="center">SenseiClaw</h1>
+<p align="center"><strong>The AI tutor harness behind <a href="https://github.com/brishtiteveja/Sensei">Sensei</a>.</strong></p>
+<p align="center">Reads a student's handwritten working, finds the step where they slipped, and asks the question that gets them to it — without ever handing over the answer.</p>
+
 <p align="center">
   <img src="https://img.shields.io/badge/python-3.12+-blue?style=flat-square" />
-  <img src="https://img.shields.io/badge/mypy-strict-green?style=flat-square" />
   <img src="https://img.shields.io/badge/deps-3%20only-orange?style=flat-square" />
-  <img src="https://img.shields.io/badge/providers-5-purple?style=flat-square" />
-  <img src="https://img.shields.io/github/license/AIScienceStudio/clawpy?style=flat-square" />
-  <img src="https://img.shields.io/github/stars/AIScienceStudio/clawpy?style=flat-square" />
+  <img src="https://img.shields.io/badge/runs-on--device-success?style=flat-square" />
 </p>
-
-<h1 align="center">ClawPy</h1>
-<p align="center"><strong>The Python AI coding agent that works with any model.</strong></p>
-<p align="center">Claude, GPT-4o, Gemini, Ollama, DeepSeek — one tool, any brain.</p>
 
 ---
 
+Sensei is a Socratic tutor for maths and science, multilingual across 8 locales,
+whose tutoring model runs locally on an **NVIDIA DGX Spark (GB10)**. This repo is
+its brain: the HTTP service that owns model routing, the pedagogy prompts, the
+two-stage vision pipeline, and the observation store.
+
+The **web app** — the thing a student actually looks at — lives in
+[`brishtiteveja/Sensei`](https://github.com/brishtiteveja/Sensei). It talks to
+this service and nothing else.
+
+Because students are minors, the design constraint is not a nice-to-have: a
+child's handwriting, mistakes, and weak spots stay on the box. Pull the network
+cable and it keeps teaching.
+
+## The idea: two stages, never one
+
+The core endpoint is `POST /tutor/coach`.
+
 ```
-pip install clawpy   # or: git clone + uv pip install -e .
-clawpy login         # use your Claude subscription (or set any API key)
-clawpy               # start coding with AI
+stage 1   image ──▶ VISION model @ 0.2 ──▶ raw reading
+                    "line 2: negative not distributed"
+                              │
+stage 2   reading ──▶ TEXT-ONLY model @ 0.6 ──▶ {status, hint, question, focus}
+          (never sees pixels)
 ```
 
-<!-- TODO: Replace with actual demo GIF
-<p align="center">
-  <img src="docs/demo.gif" width="700" />
-</p>
--->
+**Why it must be split.** One prompt asking a model to read handwriting *and*
+teach from it does neither well: it transcribes and forgets to teach, or it
+teaches and invents lines that are not on the page. Split, each stage gets its
+own temperature — and stage 2, being text-only, can run on a different model
+entirely. `reading_model` and `coaching_model` are per-request overrides, so the
+split is a config flip rather than new code.
 
-## Why ClawPy?
+Measured end to end on a real handwritten page:
 
-Every AI coding agent locks you into one provider. ClawPy doesn't.
+| Configuration | Time |
+|---|---|
+| both stages local (`qwen3-vl-30b-a3b-gguf`) | 8.3 s |
+| local eyes + `gemini-3.5-flash` teaching | 6.4 s |
 
-| | ClawPy | Claude Code | Cursor | Aider |
-|---|:---:|:---:|:---:|:---:|
-| Pure Python | **Yes** | TypeScript | Electron | Python |
-| Multi-model (5 providers) | **Yes** | Claude only | OpenAI + Claude | Multi |
-| Claude subscription login | **Yes** | Yes | No | No |
-| Runs locally with Ollama | **Yes** | No | No | Yes |
-| Plugin system | **Yes** | Yes | No | No |
-| Background agents | **Yes** | Yes | No | No |
-| Memory consolidation (dream) | **Yes** | Yes | No | No |
-| MCP support | **Yes** | Yes | No | No |
-| Dependencies | **3** | 200+ | Electron | 20+ |
-| `mypy --strict` | **Yes** | No | No | No |
+Sample output — hint: *"Watch out for the negative sign when you expand the
+parentheses."* question: *"What does the −4 inside the parentheses become when you
+distribute the negative sign?"* It never states the fix.
 
-## Quickstart
+## The constraint that shapes everything
 
-**30 seconds to your first AI-powered code change:**
+The vllm router keeps **exactly one model resident**. Asking for a different one
+triggers a cold swap of **1–5 minutes**, served on the same HTTP call.
+
+So "a vision model for handwriting plus a separate tutor model, both local" is a
+design that cold-swaps on every single interaction — measured at 2m17s and
+thrashing. Sensei instead pins **one** vision-capable multilingual model locally
+and pushes the other stage to the cloud when it wants a second brain. Check what
+is actually hot before demoing:
 
 ```bash
-# Install
-git clone https://github.com/AIScienceStudio/clawpy.git && cd clawpy
-uv venv && uv pip install -e .
-
-# Authenticate (pick one)
-clawpy login                              # Claude Pro/Max/Team subscription
-export OPENAI_API_KEY=sk-...              # or OpenAI
-export GEMINI_API_KEY=AIza...             # or Gemini
-# Ollama needs no key — just have it running
-
-# Run
-clawpy
+curl -s https://spark-e257.tail803c7f.ts.net:8443/health   # {"loaded":["..."]}
+curl -s http://127.0.0.1:4050/admin/models                 # what this service is set to
 ```
 
-That's it. You're in.
+Reasoning models return `content: null` with the answer in `reasoning`; the
+client falls back to it, and sends `chat_template_kwargs.enable_thinking=false`
+for local models so stage 2 emits clean JSON.
 
-## What it looks like
+## API
 
-```
-  ClawPy  v0.1.0
-  /home/user/myproject
-  model: Opus 4.6 via anthropic
+| Route | Purpose |
+|---|---|
+| `POST /tutor/coach` | both stages — the core loop |
+| `POST /tutor/see` | stage 1 only; chat attachments and session replay |
+| `POST /tutor/stream` | streaming Socratic chat |
+| `POST /tutor/hint` · `/explain` · `/query` | targeted single-turn help |
+| `GET /tutor/health` | `{"status":"ok","engines":N}` — **not** `/health` |
+| `POST /grade` | teacher-side marking of submitted work against a rubric |
+| `GET /curriculum/*` | subjects, lessons, tracks, exams, regions, plans |
+| `POST /curriculum/translate` | curriculum text into the student's language |
+| `GET /practice/questions` · `/practice/subjects` | past-exam MCQs |
+| `POST /observe` · `/observe/attempt` | event stream + one-row attempt summaries |
+| `GET /handoff/{code}` | phone-to-desktop pairing relay |
+| `GET`/`POST` `/admin/model` · `/admin/models` | runtime model switching |
 
-> Find the bug in auth.py and fix it
-
-  >> Read src/auth.py  3s
-  >> Grep "password"  4s
-  >> Edit src/auth.py  6s
-
-  Found the issue: the password hash comparison was using == instead
-  of hmac.compare_digest(), making it vulnerable to timing attacks.
-  Fixed it.
-
-  --- src/auth.py
-  +++ src/auth.py
-  @@ -42,1 +42,1 @@
-  -    if stored_hash == computed_hash:
-  +    if hmac.compare_digest(stored_hash, computed_hash):
-
-  1,808in 65out  $0.031
-```
-
-## Switch models in one command
+## Running
 
 ```bash
-clawpy -p openai -m gpt-4o          # OpenAI
-clawpy -p gemini -m gemini-2.5-pro  # Google (1M context!)
-clawpy -p ollama -m llama3.1        # Local, free, private
-clawpy -p deepseek -m deepseek-chat # DeepSeek V3
-clawpy                               # Claude (default)
+uv sync
+.venv/bin/uvicorn clawpy.server:app --host 0.0.0.0 --port 4050
 ```
 
-Or switch mid-conversation:
-```
-> /model gemini-2.5-pro
-  model  Gemini 2.5 Pro  1M context, multimodal
-```
+In production it runs under pm2 as `senseiclaw`; after editing, `pm2 restart senseiclaw`.
 
-## Features
+| Env | Default | Notes |
+|---|---|---|
+| `SENSEI_BASE_URL` | `http://localhost:8010/v1` | vllm router base URL |
+| `SENSEI_API_KEY` | — | bearer token, if the router wants one |
+| `SENSEI_MODEL` | `qwen3-vl-30b-a3b-gguf` | the pin — changing it is an architectural decision |
+| `SENSEI_TIMEOUT` | `900` | must exceed worst-case cold swap |
+| `SENSEI_OFFLINE` | `1` | hard-fails any off-box request; set `0` only for remote dev |
+| `GEMINI_API_KEY` | — | cloud stage-2 teaching and teacher-side grading |
 
-<details>
-<summary><strong>9 built-in tools</strong></summary>
+## Sandboxed inference via NemoClaw
 
-| Tool | What it does | Permission |
-|------|-------------|------------|
-| **Bash** | Execute shell commands | Dynamic (safe commands auto-approved) |
-| **Read** | Read files with line numbers | Read-only |
-| **Write** | Write/create files | Workspace write |
-| **Edit** | Search & replace with diff preview | Workspace write |
-| **Grep** | Search contents (ripgrep) | Read-only |
-| **Glob** | Find files by pattern | Read-only |
-| **ListFiles** | List directory contents | Read-only |
-| **WebFetch** | Fetch URL content | Requires approval |
-| **Agent** | Spawn sub-agents (background OK) | Requires approval |
+The Spark endpoint can be fronted by **NemoClaw + OpenShell**, which puts a
+policy-enforced egress proxy in front of inference: the sandboxed agent reaches
+`inference.local` and nothing else. Setup, the traps, and an honest account of
+what that does and does not prove are in
+[`others/hackathon/sensei/NEMOCLAW.md`](https://github.com/brishtiteveja/Sensei/blob/main/others/hackathon/sensei/NEMOCLAW.md).
 
-</details>
+To be clear about scope: **this service does not itself run inside NemoClaw.**
+NemoClaw runs three agent runtimes (`openclaw`, `hermes`,
+`langchain-deepagents-code`); a FastAPI service is not one of them. SenseiClaw
+runs under pm2. NemoClaw owns the inference route.
 
-<details>
-<summary><strong>22 slash commands</strong></summary>
+## Lineage
 
-| Command | Description |
-|---------|-------------|
-| `/model [name]` | Pick a model or list all available |
-| `/tasks [id]` | List running agents or view output |
-| `/bg` / `/fg` / `/kill` | Background/foreground/kill agents |
-| `/usage` | Claude subscription rate limits |
-| `/status` | Session info, auth, cost |
-| `/context` | Context window usage with breakdown |
-| `/memory` | View, edit, add persistent memory |
-| `/dream` | LLM-powered memory consolidation |
-| `/plan` | Toggle read-only plan mode |
-| `/resume` | Resume a previous session |
-| `/plugin` | Install/manage plugins |
-| `/agents` | List custom agent definitions |
-| `/mcp` | Show MCP server configuration |
-| `/login` / `/logout` | Claude subscription auth |
-| `/clear` / `/compact` | Reset or compress conversation |
-| `/help` / `/quit` | Help and exit |
+Forked from **ClawPy**, a multi-provider Python coding agent, and repurposed into
+a tutoring harness — which is why the package is still `clawpy`, and why the
+provider/engine/session layers are more general than a tutor strictly needs. That
+generality is the part that earned its keep: it is what lets one `/tutor/coach`
+call put local vision and cloud pedagogy in the same request.
 
-</details>
+History was squashed on 16 Aug 2026 so the repo starts at the hackathon; the
+inherited codebase is a single `Initial import` commit.
 
-<details>
-<summary><strong>Memory system with dream consolidation</strong></summary>
+## Related
 
-Create a `CLAWPY.md` in your project root — the agent reads it automatically:
-
-```markdown
-# Project: MyApp
-- Django project with PostgreSQL
-- Run tests with `pytest -x`
-- Never modify vendor/
-```
-
-ClawPy discovers memory files from your current directory up to root, plus global `~/.clawpy/CLAWPY.md`.
-
-**Dream** (`/dream`): LLM reviews your conversation and consolidates learnings into organized, persistent memory. Auto-dream triggers after 10+ turns if 24h have passed.
-
-</details>
-
-<details>
-<summary><strong>Background agents & parallel tasks</strong></summary>
-
-The LLM can spawn background agents that don't block:
-
-```
-> Analyze the codebase and fix the tests
-
-  [bg a0001] started: "Explore structure"
-  [bg a0002] started: "Fix tests"
-
-  While those run...
-
-  [bg a0001] >> Glob (5s)
-  [bg a0001] >> Read (8s)
-  [bg a0001] completed (15s, 4,200 tokens)
-  [bg a0002] >> Bash (20s)
-  [bg a0002] completed (23s, 6,100 tokens)
-```
-
-Manage with `/tasks`, `/kill <id>`, `/fg <id>`.
-
-</details>
-
-<details>
-<summary><strong>Plugin system</strong></summary>
-
-Install plugins from GitHub:
-
-```
-> /plugin install owner/repo-name
-  Cloning...
-  Installed my-plugin v1.0.0
-  Commands: my-plugin:build, my-plugin:deploy
-```
-
-Plugins can add: commands, agents, skills, hooks, MCP servers. Compatible with Claude Code plugin format.
-
-</details>
-
-<details>
-<summary><strong>Smart context management</strong></summary>
-
-Three layers prevent context overflow:
-
-1. **Microcompact** (70%) — clears old tool results automatically
-2. **Auto-compact** (90%) — LLM summarizes old messages, keeps last 10
-3. **Token budget** — stops if diminishing returns detected
-
-Plus per-turn cost tracking: `1,808in 65out  $0.031`
-
-</details>
-
-## Architecture
-
-```
-User → CLI → Engine.run_turn()
-               ├── Provider.stream() → SSE → StreamEvents
-               ├── Consume stream → assistant Message
-               ├── ToolCalls → permission → execute (concurrent if read-only)
-               ├── Tool results → append → token budget check
-               └── Loop until done or compact needed
-```
-
-- **50+ source files**, ~6,500 lines of typed Python
-- **3 runtime deps**: httpx, prompt-toolkit, rich (no SDK bloat)
-- **`mypy --strict`** passes on all files
-- **57 tests** covering types, config, tools, permissions, engine, SSE, OpenAI conversion
-
-## Adding a new provider
-
-It's ~30 lines. Gemini, Ollama, and DeepSeek all inherit from the OpenAI provider:
-
-```python
-class MyProvider(OpenAIProvider):
-    def __init__(self, cfg):
-        cfg.base_url = "https://my-api.com/v1"
-        super().__init__(cfg)
-        self._provider_name = "my-provider"
-
-register("my-provider", lambda cfg: MyProvider(cfg))
-```
-
-## Contributing
-
-```bash
-uv pip install -e ".[dev]"
-uv run pytest tests/ -v      # 57 tests
-uv run mypy --strict src/    # 0 errors
-uv run ruff check src/       # Lint
-```
-
-## License
-
-MIT
+- [`brishtiteveja/Sensei`](https://github.com/brishtiteveja/Sensei) — web app, mobile app, curriculum, samples, docs
+- `others/hackathon/sensei/HANDOFF.md` in that repo — current build state, what is verified, what is risky
