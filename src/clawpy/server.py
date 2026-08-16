@@ -1557,6 +1557,212 @@ async def handoff_get(code: str):
     return {"image": slot["image"], "kind": slot["kind"]}
 
 
+# ------------------------------------------------------------- teacher tools
+#
+# These call Gemini's native REST API rather than the OpenAI-compatible shim,
+# because native `inline_data` parts accept PDFs as well as images -- a
+# teacher's "homework" is as often a scanned PDF as a photo.
+
+_GEMINI_NATIVE = "https://generativelanguage.googleapis.com/v1beta/models"
+_TEACHER_MODEL = os.environ.get("SENSEI_TEACHER_MODEL", "gemini-3.5-flash")
+
+
+def _gemini_key() -> str:
+    return os.environ.get("SENSEI_CLOUD_API_KEY", "") or os.environ.get("GEMINI_API_KEY", "")
+
+
+async def _gemini_generate(parts: list[dict], *, max_tokens: int = 4000) -> str:
+    """One native generateContent call. Returns the reply text or raises."""
+    import httpx
+
+    key = _gemini_key()
+    if not key:
+        raise HTTPException(503, "no Gemini API key configured")
+    body = {
+        "contents": [{"role": "user", "parts": parts}],
+        "generationConfig": {"maxOutputTokens": max_tokens, "temperature": 0.2},
+    }
+    async with httpx.AsyncClient(timeout=httpx.Timeout(300.0, connect=10.0)) as client:
+        resp = await client.post(
+            f"{_GEMINI_NATIVE}/{_TEACHER_MODEL}:generateContent",
+            params={"key": key},
+            json=body,
+        )
+    if resp.status_code >= 400:
+        logger.warning("gemini native %s: %s", resp.status_code, resp.text[:300])
+        raise HTTPException(502, f"Gemini call failed ({resp.status_code})")
+    data = resp.json()
+    try:
+        return "".join(p.get("text", "") for p in data["candidates"][0]["content"]["parts"])
+    except (KeyError, IndexError):
+        raise HTTPException(502, "Gemini returned no content")
+
+
+def _parse_json_block(text: str) -> dict:
+    """Pull the first JSON object out of a reply, fences and chatter aside."""
+    cleaned = text.strip()
+    start = cleaned.find("{")
+    end = cleaned.rfind("}")
+    if start < 0 or end <= start:
+        raise HTTPException(502, "model reply had no JSON object")
+    try:
+        return json.loads(cleaned[start : end + 1])
+    except json.JSONDecodeError:
+        raise HTTPException(502, "model reply was not valid JSON")
+
+
+def _split_data_uri(uri: str) -> tuple[str, str]:
+    """data:mime;base64,payload -> (mime, payload). Bare base64 assumed PNG."""
+    if uri.startswith("data:"):
+        head, _, payload = uri.partition(",")
+        return (head[5:].split(";")[0] or "image/png"), payload
+    return "image/png", uri
+
+
+class QuestionDraftRequest(BaseModel):
+    """A teacher's rough problem, to be finalised into a structured question."""
+
+    text: str | None = None
+    image: str | None = None  # data URI of a photographed/scanned problem
+    subject_hint: str | None = None
+    language: str | None = None
+
+
+_CUSTOM_QUESTIONS_PATH = os.path.join(
+    os.environ.get("SENSEI_DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "..", "data")),
+    "custom_questions.json",
+)
+
+_DRAFT_PROMPT = """\
+You are preparing a practice problem for a Socratic science/math tutor. A teacher has
+supplied a rough problem below (as text and/or a photo). Finalise it into JSON with
+EXACTLY these fields:
+
+{
+  "subject": "physics" | "chemistry" | "math" | "biology",
+  "title": "short title, max 6 words",
+  "level": "easy" | "medium" | "hard" | "advanced",
+  "problem": "the cleaned-up problem statement, self-contained, with any values needed",
+  "answer": "the final answer only",
+  "solution_steps": ["step 1", "step 2"],
+  "common_mistake": "the single most likely student error on this problem"
+}
+
+Fix ambiguity and units, keep the teacher's intent, invent no extra parts. Use $...$
+LaTeX for maths. Reply with ONLY the JSON object."""
+
+
+@app.post("/samples/draft")
+async def samples_draft(req: QuestionDraftRequest):
+    """Teacher's rough problem in, finalised structured question out (saved).
+
+    Gemini cleans the statement, solves it and names the likely mistake, so a
+    teacher can add a question in the time it takes to photograph one.
+    """
+    if not (req.text and req.text.strip()) and not req.image:
+        raise HTTPException(400, "need text or an image")
+
+    parts: list[dict] = [{"text": _DRAFT_PROMPT}]
+    if req.subject_hint:
+        parts.append({"text": f"Subject hint from the teacher: {req.subject_hint}"})
+    if req.text and req.text.strip():
+        parts.append({"text": f"Teacher's rough problem:\n{req.text.strip()}"})
+    if req.image:
+        mime, payload = _split_data_uri(req.image)
+        parts.append({"inline_data": {"mime_type": mime, "data": payload}})
+
+    q = _parse_json_block(await _gemini_generate(parts))
+
+    # A malformed question would break the practice UI, so check before saving.
+    for field in ("subject", "title", "problem", "answer"):
+        if not isinstance(q.get(field), str) or not q[field].strip():
+            raise HTTPException(502, f"finalised question missing '{field}'")
+
+    q["id"] = f"custom-{uuid.uuid4().hex[:10]}"
+    q["created_at"] = datetime.now(timezone.utc).isoformat()
+
+    try:
+        existing = []
+        if os.path.exists(_CUSTOM_QUESTIONS_PATH):
+            with open(_CUSTOM_QUESTIONS_PATH, encoding="utf-8") as f:
+                existing = json.load(f)
+        existing.append(q)
+        os.makedirs(os.path.dirname(_CUSTOM_QUESTIONS_PATH), exist_ok=True)
+        with open(_CUSTOM_QUESTIONS_PATH, "w", encoding="utf-8") as f:
+            json.dump(existing, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        logger.warning("custom question save failed: %s", e)
+        raise HTTPException(500, "could not save the question")
+
+    return {"question": q}
+
+
+@app.get("/samples/custom")
+async def samples_custom():
+    """Teacher-added questions, merged into the practice examples by the client."""
+    try:
+        if os.path.exists(_CUSTOM_QUESTIONS_PATH):
+            with open(_CUSTOM_QUESTIONS_PATH, encoding="utf-8") as f:
+                return {"questions": json.load(f)}
+    except Exception as e:
+        logger.warning("custom question read failed: %s", e)
+    return {"questions": []}
+
+
+class GradeRequest(BaseModel):
+    """Homework to grade: photos and/or PDFs, plus an optional rubric."""
+
+    files: list[dict]  # [{"data": dataURI, "mime": "...", "name": "..."}]
+    rubric: str | None = None
+    language: str | None = None
+
+
+_GRADE_PROMPT = """\
+You are grading a student's submitted work (handwritten pages and/or a PDF report)
+for their teacher. Read everything carefully. Reply with ONLY a JSON object:
+
+{
+  "summary": "2-3 sentences on the overall quality of the work",
+  "score": <number 0-100>,
+  "grade": "letter or band, e.g. A-",
+  "questions": [
+    {"label": "which question/section", "verdict": "correct" | "partial" | "wrong",
+     "error": "the specific mistake, or null", "feedback": "one actionable sentence"}
+  ],
+  "strengths": ["..."],
+  "next_steps": ["what to practise next"]
+}
+
+Grade the WORK SHOWN, not what you imagine. Follow the rubric exactly if one is given.
+Be specific: name the line or step where each error happens. Do not inflate the score.
+Write feedback the teacher can hand straight to the student."""
+
+
+@app.post("/grade")
+async def grade_work(req: GradeRequest):
+    """Photos/PDF of student work in, a structured grading report out."""
+    if not req.files:
+        raise HTTPException(400, "no files")
+    if len(req.files) > 12:
+        raise HTTPException(400, "too many files (max 12)")
+
+    parts: list[dict] = [{"text": _GRADE_PROMPT}]
+    if req.rubric and req.rubric.strip():
+        parts.append({"text": f"Teacher's rubric / instructions:\n{req.rubric.strip()}"})
+    if req.language:
+        parts.append({"text": f"Write summary and feedback in language code: {req.language}"})
+
+    for f in req.files:
+        raw = f.get("data", "")
+        if not raw:
+            continue
+        mime, payload = _split_data_uri(raw)
+        parts.append({"inline_data": {"mime_type": f.get("mime") or mime, "data": payload}})
+
+    report = _parse_json_block(await _gemini_generate(parts, max_tokens=6000))
+    return {"report": report, "model": _TEACHER_MODEL}
+
+
 _OBSERVATIONS_DIR = os.path.join(
     os.environ.get("SENSEI_DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "..", "data")),
     "observations",
