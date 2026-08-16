@@ -15,7 +15,9 @@ import asyncio
 import json
 import logging
 import os
+import re
 import uuid
+from datetime import datetime, timezone
 from typing import Any
 
 from clawpy.config.config import Config
@@ -237,7 +239,7 @@ def stream_event_to_sse(
 # ── FastAPI app ────────────────────────────────────────────────────────────
 
 try:
-    from fastapi import FastAPI, Request
+    from fastapi import FastAPI, HTTPException, Request
     from fastapi.middleware.cors import CORSMiddleware
     from fastapi.responses import StreamingResponse
     from pydantic import BaseModel
@@ -256,6 +258,26 @@ class ChatRequest(BaseModel):
 
 class SuggestionsResponse(BaseModel):
     suggestions: list[str]
+
+
+class ObserveRequest(BaseModel):
+    """A batch of workspace events from one learner session."""
+
+    session: str
+    events: list[dict]
+    learner: str | None = None
+
+
+class SeeRequest(BaseModel):
+    """A piece of the student's own work for the tutor to look at.
+
+    `image` is a data URI (or bare base64) of a scratchpad sketch or an uploaded
+    photo; `problem` is what they were asked to solve, when the client knows it.
+    """
+
+    image: str
+    problem: str | None = None
+    language: str | None = None
 
 
 app = FastAPI(
@@ -1473,6 +1495,146 @@ async def practice_subjects():
 
     subjects = [{"name": row[0], "count": row[1]} for row in rows]
     return {"subjects": subjects}
+
+
+_OBSERVATIONS_DIR = os.path.join(
+    os.environ.get("SENSEI_DATA_DIR", os.path.join(os.path.dirname(__file__), "..", "..", "data")),
+    "observations",
+)
+
+# Session ids come from a client; they become a path segment, so keep them boring.
+_SAFE_SESSION = re.compile(r"[^A-Za-z0-9_.-]")
+
+
+@app.post("/observe")
+async def observe(req: ObserveRequest):
+    """Append a batch of workspace events to this session's JSONL log.
+
+    Append-only, one file per session per day. Two purposes: the tutor reads a
+    digest of recent events to teach against what the student is actually doing,
+    and the accumulated logs are the dataset -- timestamped mistakes and
+    corrections across many learners and ability levels.
+    """
+    if not req.events:
+        return {"ok": True, "written": 0}
+
+    session = _SAFE_SESSION.sub("_", req.session)[:64] or "anon"
+    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    day_dir = os.path.join(_OBSERVATIONS_DIR, day)
+
+    try:
+        os.makedirs(day_dir, exist_ok=True)
+        path = os.path.join(day_dir, f"{session}.jsonl")
+        with open(path, "a", encoding="utf-8") as f:
+            for ev in req.events:
+                if req.learner and "learner" not in ev:
+                    ev = {**ev, "learner": req.learner}
+                f.write(json.dumps(ev, ensure_ascii=False) + "\n")
+    except Exception as e:
+        # Losing telemetry must never break the lesson the student is in.
+        logger.warning("observe write failed: %s", e)
+        return {"ok": False, "written": 0}
+
+    return {"ok": True, "written": len(req.events)}
+
+
+_SEE_SYSTEM = """\
+You are looking at a photo or sketch of a student's own working on a problem.
+
+Report, briefly and factually:
+1. A transcription of what is written or drawn, line by line, in the order it appears.
+2. The FIRST line that contains an error, and what the error is. If the work is
+   correct, say so plainly -- inventing an error in correct work is the worst thing
+   you can do here, because it teaches a student out of something they had right.
+
+Do NOT address the student and do NOT teach. This is an internal note for a tutor
+who will do the teaching. No greetings, no encouragement, under 150 words."""
+
+
+def _vision_endpoint() -> tuple[str, str, str]:
+    """(base_url, api_key, model) for a direct OpenAI-compatible vision call.
+
+    The tutor engine is text-only, so an image cannot ride the normal turn. Rather
+    than thread image blocks through the whole engine, this asks the SAME model the
+    tutor is already pinned to -- so no cold swap -- and hands the resulting note
+    back for the text turn to reason over.
+    """
+    model = os.environ.get("CLAWPY_MODEL", "")
+    if os.environ.get("CLAWPY_PROVIDER") == "gemini":
+        key = os.environ.get("GEMINI_API_KEY", "")
+        return "https://generativelanguage.googleapis.com/v1beta/openai", key, model
+    return (
+        os.environ.get("OPENAI_BASE_URL", "").rstrip("/"),
+        os.environ.get("OPENAI_API_KEY", ""),
+        model,
+    )
+
+
+@app.post("/tutor/see")
+async def tutor_see(req: SeeRequest):
+    """Look at a piece of the student's work and return a note about it.
+
+    The client inserts a sketch or photo into the conversation; this turns those
+    pixels into something the text tutor can act on. Returns `{"note": ...}` — or
+    `{"note": null, "reason": ...}` when the configured model cannot see, so the
+    client can degrade to sending the message without pretending it was read.
+    """
+    import httpx
+
+    base_url, api_key, model = _vision_endpoint()
+    if not base_url or not model:
+        return {"note": None, "reason": "no model configured"}
+
+    image = req.image.strip()
+    if not image:
+        raise HTTPException(400, "empty image")
+    if not image.startswith("data:"):
+        image = f"data:image/png;base64,{image}"
+
+    prompt = "Here is my working."
+    if req.problem:
+        prompt = f"The problem being solved:\n{req.problem}\n\nHere is the student's working."
+
+    payload = {
+        "model": model,
+        "messages": [
+            {"role": "system", "content": _SEE_SYSTEM},
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": prompt},
+                    {"type": "image_url", "image_url": {"url": image}},
+                ],
+            },
+        ],
+        "max_tokens": 700,
+        "temperature": 0.2,  # transcription is not a place for creativity
+    }
+
+    headers = {"Content-Type": "application/json"}
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+
+    try:
+        # Generous: a local cold swap is served on this same call.
+        async with httpx.AsyncClient(timeout=httpx.Timeout(900.0, connect=10.0)) as client:
+            resp = await client.post(
+                f"{base_url}/chat/completions", json=payload, headers=headers
+            )
+        if resp.status_code >= 400:
+            logger.warning("tutor/see upstream %s: %s", resp.status_code, resp.text[:300])
+            return {"note": None, "reason": f"vision call failed ({resp.status_code})"}
+        body = resp.json()
+        note = (body.get("choices") or [{}])[0].get("message", {}).get("content")
+    except Exception as e:  # network, timeout, malformed JSON
+        logger.warning("tutor/see failed: %s", e)
+        return {"note": None, "reason": "vision call failed"}
+
+    if not note:
+        return {"note": None, "reason": "model returned nothing"}
+    # GLM-style models wrap the answer in box markers.
+    note = note.replace("<|begin_of_box|>", "").replace("<|end_of_box|>", "").strip()
+    return {"note": note, "model": model}
 
 
 _CHAT_HTML = """<!DOCTYPE html>

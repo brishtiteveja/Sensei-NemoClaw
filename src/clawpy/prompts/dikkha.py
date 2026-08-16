@@ -225,6 +225,37 @@ steer back to studying: "ভালো প্রশ্ন! এখন পড়া
 """
 
 
+_OBSERVATION_CONTEXT = """\
+
+## What the student has just been doing
+
+You can see their workspace. This is a log of their actual activity in the last
+few minutes — what they drew, typed, answered and changed, newest last:
+
+{observation}
+
+Use it. Refer to what they actually did ("you erased that triangle twice", "you
+picked B on the friction question") instead of asking them to describe it back
+to you. If the log shows a mistake, steer them to the line where it happened and
+ask about it — never announce the error outright. If the log shows they are
+stuck or going in circles, say so kindly and offer a smaller step.
+"""
+
+_SEEN_WORK_CONTEXT = """\
+
+## The student's own work, which you can see
+
+They have put a sketch or photo of their working in front of you. Here is what
+is on it:
+
+{seen}
+
+Treat this as something you looked at yourself. Talk about their actual lines.
+If there is an error, ask a question that walks them to it; do not just name it.
+If the work is correct, say so — do not manufacture a problem.
+"""
+
+
 _LANGUAGE_NAMES = {
     "bn": "Bangla (বাংলা)",
     "hi": "Hindi (हिन्दी)",
@@ -302,6 +333,18 @@ def build_dikkha_prompt(
 
     else:
         prompt += _FREE_CHAT_CONTEXT
+
+    # Workspace awareness is orthogonal to the context type -- a student can be
+    # drawing on a lesson, a practice question or a free chat -- so these are
+    # appended after the type-specific block rather than inside it.
+    if context_data:
+        seen = context_data.get("seen_work")
+        if seen:
+            prompt += _SEEN_WORK_CONTEXT.format(seen=str(seen).strip())
+
+        observation = context_data.get("observation")
+        if observation:
+            prompt += _OBSERVATION_CONTEXT.format(observation=str(observation).strip())
 
     return prompt
 
