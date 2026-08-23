@@ -1,0 +1,153 @@
+{"t": 1786869776373, "type": "route", "data": {"path": "/"}}
+{"t": 1786869779111, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786869787155, "type": "practice.special", "data": {"on": true}}
+{"t": 1786869802703, "type": "notebook.open", "data": {"key": "practice:sample:chemistry-advanced-oxidation_ethanol", "label": "Oxidation ethanol"}}
+{"t": 1786869898180, "type": "route", "data": {"path": "/tutor"}}
+{"t": 1786869904568, "type": "route", "data": {"path": "/"}}
+{"t": 1786869905888, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786869906700, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786870161736, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786870163463, "type": "route", "data": {"path": "/"}}
+{"t": 1786870164374, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786870167537, "type": "route", "data": {"path": "/courses/physics"}}
+{"t": 1786870171502, "type": "route", "data": {"path": "/courses/physics/lessons/phy1-01-01"}}
+{"t": 1786870173040, "type": "tutor.user", "data": {"text": "Is force a fundamental or derived quantity? Why?"}}
+{"t": 1786870184569, "type": "sketch.shape", "data": {"tool": "pen", "color": "#1e1e1e", "width": 4, "points": 218}}
+{"t": 1786870200015, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786870202961, "type": "practice.special", "data": {"on": true}}
+{"t": 1786870210898, "type": "notebook.open", "data": {"key": "practice:sample:physics-advanced-gravitation", "label": "Gravitation"}}
+{"t": 1786870213953, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:physics-advanced-gravitation", "blockType": "note"}}
+{"t": 1786870218669, "type": "notebook.block", "data": {"op": "edit", "key": "practice:sample:physics-advanced-gravitation", "blockType": "note", "text": "ljkfhlksdhfkjasd"}}
+{"t": 1786870221144, "type": "sketch.shape", "data": {"tool": "pen", "color": "#1e1e1e", "width": 4, "points": 66}}
+{"t": 1786870222486, "type": "sketch.shape", "data": {"tool": "pen", "color": "#1e1e1e", "width": 4, "points": 72}}
+{"t": 1786870224735, "type": "sketch.shape", "data": {"tool": "circle", "color": "#1e1e1e", "width": 4, "points": 2}}
+{"t": 1786870226663, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:physics-advanced-gravitation", "blockType": "sketch"}}
+{"t": 1786870230061, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:physics-advanced-gravitation", "blockType": "note"}}
+{"t": 1786870231461, "type": "notebook.block", "data": {"op": "edit", "key": "practice:sample:physics-advanced-gravitation", "blockType": "note", "text": "fasdfasdf"}}
+{"t": 1786870271933, "type": "practice.question", "data": {"qid": "133504", "index": 1, "subject": "all", "text": "শুদ্ধ বাক্যটি দেখাও--"}}
+{"t": 1786870348345, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786870349267, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786870352744, "type": "practice.special", "data": {"on": true}}
+{"t": 1786870358667, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786870362314, "type": "notebook.open", "data": {"key": "practice:sample:chemistry-basic-easy", "label": "Balance subscript"}}
+{"t": 1786870453745, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:chemistry-basic-easy", "blockType": "note"}}
+{"t": 1786870468170, "type": "notebook.block", "data": {"op": "edit", "key": "practice:sample:chemistry-basic-easy", "blockType": "note", "text": "x^2 + 4 = 3"}}
+{"t": 1786870469786, "type": "sketch.shape", "data": {"tool": "pen", "color": "#1e1e1e", "width": 4, "points": 61}}
+{"t": 1786870470427, "type": "sketch.shape", "data": {"tool": "pen", "color": "#1e1e1e", "width": 4, "points": 33}}
+{"t": 1786870534356, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:chemistry-basic-easy", "blockType": "sketch"}}
+{"t": 1786870541786, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:chemistry-basic-easy", "blockType": "note"}}
+{"t": 1786870543114, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:chemistry-basic-easy", "blockType": "note"}}
+{"t": 1786870544494, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:chemistry-basic-easy", "blockType": "note"}}
+{"t": 1786870557329, "type": "notebook.open", "data": {"key": "practice:sample:chemistry-basic-medium", "label": "Limiting reagent"}}
+{"t": 1786870563326, "type": "route", "data": {"path": "/settings"}}
+{"t": 1786870584593, "type": "route", "data": {"path": "/teach"}}
+{"t": 1786871043033, "type": "route", "data": {"path": "/settings"}}
+{"t": 1786871272419, "type": "route", "data": {"path": "/progress"}}
+{"t": 1786871366367, "type": "route", "data": {"path": "/tutor"}}
+{"t": 1786871367282, "type": "route", "data": {"path": "/teach"}}
+{"t": 1786871368076, "type": "route", "data": {"path": "/tutor"}}
+{"t": 1786871368800, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786871401143, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786871404501, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786871405458, "type": "route", "data": {"path": "/"}}
+{"t": 1786871406229, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786871484221, "type": "route", "data": {"path": "/"}}
+{"t": 1786871485340, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786871487952, "type": "route", "data": {"path": "/"}}
+{"t": 1786871488788, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786871489574, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786871490304, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786871496312, "type": "route", "data": {"path": "/tutor"}}
+{"t": 1786871497166, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786871500572, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786871501367, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786871502223, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786871512559, "type": "route", "data": {"path": "/"}}
+{"t": 1786871543444, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786871544600, "type": "route", "data": {"path": "/"}}
+{"t": 1786871570778, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786871571718, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786871572555, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786871573203, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786871573761, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786871574425, "type": "route", "data": {"path": "/"}}
+{"t": 1786871583577, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786871590324, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786871593901, "type": "notebook.open", "data": {"key": "practice:sample:chemistry-basic-easy", "label": "Balance subscript"}}
+{"t": 1786871611353, "type": "practice.question", "data": {"qid": "176659", "index": 1, "subject": "all", "text": "A shipping company currently charges the same price for each package that it ships. If the current price of each package were to be increased by $1, 6 fewer packages could be shipped for $120, excluding sales tax. What is the current price of shipping each package?"}}
+{"t": 1786871634304, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:chemistry-basic-easy", "blockType": "sketch"}}
+{"t": 1786871752144, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786871839603, "type": "notebook.open", "data": {"key": "practice:sample:chemistry-basic-hard", "label": "Gas law kelvin"}}
+{"t": 1786871847085, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:chemistry-basic-hard", "blockType": "note"}}
+{"t": 1786871866143, "type": "notebook.block", "data": {"op": "edit", "key": "practice:sample:chemistry-basic-hard", "blockType": "note", "text": "CaCO3"}}
+{"t": 1786871866145, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:chemistry-basic-hard", "blockType": "note"}}
+{"t": 1786872162139, "type": "notebook.block", "data": {"op": "edit", "key": "practice:sample:chemistry-basic-hard", "blockType": "note", "text": "CaCO3"}}
+{"t": 1786872486456, "type": "notebook.open", "data": {"key": "practice:sample:chemistry-basic-easy", "label": "Balance subscript"}}
+{"t": 1786872493058, "type": "notebook.open", "data": {"key": "practice:sample:chemistry-basic-easy", "label": "Balance subscript"}}
+{"t": 1786872504438, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786872507888, "type": "notebook.open", "data": {"key": "practice:sample:physics-advanced-projectile_cliff", "label": "Projectile cliff"}}
+{"t": 1786872511970, "type": "notebook.open", "data": {"key": "practice:sample:physics-basic-easy", "label": "Unit conversion"}}
+{"t": 1786872535413, "type": "notebook.open", "data": {"key": "practice:sample:physics-basic-easy", "label": "Unit conversion"}}
+{"t": 1786872563491, "type": "notebook.open", "data": {"key": "practice:sample:physics-basic-hard", "label": "Incline normal force"}}
+{"t": 1786872581553, "type": "route", "data": {"path": "/"}}
+{"t": 1786872591057, "type": "route", "data": {"path": "/"}}
+{"t": 1786874113920, "type": "route", "data": {"path": "/settings"}}
+{"t": 1786875326896, "type": "route", "data": {"path": "/"}}
+{"t": 1786875331909, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786875361502, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786875367379, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786875368700, "type": "route", "data": {"path": "/"}}
+{"t": 1786875378504, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786875382270, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786875391609, "type": "practice.question", "data": {"qid": "207992", "index": 1, "subject": "all", "text": "Travelers — their reservation well in advance if they want to fly during the holidays,"}}
+{"t": 1786875496076, "type": "route", "data": {"path": "/"}}
+{"t": 1786875498468, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786875499212, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786875500267, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786875501186, "type": "route", "data": {"path": "/tutor"}}
+{"t": 1786875502291, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786875503125, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786875547140, "type": "practice.question", "data": {"qid": "86196", "index": 1, "subject": "all", "text": "What is 'Prajna Nikunja' in Kabir's eyes?"}}
+{"t": 1786875605308, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786875606058, "type": "route", "data": {"path": "/"}}
+{"t": 1786875607993, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786875608826, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786875610277, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786875611140, "type": "route", "data": {"path": "/tutor"}}
+{"t": 1786875611925, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786875612559, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786875613655, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786875616581, "type": "route", "data": {"path": "/"}}
+{"t": 1786875617275, "type": "route", "data": {"path": "/courses"}}
+{"t": 1786875617983, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786875619150, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786875620143, "type": "route", "data": {"path": "/tutor"}}
+{"t": 1786875625934, "type": "route", "data": {"path": "/teach"}}
+{"t": 1786875627644, "type": "route", "data": {"path": "/tutor"}}
+{"t": 1786875628824, "type": "route", "data": {"path": "/notebook"}}
+{"t": 1786875639819, "type": "route", "data": {"path": "/"}}
+{"t": 1786875651775, "type": "route", "data": {"path": "/courses/physics/lessons/phy1-01-01"}}
+{"t": 1786875667393, "type": "route", "data": {"path": "/courses/physics/lessons/phy1-01-02"}}
+{"t": 1786888735234, "type": "route", "data": {"path": "/"}}
+{"t": 1786888748093, "type": "route", "data": {"path": "/"}}
+{"t": 1786888759016, "type": "route", "data": {"path": "/practice"}}
+{"t": 1786888763085, "type": "notebook.open", "data": {"key": "practice:sample:physics-basic-medium", "label": "Projectile component"}}
+{"t": 1786888785654, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:physics-basic-medium", "blockType": "note"}}
+{"t": 1786888788068, "type": "notebook.block", "data": {"op": "edit", "key": "practice:sample:physics-basic-medium", "blockType": "note", "text": "2"}}
+{"t": 1786888788070, "type": "practice.question", "data": {"qid": "136669", "index": 1, "subject": "all", "text": "'He thinks that' - the negative form of the sentence -"}}
+{"t": 1786888803821, "type": "notebook.block", "data": {"op": "edit", "key": "practice:sample:physics-basic-medium", "blockType": "note", "text": "20"}}
+{"t": 1786888810113, "type": "sketch.clear"}
+{"t": 1786888814212, "type": "sketch.shape", "data": {"tool": "rect", "color": "#1e1e1e", "width": 4, "points": [[183, 120], [545, 345]]}}
+{"t": 1786888819079, "type": "sketch.shape", "data": {"tool": "circle", "color": "#1e1e1e", "width": 4, "points": [[294, 96], [651, 430]]}}
+{"t": 1786888820946, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:physics-basic-medium", "blockType": "sketch"}}
+{"t": 1786888834738, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:physics-basic-medium", "blockType": "note"}}
+{"t": 1786888844222, "type": "notebook.block", "data": {"op": "edit", "key": "practice:sample:physics-basic-medium", "blockType": "note", "text": "step"}}
+{"t": 1786891923531, "type": "notebook.open", "data": {"key": "practice:sample:physics-basic-easy", "label": "Unit conversion"}, "ctx": {"attempt": "at_msvxbccr_8cr7", "problemKey": "practice:sample:physics-basic-easy", "problemTitle": "Unit conversion", "subject": "physics", "attemptNo": 1}}
+{"t": 1786891941082, "type": "notebook.block", "data": {"op": "edit", "key": "practice:sample:physics-basic-easy", "blockType": "note", "text": "1 hr = 60 min * 60 sec = 3600 sec"}, "ctx": {"attempt": "at_msvxbccr_8cr7", "problemKey": "practice:sample:physics-basic-easy", "problemTitle": "Unit conversion", "subject": "physics", "attemptNo": 1}}
+{"t": 1786891942730, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:physics-basic-easy", "blockType": "note"}, "ctx": {"attempt": "at_msvxbccr_8cr7", "problemKey": "practice:sample:physics-basic-easy", "problemTitle": "Unit conversion", "subject": "physics", "attemptNo": 1}}
+{"t": 1786892012969, "type": "notebook.block", "data": {"op": "edit", "key": "practice:sample:physics-basic-easy", "blockType": "note", "text": "If in 3600 sec the car moves 72 km,\nThen in 5 sec the car moves 72 / 3600 km"}, "ctx": {"attempt": "at_msvxbccr_8cr7", "problemKey": "practice:sample:physics-basic-easy", "problemTitle": "Unit conversion", "subject": "physics", "attemptNo": 1}}
+{"t": 1786892013043, "type": "notebook.block", "data": {"op": "add", "key": "practice:sample:physics-basic-easy", "blockType": "note"}, "ctx": {"attempt": "at_msvxbccr_8cr7", "problemKey": "practice:sample:physics-basic-easy", "problemTitle": "Unit conversion", "subject": "physics", "attemptNo": 1}}
+{"t": 1786892040395, "type": "tutor.user", "data": {"text": "Convert km/h to m/s"}}
+{"t": 1786892058452, "type": "tutor.user", "data": {"text": "5/18 = 0.277777777778 m/s"}}
+{"t": 1786892087013, "type": "tutor.user", "data": {"text": "20 m/s"}}
+{"t": 1786892101537, "type": "tutor.user", "data": {"text": "100m"}}

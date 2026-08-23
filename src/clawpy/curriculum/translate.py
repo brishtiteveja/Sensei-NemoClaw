@@ -54,6 +54,13 @@ def set_cached(text: str, lang: str, translation: str) -> None:
     _save_cache(lang, cache)
 
 
+# A batch of ten questions used to fire ~50 provider calls at once and some came
+# back rate-limited, which the per-unit fallback then quietly turned into source
+# text. Cap the in-flight calls instead: slightly slower on a cold cache, but the
+# results are cached to disk, so it is paid once per string ever.
+_INFLIGHT = asyncio.Semaphore(6)
+
+
 async def translate_text(text: str, target_lang: str, source_lang: str = "bn") -> str:
     if target_lang == source_lang:
         return text
@@ -73,27 +80,28 @@ async def translate_text(text: str, target_lang: str, source_lang: str = "bn") -
     )
 
     try:
-        from clawpy.server import _get_server_config, _create_provider
-        from clawpy.provider.base import Request as ProviderRequest
-        from clawpy.types import Role, text_message
+      async with _INFLIGHT:
+          from clawpy.server import _get_server_config, _create_provider
+          from clawpy.provider.base import Request as ProviderRequest
+          from clawpy.types import Role, text_message
 
-        cfg = _get_server_config()
-        provider = _create_provider(cfg)
-        messages = [text_message(Role.USER, prompt)]
-        req = ProviderRequest(
-            model=cfg.model, system="You are a translator. Translate accurately.", messages=messages,
-            tools=[], max_tokens=4096, temperature=0.1,
-        )
-        response = await provider.send(req)
-        from clawpy.types import ContentType
-        result = ""
-        for block in response.content:
-            if block.type == ContentType.TEXT:
-                result += block.text
-        result = result.strip()
-        if result:
-            set_cached(text, target_lang, result)
-            return result
+          cfg = _get_server_config()
+          provider = _create_provider(cfg)
+          messages = [text_message(Role.USER, prompt)]
+          req = ProviderRequest(
+              model=cfg.model, system="You are a translator. Translate accurately.", messages=messages,
+              tools=[], max_tokens=4096, temperature=0.1,
+          )
+          response = await provider.send(req)
+          from clawpy.types import ContentType
+          result = ""
+          for block in response.content:
+              if block.type == ContentType.TEXT:
+                  result += block.text
+          result = result.strip()
+          if result:
+              set_cached(text, target_lang, result)
+              return result
     except Exception as e:
         logger.warning(f"Translation failed: {e}")
 
@@ -139,7 +147,12 @@ async def translate_question(question: dict, target_lang: str, source_lang: str 
         return value
 
     q["question_translated"] = _ok(results[0], q_text)
-    q["target_lang"] = target_lang
+    # Only claim a target language when something actually came back translated.
+    # Stamping it unconditionally made a throttled call indistinguishable from a
+    # real translation, so a Hindi student was shown Bangla labelled as Hindi and
+    # no caller downstream could tell.
+    if q["question_translated"] != q_text:
+        q["target_lang"] = target_lang
 
     for opt, res in zip(options, results[1:]):
         opt["text_translated"] = _ok(res, opt.get("text", ""))
