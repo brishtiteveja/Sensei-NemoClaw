@@ -1980,6 +1980,29 @@ def graph() -> KnowledgeGraph | None:
     return _graph
 
 
+class LearnerMerge(BaseModel):
+    """The device id a now-signed-in student arrived with."""
+
+    source: str
+
+
+@app.post("/learner/{learner_id}/merge")
+async def learner_merge(learner_id: str, req: LearnerMerge):
+    """Fold an anonymous device learner into a signed-in account.
+
+    The app lets a student work before it asks them to sign in, so their mastery
+    accrues under a device id. Without this the account starts empty and the
+    tutor greets a familiar student as a stranger.
+
+    Idempotent by construction: the source learner is deleted as part of the
+    merge, so a repeat call finds nothing to move and reports zero rather than
+    counting the same work twice.
+    """
+    moved = learners().merge(req.source, learner_id)
+    logger.info("merged learner %s into %s (%d observations)", req.source, learner_id, moved)
+    return {"ok": True, "moved": moved, "learner": learner_id}
+
+
 @app.post("/learner/{learner_id}")
 async def learner_upsert(learner_id: str, req: LearnerUpsert):
     """Create the student or update their profile."""

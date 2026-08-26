@@ -1,0 +1,5 @@
+{"t": 1787680183421, "type": "route", "data": {"path": "/"}}
+{"t": 1787680359497, "type": "route", "data": {"path": "/courses/physics"}}
+{"t": 1787680364724, "type": "route", "data": {"path": "/courses/physics/lessons/phy1-01-01"}}
+{"t": 1787680370077, "type": "tutor.user", "data": {"text": "Is force a fundamental or derived quantity? Why?"}}
+{"t": 1787680471794, "type": "route", "data": {"path": "/courses/physics/lessons/phy1-01-02"}}

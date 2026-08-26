@@ -117,6 +117,50 @@ class LearnerStore:
         )
         self._conn.commit()
 
+    def merge(self, source_id: str, target_id: str) -> int:
+        """Fold an anonymous learner's history into an account.
+
+        A student can work for weeks before signing in -- the app deliberately
+        does not ask first -- and until then their mastery lives under a device
+        id. At sign-in that history has to follow them, or the tutor greets a
+        familiar student as a stranger, which is worse than never having
+        remembered at all.
+
+        Observations are re-pointed rather than copied, so nothing is
+        double-counted, and only the profile fields the account has left blank
+        are adopted: an account the student has already named should not be
+        renamed by whatever the anonymous side happened to hold. The source row
+        is then deleted, because two ids for one person is how a merge quietly
+        runs twice.
+
+        Returns the number of observations carried over.
+        """
+        if source_id == target_id:
+            return 0
+
+        src = self._conn.execute(
+            "SELECT name, language, exam, exam_date FROM learner WHERE id = ?", (source_id,)
+        ).fetchone()
+        if src is None:
+            return 0
+
+        self.ensure(target_id, language=src[1])
+        self._conn.execute(
+            """UPDATE learner SET
+                   name      = COALESCE(name, ?),
+                   exam      = COALESCE(exam, ?),
+                   exam_date = COALESCE(exam_date, ?)
+               WHERE id = ?""",
+            (src[0], src[2], src[3], target_id),
+        )
+        moved = self._conn.execute(
+            "UPDATE observation SET learner_id = ? WHERE learner_id = ?",
+            (target_id, source_id),
+        ).rowcount
+        self._conn.execute("DELETE FROM learner WHERE id = ?", (source_id,))
+        self._conn.commit()
+        return moved
+
     def mastery(self, learner_id: str) -> dict[str, float]:
         """Per-concept mastery in [0,1], keyed by concept id.
 
