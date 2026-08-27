@@ -1,6 +1,0 @@
-{"t": 1787680337596, "type": "route", "data": {"path": "/"}}
-{"t": 1787680341474, "type": "route", "data": {"path": "/courses"}}
-{"t": 1787680342224, "type": "route", "data": {"path": "/practice"}}
-{"t": 1787680343405, "type": "route", "data": {"path": "/notebook"}}
-{"t": 1787680344388, "type": "route", "data": {"path": "/tutor"}}
-{"t": 1787680345980, "type": "route", "data": {"path": "/teach"}}

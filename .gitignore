@@ -15,3 +15,11 @@ build/
 # the first load in each language slow).
 data/model_choice.json
 data/translations/
+
+# Student data. Never in version control: learner profiles carry names, exam
+# dates and specific mistakes, and the observation logs are a stroke-by-stroke
+# record of a child's working. This repo is public.
+data/learners.db
+data/learners.db-journal
+data/observations/
+data/custom_questions.json
